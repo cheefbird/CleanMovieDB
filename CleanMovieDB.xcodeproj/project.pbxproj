@@ -79,9 +79,8 @@
 			children = (
 				06E4F4FB1FA8122500110FFB /* AppDelegate.swift */,
 				06E4F4FD1FA8122500110FFB /* ViewController.swift */,
-				06E4F4FF1FA8122500110FFB /* Main.storyboard */,
+				06E4F51B1FA8123700110FFB /* Storyboards */,
 				06E4F5021FA8122500110FFB /* Assets.xcassets */,
-				06E4F5041FA8122500110FFB /* LaunchScreen.storyboard */,
 				06E4F5071FA8122500110FFB /* Info.plist */,
 			);
 			path = CleanMovieDB;
@@ -94,6 +93,15 @@
 				06E4F5121FA8122500110FFB /* Info.plist */,
 			);
 			path = CleanMovieDBTests;
+			sourceTree = "<group>";
+		};
+		06E4F51B1FA8123700110FFB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				06E4F4FF1FA8122500110FFB /* Main.storyboard */,
+				06E4F5041FA8122500110FFB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
