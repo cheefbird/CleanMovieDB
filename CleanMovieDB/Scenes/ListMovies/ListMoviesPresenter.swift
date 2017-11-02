@@ -12,20 +12,26 @@
 
 import UIKit
 
-protocol ListMoviesPresentationLogic
-{
-  func presentSomething(response: ListMovies.Something.Response)
+protocol ListMoviesPresentationLogic {
+  func presentMovies(response: ListMovies.FetchMovies.Response)
 }
 
-class ListMoviesPresenter: ListMoviesPresentationLogic
-{
+class ListMoviesPresenter: ListMoviesPresentationLogic {
+  
   weak var viewController: ListMoviesDisplayLogic?
   
   // MARK: Do something
   
-  func presentSomething(response: ListMovies.Something.Response)
-  {
-    let viewModel = ListMovies.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentMovies(response: ListMovies.FetchMovies.Response) {
+    var displayedMovies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
+    
+    for movie in response.movies {
+      let displayedMovie = ListMovies.FetchMovies.ViewModel.DisplayedMovie(title: movie.title!, score: movie.voteAverage!)
+      displayedMovies.append(displayedMovie)
+    }
+    
+    let viewModel = ListMovies.FetchMovies.ViewModel(displayedMovies: displayedMovies)
+    viewController?.displayMovies(viewModel: viewModel)
+    
   }
 }

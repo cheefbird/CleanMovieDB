@@ -12,30 +12,30 @@
 
 import UIKit
 
-protocol ListMoviesBusinessLogic
-{
-  func doSomething(request: ListMovies.Something.Request)
+protocol ListMoviesBusinessLogic {
+  func fetchMovies(request: ListMovies.FetchMovies.Request)
 }
 
-protocol ListMoviesDataStore
-{
+protocol ListMoviesDataStore {
   //var name: String { get set }
 }
 
-class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore
-{
+class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
+  
   var presenter: ListMoviesPresentationLogic?
-  var worker: ListMoviesWorker?
+  var worker: MoviesWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: ListMovies.Something.Request)
-  {
-    worker = ListMoviesWorker()
-    worker?.doSomeWork()
+  func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-    let response = ListMovies.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker = MoviesWorker()
+    worker?.fetchMovies(forPage: request.page) { result in
+      guard let movies = result.value else { return }
+      
+      let response = ListMovies.FetchMovies.Response(movies: movies)
+      self.presenter?.presentMovies(response: response)
+    }
   }
 }

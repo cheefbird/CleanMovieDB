@@ -11,7 +11,7 @@ import UIKit
 
 @IBDesignable class CustomTabBar: UITabBar {
   
-  @IBInspectable var unselectedColor: UIColor = AppColors().darkBlue {
+  @IBInspectable var unselectedColor: UIColor = UIColor.darkBlue() {
     didSet {
       unselectedItemTintColor = unselectedColor
     }

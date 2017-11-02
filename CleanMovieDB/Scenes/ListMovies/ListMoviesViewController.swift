@@ -12,34 +12,43 @@
 
 import UIKit
 
-protocol ListMoviesDisplayLogic: class
-{
-  func displaySomething(viewModel: ListMovies.Something.ViewModel)
+protocol ListMoviesDisplayLogic: class {
+  func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel)
 }
 
-class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
-{
+class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
+  
+  // MARK: Critical Properties
+  
   var interactor: ListMoviesBusinessLogic?
   var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
-
+  
+  // MARK: - Properties
+  
+  var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
+  
+  var pagesLoaded = 0
+  var isFetching = false
+  
+  // MARK: Outlets
+  
+  @IBOutlet var tableView: UITableView!
+  
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     setup()
   }
   
-  required init?(coder aDecoder: NSCoder)
-  {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
   }
   
   // MARK: Setup
   
-  private func setup()
-  {
+  private func setup() {
     let viewController = self
     let interactor = ListMoviesInteractor()
     let presenter = ListMoviesPresenter()
@@ -54,8 +63,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -66,24 +74,75 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    
+    pagesLoaded = 1
+    fetchMovies(forPage: 1)
   }
   
-  // MARK: Do something
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    fetchMovies(forPage: 1)
+  }
+  
+  // MARK: Fetch Movies
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething()
-  {
-    let request = ListMovies.Something.Request()
-    interactor?.doSomething(request: request)
+  func fetchMovies(forPage page: Int) {
+    let request = ListMovies.FetchMovies.Request(page: page)
+    isFetching = true
+    interactor?.fetchMovies(request: request)
   }
   
-  func displaySomething(viewModel: ListMovies.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
+  func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel) {
+    isFetching = false
+    pagesLoaded += 1
+    
+    movies.append(contentsOf: viewModel.displayedMovies)
+    tableView.reloadData()
   }
 }
+
+// MARK: - TableView Delegate
+
+extension ListMoviesViewController: UITableViewDelegate {
+  
+}
+
+// MARK: - TableView DataSource
+
+extension ListMoviesViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return movies.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let movie = movies[indexPath.row]
+    
+    var cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") ?? UITableViewCell(style: .value1, reuseIdentifier: "MovieCell")
+    
+    if (movies.count - indexPath.row < 5) && !isFetching {
+      fetchMovies(forPage: pagesLoaded)
+    }
+    
+    cell.textLabel?.text = movie.title
+    cell.detailTextLabel?.text = String(describing: movie.score)
+    
+    return cell
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
