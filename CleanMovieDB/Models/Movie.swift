@@ -16,6 +16,8 @@ class Movie: Mappable {
   var summary: String?
   var popularity: Double?
   var voteAverage: Double?
+  var posterImagePath: String?
+  var backdropImagePath: String?
   
   required init?(map: Map) {
     
@@ -24,14 +26,35 @@ class Movie: Mappable {
   // Mappable
   
   func mapping(map: Map) {
-    id            <- map["id"]
-    title         <- map["original_title"]
-    summary       <- map["overview"]
-    popularity    <- map["popularity"]
-    voteAverage   <- map["vote_average"]
+    id                  <- map["id"]
+    title               <- map["original_title"]
+    summary             <- map["overview"]
+    popularity          <- map["popularity"]
+    voteAverage         <- map["vote_average"]
+    posterImagePath     <- map["poster_path"]
+    backdropImagePath   <- map["backdrop_path"]
   }
   
+}
+
+// MARK: - Image Type
+
+extension Movie {
   
+  enum ImageType {
+    case poster
+    case backdrop
+    
+    var dimensions: String {
+      switch self {
+      case .poster:
+        return "w500"
+        
+      case .backdrop:
+        return "w780"
+      }
+    }
+  }
 }
 
 // MARK: - Equatable
@@ -43,5 +66,36 @@ extension Movie: Equatable {
       && lhs.popularity == rhs.popularity
       && lhs.voteAverage == rhs.voteAverage
   }
-  
 }
+
+// MARK: - Image URL
+
+extension Movie {
+  
+  func getImageURL(forType type: ImageType) -> URL {
+    
+    let baseURL = "https://image.tmdb.org/t/p/"
+    var path = ""
+    
+    switch type {
+    case .poster:
+      path = "\(type.dimensions)/\(String(describing: self.posterImagePath))"
+      
+    case .backdrop:
+      path = "\(type.dimensions)/\(String(describing: self.backdropImagePath))"
+    }
+    
+    let result = baseURL + path
+    
+    return URL(string: result)!
+  }
+}
+
+
+
+
+
+
+
+
+
