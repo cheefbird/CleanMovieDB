@@ -53,9 +53,11 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     let interactor = ListMoviesInteractor()
     let presenter = ListMoviesPresenter()
     let router = ListMoviesRouter()
+    let worker = MoviesWorker()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = worker
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor

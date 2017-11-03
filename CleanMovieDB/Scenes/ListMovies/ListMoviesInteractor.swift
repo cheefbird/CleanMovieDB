@@ -30,7 +30,6 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-    worker = MoviesWorker()
     worker?.fetchMovies(forPage: request.page) { result in
       guard let movies = result.value else { return }
       
