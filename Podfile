@@ -9,6 +9,7 @@ target 'CleanMovieDB' do
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
   pod 'Kingfisher'
+  pod 'UICircularProgressRing'
 
   target 'CleanMovieDBTests' do
     inherit! :search_paths
