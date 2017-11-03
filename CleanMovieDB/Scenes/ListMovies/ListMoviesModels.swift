@@ -26,7 +26,7 @@ enum ListMovies {
       
       struct DisplayedMovie {
         var title: String
-        var score: Double
+        var backdropImageURL: URL
       }
       
       var displayedMovies: [DisplayedMovie]

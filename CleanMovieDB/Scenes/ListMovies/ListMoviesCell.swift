@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ListMoviesCell: UITableViewCell {
   
@@ -15,17 +16,14 @@ class ListMoviesCell: UITableViewCell {
   @IBOutlet weak var backdropImageView: UIImageView!
   @IBOutlet weak var movieTitleLabel: UILabel!
   
-  // MARK: - Life Cycle
+  // MARK: - Configure
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-  }
-  
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+  func configure(with movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie) {
     
-    // Configure the view for the selected state
+    backdropImageView.kf.setImage(with: movie.backdropImageURL)
+    
+    movieTitleLabel.text = movie.title
+    
   }
   
 }
