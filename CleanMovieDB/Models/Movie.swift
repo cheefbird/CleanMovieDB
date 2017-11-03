@@ -79,10 +79,18 @@ extension Movie {
     
     switch type {
     case .poster:
-      path = "\(type.dimensions)/\(String(describing: self.posterImagePath))"
+      if let imagePath = posterImagePath {
+        path = "\(type.dimensions)\(imagePath)"
+      } else {
+        return URL(string: "https://placeimg.com/500/780/any")!
+      }
       
     case .backdrop:
-      path = "\(type.dimensions)/\(String(describing: self.backdropImagePath))"
+      if let imagePath = backdropImagePath {
+        path = "\(type.dimensions)\(imagePath)"
+      } else {
+        return URL(string: "https://placeimg.com/780/439/any")!
+      }
     }
     
     let result = baseURL + path
