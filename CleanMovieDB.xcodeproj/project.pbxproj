@@ -20,7 +20,6 @@
 		06E4F5061FA8122500110FFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E4F5041FA8122500110FFB /* LaunchScreen.storyboard */; };
 		06E4F5111FA8122500110FFB /* CleanMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5101FA8122500110FFB /* CleanMovieDBTests.swift */; };
 		06E4F5241FA8138200110FFB /* ListMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F51E1FA8138200110FFB /* ListMoviesPresenter.swift */; };
-		06E4F5251FA8138200110FFB /* ListMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F51F1FA8138200110FFB /* ListMoviesWorker.swift */; };
 		06E4F5261FA8138200110FFB /* ListMoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5201FA8138200110FFB /* ListMoviesRouter.swift */; };
 		06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5211FA8138200110FFB /* ListMoviesModels.swift */; };
 		06E4F5281FA8138200110FFB /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */; };
@@ -57,7 +56,6 @@
 		06E4F5101FA8122500110FFB /* CleanMovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanMovieDBTests.swift; sourceTree = "<group>"; };
 		06E4F5121FA8122500110FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06E4F51E1FA8138200110FFB /* ListMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesPresenter.swift; sourceTree = "<group>"; };
-		06E4F51F1FA8138200110FFB /* ListMoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesWorker.swift; sourceTree = "<group>"; };
 		06E4F5201FA8138200110FFB /* ListMoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesRouter.swift; sourceTree = "<group>"; };
 		06E4F5211FA8138200110FFB /* ListMoviesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesModels.swift; sourceTree = "<group>"; };
 		06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				06E4F51E1FA8138200110FFB /* ListMoviesPresenter.swift */,
-				06E4F51F1FA8138200110FFB /* ListMoviesWorker.swift */,
 				06E4F5201FA8138200110FFB /* ListMoviesRouter.swift */,
 				06E4F5211FA8138200110FFB /* ListMoviesModels.swift */,
 				06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */,
@@ -449,7 +446,6 @@
 				06E4F5241FA8138200110FFB /* ListMoviesPresenter.swift in Sources */,
 				06D827EE1FA9694600693102 /* Movie.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
-				06E4F5251FA8138200110FFB /* ListMoviesWorker.swift in Sources */,
 				06D827E81FA9548300693102 /* AppColors.swift in Sources */,
 				06A1E7581FAA970400AE640F /* MoviesAPIError.swift in Sources */,
 				06E4F5261FA8138200110FFB /* ListMoviesRouter.swift in Sources */,
