@@ -8,6 +8,7 @@ target 'CleanMovieDB' do
   # Pods for CleanMovieDB
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'Kingfisher'
 
   target 'CleanMovieDBTests' do
     inherit! :search_paths

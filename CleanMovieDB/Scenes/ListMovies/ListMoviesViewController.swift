@@ -27,7 +27,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
   
-  var pagesLoaded = 0
+  var pagesLoaded = 1
   var isFetching = false
   
   // MARK: Outlets
@@ -53,9 +53,11 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     let interactor = ListMoviesInteractor()
     let presenter = ListMoviesPresenter()
     let router = ListMoviesRouter()
+    let worker = MoviesWorker()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = worker
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
@@ -77,14 +79,9 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    pagesLoaded = 1
-    fetchMovies(forPage: 1)
+    fetchMovies(forPage: pagesLoaded)
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    fetchMovies(forPage: 1)
-  }
+
   
   // MARK: Fetch Movies
   
@@ -119,18 +116,21 @@ extension ListMoviesViewController: UITableViewDataSource {
     return movies.count
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    let movie = movies[indexPath.row]
-    
-    var cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") ?? UITableViewCell(style: .value1, reuseIdentifier: "MovieCell")
-    
+  fileprivate func loadMoreIfNeeded(_ indexPath: IndexPath) {
     if (movies.count - indexPath.row < 5) && !isFetching {
       fetchMovies(forPage: pagesLoaded)
     }
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    cell.textLabel?.text = movie.title
-    cell.detailTextLabel?.text = String(describing: movie.score)
+    loadMoreIfNeeded(indexPath)
+    
+    let movie = movies[indexPath.row]
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! ListMoviesCell
+    
+    cell.configure(with: movie)
     
     return cell
   }
