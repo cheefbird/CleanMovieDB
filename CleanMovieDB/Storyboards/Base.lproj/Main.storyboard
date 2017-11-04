@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,6 +53,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="JiL-Wg-JQN" secondAttribute="trailing" constant="5" id="hdx-r9-UNz"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8U-dV-IxW">
+                                                    <rect key="frame" x="317.5" y="11" width="42.5" height="18"/>
+                                                    <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fFK-rQ-oQW" firstAttribute="centerX" secondItem="pFW-D4-4SD" secondAttribute="centerX" id="3hd-Tg-d4a"/>
@@ -61,12 +69,15 @@
                                                 <constraint firstItem="RdI-kD-Zfq" firstAttribute="leading" secondItem="pFW-D4-4SD" secondAttribute="leading" id="cAn-km-2dc"/>
                                                 <constraint firstAttribute="bottom" secondItem="fFK-rQ-oQW" secondAttribute="bottom" constant="6" id="hl1-yd-JKp"/>
                                                 <constraint firstItem="JiL-Wg-JQN" firstAttribute="height" relation="lessThanOrEqual" secondItem="RdI-kD-Zfq" secondAttribute="height" multiplier="0.3" id="sUH-fT-rw5"/>
+                                                <constraint firstItem="d8U-dV-IxW" firstAttribute="top" secondItem="pFW-D4-4SD" secondAttribute="topMargin" id="uoA-F2-z00"/>
+                                                <constraint firstItem="d8U-dV-IxW" firstAttribute="trailing" secondItem="pFW-D4-4SD" secondAttribute="trailingMargin" id="v8s-OQ-cIv"/>
                                                 <constraint firstItem="RdI-kD-Zfq" firstAttribute="top" secondItem="pFW-D4-4SD" secondAttribute="top" id="xmg-HT-R9r"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backdropImageView" destination="RdI-kD-Zfq" id="CDV-7J-Jk2"/>
                                             <outlet property="movieTitleLabel" destination="JiL-Wg-JQN" id="8m6-eN-M8S"/>
+                                            <outlet property="scoreLabel" destination="d8U-dV-IxW" id="ThI-H0-15C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
