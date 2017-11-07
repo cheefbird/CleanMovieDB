@@ -17,14 +17,15 @@ protocol ListMoviesBusinessLogic {
 }
 
 protocol ListMoviesDataStore {
-  //var name: String { get set }
+  var movies: [Movie]? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   var presenter: ListMoviesPresentationLogic?
   var worker: MoviesWorker?
-  //var name: String = ""
+  
+  var movies: [Movie]?
   
   // MARK: Do something
   
@@ -32,6 +33,8 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     
     worker?.fetchMovies(forPage: request.page) { result in
       guard let movies = result.value else { return }
+      
+      self.movies = movies
       
       let response = ListMovies.FetchMovies.Response(movies: movies)
       self.presenter?.presentMovies(response: response)

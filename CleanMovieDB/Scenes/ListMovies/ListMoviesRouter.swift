@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol ListMoviesRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToShowMovieDetails(segue: UIStoryboardSegue?)
 }
 
 protocol ListMoviesDataPassing
@@ -28,6 +28,14 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
   var dataStore: ListMoviesDataStore?
   
   // MARK: Routing
+  
+  func routeToShowMovieDetails(segue: UIStoryboardSegue?) {
+    guard let destinationVC = segue?.destination as? MovieDetailsViewController,
+      var destinationDS = destinationVC.router?.dataStore,
+      let dataStore = self.dataStore else { return }
+    
+    passDataToShowMovieDetails(source: dataStore, destination: &destinationDS)
+  }
   
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
@@ -43,7 +51,7 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
   //    navigateToSomewhere(source: viewController!, destination: destinationVC)
   //  }
   //}
-
+  
   // MARK: Navigation
   
   //func navigateToSomewhere(source: ListMoviesViewController, destination: SomewhereViewController)
@@ -53,8 +61,9 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: ListMoviesDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToShowMovieDetails(source: ListMoviesDataStore, destination: inout MovieDetailsDataStore) {
+    guard let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row else { return }
+    
+    destination.movie = source.movies?[selectedRow]
+  }
 }

@@ -19,14 +19,15 @@ protocol MovieDetailsBusinessLogic
 
 protocol MovieDetailsDataStore
 {
-  //var name: String { get set }
+  var movie: Movie? { get set }
 }
 
 class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore
 {
   var presenter: MovieDetailsPresentationLogic?
   var worker: MovieDetailsWorker?
-  //var name: String = ""
+  
+  var movie: Movie?
   
   // MARK: Do something
   
