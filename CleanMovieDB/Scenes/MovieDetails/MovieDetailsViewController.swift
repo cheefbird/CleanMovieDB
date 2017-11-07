@@ -11,9 +11,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol MovieDetailsDisplayLogic: class {
-  func displaySomething(viewModel: MovieDetails.Something.ViewModel)
+  func displayMovie(viewModel: MovieDetails.GetMovie.ViewModel)
 }
 
 class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
@@ -71,20 +72,32 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    getMovieToDisplay()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething() {
-    let request = MovieDetails.Something.Request()
-    interactor?.doSomething(request: request)
+  func getMovieToDisplay() {
+    let request = MovieDetails.GetMovie.Request()
+    interactor?.getMovie(request: request)
   }
   
-  func displaySomething(viewModel: MovieDetails.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
+  func displayMovie(viewModel: MovieDetails.GetMovie.ViewModel) {
+    let movie = viewModel.displayedMovie
+    
+    backdropImageView.kf.setImage(with: movie.backdropImage)
+    posterImageView.kf.setImage(with: movie.posterImage)
+    
+    movieTitleLabel.text = movie.title
+    movieScoreLabel.text = "Score: \(movie.averageScore)"
+    movieSummaryLabel.text = movie.summary
   }
 }
 

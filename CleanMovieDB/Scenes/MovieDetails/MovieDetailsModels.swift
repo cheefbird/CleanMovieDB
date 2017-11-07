@@ -12,20 +12,25 @@
 
 import UIKit
 
-enum MovieDetails
-{
+enum MovieDetails {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+  enum GetMovie {
+    struct Request {
+      
     }
-    struct Response
-    {
+    struct Response {
+      var movie: Movie
     }
-    struct ViewModel
-    {
+    struct ViewModel {
+      struct DisplayedMovie {
+        var backdropImage: URL
+        var posterImage: URL
+        var title: String
+        var averageScore: Double
+        var summary: String
+      }
+      var displayedMovie: DisplayedMovie
     }
   }
 }

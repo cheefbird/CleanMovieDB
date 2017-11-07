@@ -12,31 +12,27 @@
 
 import UIKit
 
-protocol MovieDetailsBusinessLogic
-{
-  func doSomething(request: MovieDetails.Something.Request)
+protocol MovieDetailsBusinessLogic {
+  func getMovie(request: MovieDetails.GetMovie.Request)
 }
 
-protocol MovieDetailsDataStore
-{
-  var movie: Movie? { get set }
+protocol MovieDetailsDataStore {
+  var movie: Movie! { get set }
 }
 
-class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore
-{
+class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
   var presenter: MovieDetailsPresentationLogic?
   var worker: MovieDetailsWorker?
   
-  var movie: Movie?
+  var movie: Movie!
   
   // MARK: Do something
   
-  func doSomething(request: MovieDetails.Something.Request)
-  {
+  func getMovie(request: MovieDetails.GetMovie.Request) {
     worker = MovieDetailsWorker()
     worker?.doSomeWork()
     
-    let response = MovieDetails.Something.Response()
-    presenter?.presentSomething(response: response)
+    let response = MovieDetails.GetMovie.Response(movie: movie)
+    presenter?.displayMovie(response: response)
   }
 }

@@ -12,20 +12,24 @@
 
 import UIKit
 
-protocol MovieDetailsPresentationLogic
-{
-  func presentSomething(response: MovieDetails.Something.Response)
+protocol MovieDetailsPresentationLogic {
+  func displayMovie(response: MovieDetails.GetMovie.Response)
 }
 
-class MovieDetailsPresenter: MovieDetailsPresentationLogic
-{
+class MovieDetailsPresenter: MovieDetailsPresentationLogic {
   weak var viewController: MovieDetailsDisplayLogic?
   
   // MARK: Do something
   
-  func presentSomething(response: MovieDetails.Something.Response)
-  {
-    let viewModel = MovieDetails.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func displayMovie(response: MovieDetails.GetMovie.Response) {
+    let movie = response.movie
+    
+    let backdropURL = movie.getImageURL(forType: .backdrop)
+    let posterURL = movie.getImageURL(forType: .poster)
+    
+    let displayedMovie = MovieDetails.GetMovie.ViewModel.DisplayedMovie(backdropImage: backdropURL, posterImage: posterURL, title: movie.title!, averageScore: movie.voteAverage!, summary: movie.summary!)
+    
+    let viewModel = MovieDetails.GetMovie.ViewModel(displayedMovie: displayedMovie)
+    viewController?.displayMovie(viewModel: viewModel)
   }
 }
