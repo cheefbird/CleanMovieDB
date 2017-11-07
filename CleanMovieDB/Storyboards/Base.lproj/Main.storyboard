@@ -173,6 +173,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NqM-9z-EK0"/>
                     </view>
+                    <connections>
+                        <outlet property="backdropImageView" destination="aBv-0b-jg9" id="Ujj-u1-18O"/>
+                        <outlet property="movieScoreLabel" destination="tm1-hn-qtc" id="DbQ-Jg-0u0"/>
+                        <outlet property="movieSummaryLabel" destination="f1R-Sb-xLh" id="tmW-9d-wh1"/>
+                        <outlet property="movieTitleLabel" destination="nVe-or-CiS" id="xcy-KA-TtO"/>
+                        <outlet property="posterImageView" destination="fCB-KQ-mlu" id="ivr-9r-J9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osd-Ea-8Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

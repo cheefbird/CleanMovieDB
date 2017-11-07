@@ -17,10 +17,19 @@ protocol MovieDetailsDisplayLogic: class {
 }
 
 class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
+  
   var interactor: MovieDetailsBusinessLogic?
   var router: (NSObjectProtocol & MovieDetailsRoutingLogic & MovieDetailsDataPassing)?
+  
+  // MARK: - Outlets
+  
+  @IBOutlet var backdropImageView: UIImageView!
+  @IBOutlet var posterImageView: UIImageView!
+  @IBOutlet var movieTitleLabel: UILabel!
+  @IBOutlet var movieScoreLabel: UILabel!
+  @IBOutlet var movieSummaryLabel: UILabel!
 
-  // MARK: Object lifecycle
+  // MARK: - Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -32,7 +41,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     setup()
   }
   
-  // MARK: Setup
+  // MARK: - Setup
   
   private func setup() {
     let viewController = self
@@ -47,7 +56,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     router.dataStore = interactor
   }
   
-  // MARK: Routing
+  // MARK: - Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
@@ -58,7 +67,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     }
   }
   
-  // MARK: View lifecycle
+  // MARK: - View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
