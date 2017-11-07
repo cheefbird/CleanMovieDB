@@ -17,23 +17,32 @@ protocol ListMoviesBusinessLogic {
 }
 
 protocol ListMoviesDataStore {
-  //var name: String { get set }
+  var movies: [Movie]? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   var presenter: ListMoviesPresentationLogic?
   var worker: MoviesWorker?
-  //var name: String = ""
+  
+  var movies: [Movie]?
   
   // MARK: Do something
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
     worker?.fetchMovies(forPage: request.page) { result in
-      guard let movies = result.value else { return }
+      guard let newMovies = result.value else { return }
       
-      let response = ListMovies.FetchMovies.Response(movies: movies)
+      if self.movies == nil {
+        self.movies = newMovies
+      } else {
+        newMovies.forEach({ movie in
+          self.movies?.append(movie)
+        })
+      }
+      
+      let response = ListMovies.FetchMovies.Response(movies: newMovies)
       self.presenter?.presentMovies(response: response)
     }
   }
