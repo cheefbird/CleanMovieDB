@@ -95,6 +95,8 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel) {
     isFetching = false
+    title = "\(pagesLoaded) Pages of Movies"
+    
     pagesLoaded += 1
     
     movies.append(contentsOf: viewModel.displayedMovies)
