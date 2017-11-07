@@ -9,6 +9,8 @@ target 'CleanMovieDB' do
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
   pod 'Kingfisher'
+  pod 'RealmSwift'
+  
 
   target 'CleanMovieDBTests' do
     inherit! :search_paths
