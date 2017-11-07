@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -115,13 +116,67 @@
                     <view key="view" contentMode="scaleToFill" id="CLO-VH-mcQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aBv-0b-jg9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aBv-0b-jg9" secondAttribute="height" multiplier="375:211" id="W8H-kJ-eGn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-KQ-mlu">
+                                <rect key="frame" x="16" y="219" width="105" height="158.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fCB-KQ-mlu" secondAttribute="height" multiplier="105:158" id="gLh-y2-hc2"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="qm2-LV-oSR">
+                                <rect key="frame" x="129" y="219" width="230" height="158.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movieTitle" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-or-CiS">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movieScore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm1-hn-qtc">
+                                        <rect key="frame" x="0.0" y="138" width="230" height="20.5"/>
+                                        <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movieSummary" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1R-Sb-xLh">
+                                <rect key="frame" x="8" y="385.5" width="359" height="168.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fCB-KQ-mlu" firstAttribute="top" secondItem="aBv-0b-jg9" secondAttribute="bottom" constant="8" id="59J-cH-QRH"/>
+                            <constraint firstItem="f1R-Sb-xLh" firstAttribute="top" secondItem="qm2-LV-oSR" secondAttribute="bottom" constant="8" id="GeW-Mm-pbQ"/>
+                            <constraint firstItem="fCB-KQ-mlu" firstAttribute="height" secondItem="aBv-0b-jg9" secondAttribute="height" multiplier="0.75" id="Kpn-sJ-xqT"/>
+                            <constraint firstItem="qm2-LV-oSR" firstAttribute="top" secondItem="aBv-0b-jg9" secondAttribute="bottom" constant="8" id="LXG-K7-TM2"/>
+                            <constraint firstItem="qm2-LV-oSR" firstAttribute="leading" secondItem="fCB-KQ-mlu" secondAttribute="trailing" constant="8" id="TEn-4K-9TY"/>
+                            <constraint firstItem="aBv-0b-jg9" firstAttribute="leading" secondItem="NqM-9z-EK0" secondAttribute="leading" id="VVF-uu-6vN"/>
+                            <constraint firstItem="NqM-9z-EK0" firstAttribute="bottom" secondItem="f1R-Sb-xLh" secondAttribute="bottom" id="W21-ez-BZX"/>
+                            <constraint firstItem="aBv-0b-jg9" firstAttribute="top" secondItem="NqM-9z-EK0" secondAttribute="top" id="YME-2n-yra"/>
+                            <constraint firstItem="fCB-KQ-mlu" firstAttribute="leading" secondItem="NqM-9z-EK0" secondAttribute="leading" constant="16" id="amc-ou-yve"/>
+                            <constraint firstItem="qm2-LV-oSR" firstAttribute="height" secondItem="fCB-KQ-mlu" secondAttribute="height" id="g3T-5o-1VB"/>
+                            <constraint firstItem="f1R-Sb-xLh" firstAttribute="leading" secondItem="NqM-9z-EK0" secondAttribute="leading" constant="8" id="lG8-NU-5KX"/>
+                            <constraint firstItem="NqM-9z-EK0" firstAttribute="trailing" secondItem="aBv-0b-jg9" secondAttribute="trailing" id="lKo-mg-YxQ"/>
+                            <constraint firstItem="NqM-9z-EK0" firstAttribute="trailing" secondItem="f1R-Sb-xLh" secondAttribute="trailing" constant="8" id="lXk-hN-qmI"/>
+                            <constraint firstItem="NqM-9z-EK0" firstAttribute="trailing" secondItem="qm2-LV-oSR" secondAttribute="trailing" constant="16" id="vCn-eR-LdF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NqM-9z-EK0"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osd-Ea-8Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="1533"/>
+            <point key="canvasLocation" x="-570.39999999999998" y="1532.3838080959522"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Mfm-61-PBa">
