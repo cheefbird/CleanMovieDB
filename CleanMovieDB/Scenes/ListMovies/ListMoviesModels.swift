@@ -20,7 +20,7 @@ enum ListMovies {
       var page: Int
     }
     struct Response {
-      var movies: [Movie]
+      var movies: [MovieObject]
     }
     struct ViewModel {
       

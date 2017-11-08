@@ -27,7 +27,7 @@ class MovieDetailsPresenter: MovieDetailsPresentationLogic {
     let backdropURL = movie.getImageURL(forType: .backdrop)
     let posterURL = movie.getImageURL(forType: .poster)
     
-    let displayedMovie = MovieDetails.GetMovie.ViewModel.DisplayedMovie(backdropImage: backdropURL, posterImage: posterURL, title: movie.title!, averageScore: movie.voteAverage!, summary: movie.summary!)
+    let displayedMovie = MovieDetails.GetMovie.ViewModel.DisplayedMovie(backdropImage: backdropURL, posterImage: posterURL, title: movie.title, averageScore: movie.voteAverage, summary: movie.summary)
     
     let viewModel = MovieDetails.GetMovie.ViewModel(displayedMovie: displayedMovie)
     viewController?.displayMovie(viewModel: viewModel)

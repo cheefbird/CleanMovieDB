@@ -31,19 +31,19 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-    worker?.fetchMovies(forPage: request.page) { result in
-      guard let newMovies = result.value else { return }
-      
-      if self.movies == nil {
-        self.movies = newMovies
-      } else {
-        newMovies.forEach({ movie in
-          self.movies?.append(movie)
-        })
-      }
-      
-      let response = ListMovies.FetchMovies.Response(movies: newMovies)
-      self.presenter?.presentMovies(response: response)
-    }
+//    worker?.fetchMovies(forPage: request.page) { result in
+//      guard let newMovies = result.value else { return }
+//      
+//      if self.movies == nil {
+//        self.movies = newMovies
+//      } else {
+//        newMovies.forEach({ movie in
+//          self.movies?.append(movie)
+//        })
+//      }
+//      
+//      let response = ListMovies.FetchMovies.Response(movies: newMovies)
+//      self.presenter?.presentMovies(response: response)
+//    }
   }
 }

@@ -14,48 +14,23 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-protocol MoviesAPIProtocol {
-  func fetchMovies(forPage page: Int, completionHandler: @escaping (Result<[Movie]>) -> Void)
+protocol MoviesWorkerType {
   
-  func parseMovies(fromResponse response: DataResponse<Any>) -> Result<[Movie]>
+//  func getMovies
+
 }
 
 
-class MoviesWorker: MoviesAPIProtocol {
+class MoviesWorker: MoviesWorkerType {
   
-  func fetchMovies(forPage page: Int, completionHandler: @escaping (Result<[Movie]>) -> Void) {
-    Alamofire.request(MoviesRouter.getMovies(page: page))
-      .responseJSON { response in
-        
-        let movieArray = self.parseMovies(fromResponse: response)
-        
-        completionHandler(movieArray)
-    }
+  var realmService: MovieServiceType
+  var apiService: MovieServiceType
+  
+  init(realmService: MovieServiceType, apiService: MovieServiceType) {
+    self.realmService = realmService
+    self.apiService = apiService
   }
   
-  func parseMovies(fromResponse response: DataResponse<Any>) -> Result<[Movie]> {
-    guard response.result.error == nil else {
-      return .failure(MoviesAPIError.network(error: response.result.error!))
-    }
-    
-    guard let json = response.result.value as? [String: Any] else {
-      return .failure(MoviesAPIError.serializationError(reason: "Could not convert response to dictionary"))
-    }
-    
-    guard let resultJSON = json["results"] as? [[String: Any]] else {
-      return .failure(MoviesAPIError.serializationError(reason: "Could not get results from response dictionary"))
-    }
-    
-    var movies = [Movie]()
-    
-    for result in resultJSON {
-      if let movie = Mapper<Movie>().map(JSON: result) {
-        movies.append(movie)
-      }
-    }
-    
-    
-    return .success(movies)
-    
-  }
+  
+
 }
