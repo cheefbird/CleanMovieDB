@@ -83,7 +83,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     
     fetchMovies(forPage: pagesLoaded)
   }
-
+  
   
   // MARK: Fetch Movies
   
@@ -97,11 +97,16 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel) {
     isFetching = false
+    movies = viewModel.displayedMovies
+    
+    print("MOVIES: \(movies.count)")
+    
+    if movies.count > 20 {
+      pagesLoaded = movies.count / 20
+    }
+    
     title = "\(pagesLoaded) Pages of Movies"
     
-    pagesLoaded += 1
-    
-    movies.append(contentsOf: viewModel.displayedMovies)
     tableView.reloadData()
   }
 }
@@ -121,6 +126,7 @@ extension ListMoviesViewController: UITableViewDataSource {
   }
   
   fileprivate func loadMoreIfNeeded(_ indexPath: IndexPath) {
+    
     if (movies.count - indexPath.row < 5) && !isFetching {
       fetchMovies(forPage: pagesLoaded)
     }

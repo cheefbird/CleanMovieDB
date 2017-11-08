@@ -9,10 +9,11 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import RealmSwift
 
 class APIMovieService: MovieServiceType {
   
-  func getMovies(forPage page: Int?, completionHandler: @escaping MovieServiceType.MoviesResult) {
+  func getMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     guard let page = page else { return }
     
     Alamofire.request(MoviesRouter.getMovies(page: page))
@@ -30,8 +31,29 @@ class APIMovieService: MovieServiceType {
           return
         }
         
+        self.persist(movieArray)
+        
         completionHandler(movieArray, nil)
         
     }
   }
+  
+  fileprivate func persist(_ movies: [MovieObject]) {
+    let newMovies = movies.map { RealmMovie(copy: $0) }
+    
+    let realm = try! Realm()
+    try! realm.write {
+      realm.add(newMovies, update: true)
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+

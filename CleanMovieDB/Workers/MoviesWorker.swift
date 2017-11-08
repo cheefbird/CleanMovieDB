@@ -16,13 +16,13 @@ import ObjectMapper
 
 protocol MoviesWorkerType {
   
-//  func getMovies
+  func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
 
 }
 
 
 class MoviesWorker: MoviesWorkerType {
-  
+
   var realmService: MovieServiceType
   var apiService: MovieServiceType
   
@@ -31,6 +31,11 @@ class MoviesWorker: MoviesWorkerType {
     self.apiService = apiService
   }
   
-  
+  func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
+    
+    realmService.getMovies(forPage: page, completionHandler: completionHandler)
+    apiService.getMovies(forPage: page, completionHandler: completionHandler)
+    
+  }
 
 }

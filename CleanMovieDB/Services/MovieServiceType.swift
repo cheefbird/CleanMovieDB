@@ -8,10 +8,10 @@
 
 import Foundation
 
+typealias MoviesResult = (_ movies: [MovieObject], _ error: Error?) -> Void
+
 protocol MovieServiceType {
   
-  typealias MoviesResult = (_ movies: [MovieObject], _ error: Error?) -> Void
-
   func getMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
   
 }

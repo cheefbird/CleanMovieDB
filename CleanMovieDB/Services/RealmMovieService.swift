@@ -13,7 +13,7 @@ class RealmMovieService: MovieServiceType {
   
   let realm = try! Realm()
   
-  func getMovies(forPage page: Int?, completionHandler: @escaping MovieServiceType.MoviesResult) {
+  func getMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     let movies = realm.objects(RealmMovie.self).sorted(byKeyPath: "voteAverage", ascending: false)
     
     completionHandler(Array(movies), nil)

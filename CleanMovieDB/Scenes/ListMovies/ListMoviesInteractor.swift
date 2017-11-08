@@ -17,7 +17,7 @@ protocol ListMoviesBusinessLogic {
 }
 
 protocol ListMoviesDataStore {
-  var movies: [Movie]? { get }
+  var movies: [MovieObject]? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
@@ -25,25 +25,32 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   var presenter: ListMoviesPresentationLogic?
   var worker: MoviesWorker?
   
-  var movies: [Movie]?
+  var movies: [MovieObject]?
   
   // MARK: Do something
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-//    worker?.fetchMovies(forPage: request.page) { result in
-//      guard let newMovies = result.value else { return }
-//      
-//      if self.movies == nil {
-//        self.movies = newMovies
-//      } else {
-//        newMovies.forEach({ movie in
-//          self.movies?.append(movie)
-//        })
-//      }
-//      
-//      let response = ListMovies.FetchMovies.Response(movies: newMovies)
-//      self.presenter?.presentMovies(response: response)
-//    }
+    worker?.fetchMovies(forPage: request.page) { (movies, error) in
+      guard error == nil else {
+        print("ERROR: ERROR occurred while fetching movies")
+        return
+      }
+      
+      if self.movies == nil {
+        self.movies = movies
+      } else {
+        movies.forEach({ movie in
+          self.movies?.append(movie)
+        })
+      }
+      
+      let response = ListMovies.FetchMovies.Response(movies: self.movies!)
+      self.presenter?.presentMovies(response: response)
+    }
+    
+//    let response = ListMovies.FetchMovies.Response(movies: newMovies)
+//    self.presenter?.presentMovies(response: response)
+    
   }
 }
