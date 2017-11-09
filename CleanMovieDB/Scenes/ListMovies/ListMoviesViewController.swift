@@ -127,8 +127,8 @@ extension ListMoviesViewController: UITableViewDataSource {
   
   fileprivate func loadMoreIfNeeded(_ indexPath: IndexPath) {
     
-    if (movies.count - indexPath.row < 5) && !isFetching {
-      fetchMovies(forPage: pagesLoaded)
+    if (movies.count - indexPath.row < 3) && !isFetching {
+      fetchMovies(forPage: currentPage)
     }
   }
   
@@ -140,7 +140,7 @@ extension ListMoviesViewController: UITableViewDataSource {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! ListMoviesCell
     
-    cell.configure(with: movie)
+    cell.configure(with: movie, atRow: indexPath.row)
     
     return cell
   }

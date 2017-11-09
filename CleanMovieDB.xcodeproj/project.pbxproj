@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0602CBF71FA933EC001BBB4F /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0602CBF61FA933EC001BBB4F /* MoviesRouter.swift */; };
 		067D46B31FB28F4D001D3834 /* MovieImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067D46B21FB28F4D001D3834 /* MovieImageType.swift */; };
+		067D46B51FB3D361001D3834 /* RoundedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067D46B41FB3D361001D3834 /* RoundedUILabel.swift */; };
 		0698CE791FB274D900265510 /* MovieObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE781FB274D900265510 /* MovieObject.swift */; };
 		0698CE7B1FB2766600265510 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7A1FB2766600265510 /* RealmMovie.swift */; };
 		0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7D1FB27A9600265510 /* RealmMovieService.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0602CBF61FA933EC001BBB4F /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
 		067D46B21FB28F4D001D3834 /* MovieImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImageType.swift; sourceTree = "<group>"; };
+		067D46B41FB3D361001D3834 /* RoundedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUILabel.swift; sourceTree = "<group>"; };
 		0698CE781FB274D900265510 /* MovieObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieObject.swift; sourceTree = "<group>"; };
 		0698CE7A1FB2766600265510 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
 		0698CE7D1FB27A9600265510 /* RealmMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieService.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				06D827E11FA94C2800693102 /* CustomTabBar.swift */,
 				06D827E71FA9548300693102 /* AppColors.swift */,
+				067D46B41FB3D361001D3834 /* RoundedUILabel.swift */,
 			);
 			path = "UI Helpers";
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				06E4F5281FA8138200110FFB /* ListMoviesViewController.swift in Sources */,
 				0602CBF71FA933EC001BBB4F /* MoviesRouter.swift in Sources */,
 				067D46B31FB28F4D001D3834 /* MovieImageType.swift in Sources */,
+				067D46B51FB3D361001D3834 /* RoundedUILabel.swift in Sources */,
 				0698CE7B1FB2766600265510 /* RealmMovie.swift in Sources */,
 				0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */,
 				06E4F4FC1FA8122500110FFB /* AppDelegate.swift in Sources */,

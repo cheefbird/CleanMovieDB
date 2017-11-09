@@ -31,8 +31,6 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
       displayedMovies.append(displayedMovie)
     }
     
-    print("COUNTER: \(displayedMovies.count) MOVIES")
-    
     let viewModel = ListMovies.FetchMovies.ViewModel(displayedMovies: displayedMovies)
     viewController?.displayMovies(viewModel: viewModel)
     
