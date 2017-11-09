@@ -37,15 +37,9 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
         return
       }
       
-      if self.movies == nil {
-        self.movies = movies
-      } else {
-        movies.forEach({ movie in
-          self.movies?.append(movie)
-        })
-      }
+      self.movies = movies
       
-      let response = ListMovies.FetchMovies.Response(movies: self.movies!)
+      let response = ListMovies.FetchMovies.Response(movies: movies)
       self.presenter?.presentMovies(response: response)
     }
     

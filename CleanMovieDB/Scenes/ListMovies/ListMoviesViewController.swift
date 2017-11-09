@@ -27,7 +27,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
   
-  var pagesLoaded = 1
+  var currentPage = 1
   var isFetching = false
   
   // MARK: Outlets
@@ -81,13 +81,16 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    fetchMovies(forPage: pagesLoaded)
+    fetchCachedMovies()
   }
-  
-  
+
   // MARK: Fetch Movies
   
-  //@IBOutlet weak var nameTextField: UITextField!
+  func fetchCachedMovies() {
+    let request = ListMovies.FetchMovies.Request(page: 0)
+    isFetching = true
+    interactor?.fetchMovies(request: request)
+  }
   
   func fetchMovies(forPage page: Int) {
     let request = ListMovies.FetchMovies.Request(page: page)
@@ -97,15 +100,18 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel) {
     isFetching = false
-    movies = viewModel.displayedMovies
+    movies.append(contentsOf: viewModel.displayedMovies)
     
-    print("MOVIES: \(movies.count)")
-    
-    if movies.count > 20 {
-      pagesLoaded = movies.count / 20
+    guard movies.count > 0 else {
+      fetchMovies(forPage: currentPage)
+      return
     }
     
-    title = "\(pagesLoaded) Pages of Movies"
+    currentPage = (movies.count / 20) + 1
+    
+    title = "\(currentPage) Pages of Movies"
+    
+    print("\(movies.count) MOVIES FOR \(currentPage - 1) PAGE(S)")
     
     tableView.reloadData()
   }

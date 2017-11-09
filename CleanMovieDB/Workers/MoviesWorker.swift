@@ -33,7 +33,11 @@ class MoviesWorker: MoviesWorkerType {
   
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     
-    realmService.getMovies(forPage: page, completionHandler: completionHandler)
+    guard let page = page, page > 0 else {
+      realmService.getMovies(forPage: 0, completionHandler: completionHandler)
+      return
+    }
+    
     apiService.getMovies(forPage: page, completionHandler: completionHandler)
     
   }
