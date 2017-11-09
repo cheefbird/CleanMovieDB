@@ -33,6 +33,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   // MARK: Outlets
   
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var navBarItems: UINavigationItem!
   
   // MARK: Object lifecycle
   
@@ -107,9 +108,10 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
       return
     }
     
-    currentPage = (movies.count / 20) + 1
+    let pagesLoaded = movies.count / 20
+    currentPage = pagesLoaded + 1
     
-    title = "\(currentPage) Pages of Movies"
+    navBarItems.title = "Discover Movies - \(pagesLoaded) Pages"
     
     print("\(movies.count) MOVIES FOR \(currentPage - 1) PAGE(S)")
     
