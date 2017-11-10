@@ -12,45 +12,28 @@
 
 import UIKit
 
-@objc protocol ListMoviesRoutingLogic
-{
+@objc protocol ListMoviesRoutingLogic {
   func routeToShowMovieDetails(segue: UIStoryboardSegue?)
 }
 
-protocol ListMoviesDataPassing
-{
+protocol ListMoviesDataPassing {
   var dataStore: ListMoviesDataStore? { get }
 }
 
-class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing
-{
+class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing {
   weak var viewController: ListMoviesViewController?
   var dataStore: ListMoviesDataStore?
   
   // MARK: Routing
   
   func routeToShowMovieDetails(segue: UIStoryboardSegue?) {
+    
     guard let destinationVC = segue?.destination as? MovieDetailsViewController,
       var destinationDS = destinationVC.router?.dataStore,
       let dataStore = self.dataStore else { return }
     
     passDataToShowMovieDetails(source: dataStore, destination: &destinationDS)
   }
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
   
   // MARK: Navigation
   

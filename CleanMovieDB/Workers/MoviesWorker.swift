@@ -34,10 +34,12 @@ class MoviesWorker: MoviesWorkerType {
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     
     guard let page = page, page > 0 else {
+      print("Fetching from Realm ...")
       realmService.getMovies(forPage: 0, completionHandler: completionHandler)
       return
     }
     
+    print("Fetching from API ...")
     apiService.getMovies(forPage: page, completionHandler: completionHandler)
     
   }

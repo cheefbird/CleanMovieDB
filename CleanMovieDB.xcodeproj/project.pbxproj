@@ -242,11 +242,11 @@
 		06E4F51D1FA8134000110FFB /* ListMovies */ = {
 			isa = PBXGroup;
 			children = (
-				06E4F51E1FA8138200110FFB /* ListMoviesPresenter.swift */,
-				06E4F5201FA8138200110FFB /* ListMoviesRouter.swift */,
 				06E4F5211FA8138200110FFB /* ListMoviesModels.swift */,
 				06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */,
 				06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */,
+				06E4F51E1FA8138200110FFB /* ListMoviesPresenter.swift */,
+				06E4F5201FA8138200110FFB /* ListMoviesRouter.swift */,
 				06E24C041FAD13BD005D67CF /* ListMoviesCell.swift */,
 			);
 			path = ListMovies;
