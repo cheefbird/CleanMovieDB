@@ -14,48 +14,34 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-protocol MoviesAPIProtocol {
-  func fetchMovies(forPage page: Int, completionHandler: @escaping (Result<[Movie]>) -> Void)
+protocol MoviesWorkerType {
   
-  func parseMovies(fromResponse response: DataResponse<Any>) -> Result<[Movie]>
+  func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
+
 }
 
 
-class MoviesWorker: MoviesAPIProtocol {
+class MoviesWorker: MoviesWorkerType {
+
+  var realmService: MovieServiceType
+  var apiService: MovieServiceType
   
-  func fetchMovies(forPage page: Int, completionHandler: @escaping (Result<[Movie]>) -> Void) {
-    Alamofire.request(MoviesRouter.getMovies(page: page))
-      .responseJSON { response in
-        
-        let movieArray = self.parseMovies(fromResponse: response)
-        
-        completionHandler(movieArray)
-    }
+  init(realmService: MovieServiceType, apiService: MovieServiceType) {
+    self.realmService = realmService
+    self.apiService = apiService
   }
   
-  func parseMovies(fromResponse response: DataResponse<Any>) -> Result<[Movie]> {
-    guard response.result.error == nil else {
-      return .failure(MoviesAPIError.network(error: response.result.error!))
+  func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
+    
+    guard let page = page, page > 0 else {
+      print("Fetching from Realm ...")
+      realmService.getMovies(forPage: 0, completionHandler: completionHandler)
+      return
     }
     
-    guard let json = response.result.value as? [String: Any] else {
-      return .failure(MoviesAPIError.serializationError(reason: "Could not convert response to dictionary"))
-    }
-    
-    guard let resultJSON = json["results"] as? [[String: Any]] else {
-      return .failure(MoviesAPIError.serializationError(reason: "Could not get results from response dictionary"))
-    }
-    
-    var movies = [Movie]()
-    
-    for result in resultJSON {
-      if let movie = Mapper<Movie>().map(JSON: result) {
-        movies.append(movie)
-      }
-    }
-    
-    
-    return .success(movies)
+    print("Fetching from API ...")
+    apiService.getMovies(forPage: page, completionHandler: completionHandler)
     
   }
+
 }

@@ -10,14 +10,16 @@ import Foundation
 import ObjectMapper
 
 
-class Movie: Mappable {
-  var id: Int?
-  var title: String?
-  var summary: String?
-  var popularity: Double?
-  var voteAverage: Double?
-  var posterImagePath: String?
-  var backdropImagePath: String?
+class Movie: MovieObject, Mappable {
+  var id = 0
+  var title = ""
+  var summary = ""
+  var popularity = 0.0
+  var voteAverage = 0.0
+  var posterImagePath = ""
+  var backdropImagePath = ""
+  
+  // MARK: - Init
   
   required init?(map: Map) {
     
@@ -37,26 +39,6 @@ class Movie: Mappable {
   
 }
 
-// MARK: - Image Type
-
-extension Movie {
-  
-  enum ImageType {
-    case poster
-    case backdrop
-    
-    var dimensions: String {
-      switch self {
-      case .poster:
-        return "w500"
-        
-      case .backdrop:
-        return "w780"
-      }
-    }
-  }
-}
-
 // MARK: - Equatable
 
 extension Movie: Equatable {
@@ -68,36 +50,7 @@ extension Movie: Equatable {
   }
 }
 
-// MARK: - Image URL
 
-extension Movie {
-  
-  func getImageURL(forType type: ImageType) -> URL {
-    
-    let baseURL = "https://image.tmdb.org/t/p/"
-    var path = ""
-    
-    switch type {
-    case .poster:
-      if let imagePath = posterImagePath {
-        path = "\(type.dimensions)\(imagePath)"
-      } else {
-        return URL(string: "https://placeimg.com/500/780/any")!
-      }
-      
-    case .backdrop:
-      if let imagePath = backdropImagePath {
-        path = "\(type.dimensions)\(imagePath)"
-      } else {
-        return URL(string: "https://placeimg.com/780/439/any")!
-      }
-    }
-    
-    let result = baseURL + path
-    
-    return URL(string: result)!
-  }
-}
 
 
 

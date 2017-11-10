@@ -27,7 +27,7 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
     
     for movie in response.movies {
       let url = movie.getImageURL(forType: .backdrop)
-      let displayedMovie = ListMovies.FetchMovies.ViewModel.DisplayedMovie(title: movie.title!, averageScore: movie.voteAverage!, backdropImageURL: url)
+      let displayedMovie = ListMovies.FetchMovies.ViewModel.DisplayedMovie(title: movie.title, averageScore: movie.voteAverage, backdropImageURL: url)
       displayedMovies.append(displayedMovie)
     }
     

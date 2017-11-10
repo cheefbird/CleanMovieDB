@@ -12,8 +12,11 @@ import UIKit
 extension UIColor {
   
   static func darkBlue() -> UIColor {
-    return UIColor(hue: 152.0, saturation: 100.0, brightness: 84.0, alpha: 1.0)
+    return UIColor(red:0.03/255.0, green:0.11/255.0, blue:0.15/255.0, alpha:1.0)
   }
   
+  static func greenColor() -> UIColor {
+    return UIColor(red:0.00/255.0, green:0.84/255.0, blue:0.45/255.0, alpha:1.0)
+  }
   
 }
