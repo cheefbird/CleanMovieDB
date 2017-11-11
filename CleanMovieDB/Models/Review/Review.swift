@@ -10,26 +10,26 @@ import Foundation
 import ObjectMapper
 
 class Review: ReviewObject, Mappable {
+  
+  // MARK: - Properties
+  
+  var id = ""
+  var author = ""
+  var content = ""
+  
+  // MARK: - Init
+  
+  required init?(map: Map) {
     
-    // MARK: - Properties
-    
-    var id = ""
-    var author = ""
-    var content = ""
-    
-    // MARK: - Init
-    
-    required init?(map: Map) {
-        
-    }
-    
-    // Mappable
-    
-    func mapping(map: Map) {
-        id <- map["id"]
-        author <- map["author"]
-        content <- map["content"]
-    }
-    
-    
+  }
+  
+  // Mappable
+  
+  func mapping(map: Map) {
+    id <- map["id"]
+    author <- map["author"]
+    content <- map["content"]
+  }
+  
+  
 }

@@ -9,11 +9,12 @@
 import Foundation
 
 protocol ReviewObject {
-    
-    // MARK: - Properties
-    
-    var id: String { get }
-    var author: String { get }
-    var content: String { get }
-    
+  
+  // MARK: - Properties
+  
+  var id: String { get }
+  var author: String { get }
+  var content: String { get }
+  var 
+  
 }
