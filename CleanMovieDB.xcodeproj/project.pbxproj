@@ -165,12 +165,12 @@
 		06DC8CFD1FAD456600606738 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				06DC8CFE1FAD459600606738 /* MovieDetailsPresenter.swift */,
-				06DC8CFF1FAD459600606738 /* MovieDetailsWorker.swift */,
-				06DC8D001FAD459600606738 /* MovieDetailsRouter.swift */,
 				06DC8D011FAD459600606738 /* MovieDetailsModels.swift */,
 				06DC8D021FAD459600606738 /* MovieDetailsViewController.swift */,
 				06DC8D031FAD459600606738 /* MovieDetailsInteractor.swift */,
+				06DC8CFE1FAD459600606738 /* MovieDetailsPresenter.swift */,
+				06DC8CFF1FAD459600606738 /* MovieDetailsWorker.swift */,
+				06DC8D001FAD459600606738 /* MovieDetailsRouter.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
