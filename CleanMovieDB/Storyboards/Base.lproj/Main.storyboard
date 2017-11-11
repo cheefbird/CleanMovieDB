@@ -240,7 +240,7 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.83529411764705885" blue="0.44549019607843127" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedColor">
-                                <color key="value" red="0.72639494230000001" green="0.67943974169999999" blue="0.83213244819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -251,13 +251,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0b-k6-6RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="-780"/>
+            <point key="canvasLocation" x="262" y="-876"/>
         </scene>
-        <!--Movies-->
+        <!--Discover Movies-->
         <scene sceneID="dpw-aU-skV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yvL-yO-zF4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movies" image="ic_movies" selectedImage="ic_movies" id="HrH-c0-5G7"/>
+                    <tabBarItem key="tabBarItem" title="Discover Movies" image="ic_discover_movies" selectedImage="ic_discover_movies" id="HrH-c0-5G7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="apO-yI-ktK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -290,10 +290,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpH-ON-vTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="-8"/>
+            <point key="canvasLocation" x="262" y="10"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_discover_movies" width="25" height="25"/>
         <image name="ic_movies" width="25" height="25"/>
     </resources>
 </document>
