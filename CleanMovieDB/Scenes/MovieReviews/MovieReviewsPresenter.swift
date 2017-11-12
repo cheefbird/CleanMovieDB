@@ -12,19 +12,16 @@
 
 import UIKit
 
-protocol MovieReviewsPresentationLogic
-{
+protocol MovieReviewsPresentationLogic {
   func presentSomething(response: MovieReviews.Something.Response)
 }
 
-class MovieReviewsPresenter: MovieReviewsPresentationLogic
-{
+class MovieReviewsPresenter: MovieReviewsPresentationLogic {
   weak var viewController: MovieReviewsDisplayLogic?
   
   // MARK: Do something
   
-  func presentSomething(response: MovieReviews.Something.Response)
-  {
+  func presentSomething(response: MovieReviews.Something.Response) {
     let viewModel = MovieReviews.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }

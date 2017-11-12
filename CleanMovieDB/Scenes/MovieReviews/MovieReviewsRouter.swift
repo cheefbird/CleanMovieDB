@@ -12,18 +12,15 @@
 
 import UIKit
 
-@objc protocol MovieReviewsRoutingLogic
-{
+@objc protocol MovieReviewsRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol MovieReviewsDataPassing
-{
+protocol MovieReviewsDataPassing {
   var dataStore: MovieReviewsDataStore? { get }
 }
 
-class MovieReviewsRouter: NSObject, MovieReviewsRoutingLogic, MovieReviewsDataPassing
-{
+class MovieReviewsRouter: NSObject, MovieReviewsRoutingLogic, MovieReviewsDataPassing {
   weak var viewController: MovieReviewsViewController?
   var dataStore: MovieReviewsDataStore?
   

@@ -12,26 +12,22 @@
 
 import UIKit
 
-protocol MovieReviewsBusinessLogic
-{
+protocol MovieReviewsBusinessLogic {
   func doSomething(request: MovieReviews.Something.Request)
 }
 
-protocol MovieReviewsDataStore
-{
+protocol MovieReviewsDataStore {
   //var name: String { get set }
 }
 
-class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore
-{
+class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
   var presenter: MovieReviewsPresentationLogic?
   var worker: MovieReviewsWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: MovieReviews.Something.Request)
-  {
+  func doSomething(request: MovieReviews.Something.Request) {
     worker = MovieReviewsWorker()
     worker?.doSomeWork()
     

@@ -182,12 +182,12 @@
 		06A79B031FB7DDFE008112BB /* MovieReviews */ = {
 			isa = PBXGroup;
 			children = (
-				06A79B041FB7DE25008112BB /* MovieReviewsPresenter.swift */,
-				06A79B051FB7DE25008112BB /* MovieReviewsWorker.swift */,
-				06A79B061FB7DE25008112BB /* MovieReviewsRouter.swift */,
 				06A79B071FB7DE25008112BB /* MovieReviewsModels.swift */,
 				06A79B081FB7DE25008112BB /* MovieReviewsViewController.swift */,
 				06A79B091FB7DE25008112BB /* MovieReviewsInteractor.swift */,
+				06A79B041FB7DE25008112BB /* MovieReviewsPresenter.swift */,
+				06A79B051FB7DE25008112BB /* MovieReviewsWorker.swift */,
+				06A79B061FB7DE25008112BB /* MovieReviewsRouter.swift */,
 			);
 			path = MovieReviews;
 			sourceTree = "<group>";
