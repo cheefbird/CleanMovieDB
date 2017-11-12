@@ -29,6 +29,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   @IBOutlet var movieTitleLabel: UILabel!
   @IBOutlet var movieScoreLabel: UILabel!
   @IBOutlet var movieSummaryLabel: UILabel!
+  @IBOutlet var reviewsButton: UIButton!
 
   // MARK: - Object lifecycle
   
@@ -91,6 +92,8 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   
   func displayMovie(viewModel: MovieDetails.GetMovie.ViewModel) {
     let movie = viewModel.displayedMovie
+    
+    self.navigationItem.title = movie.title
     
     backdropImageView.kf.setImage(with: movie.backdropImage)
     posterImageView.kf.setImage(with: movie.posterImage)
