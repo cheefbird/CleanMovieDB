@@ -19,6 +19,7 @@ protocol MovieObject {
   var voteAverage: Double { get }
   var posterImagePath: String { get }
   var backdropImagePath: String { get }
+  var reviews: [ReviewObject] { get }
   
   func getImageURL(forType type: MovieImageType) -> URL
 

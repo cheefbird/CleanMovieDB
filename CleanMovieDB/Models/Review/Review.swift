@@ -16,7 +16,7 @@ class Review: ReviewObject, Mappable {
   var id = ""
   var author = ""
   var content = ""
-  
+
   // MARK: - Init
   
   required init?(map: Map) {
@@ -26,10 +26,8 @@ class Review: ReviewObject, Mappable {
   // Mappable
   
   func mapping(map: Map) {
-    id <- map["id"]
-    author <- map["author"]
-    content <- map["content"]
+    id        <- map["id"]
+    author    <- map["author"]
+    content   <- map["content"]
   }
-  
-  
 }

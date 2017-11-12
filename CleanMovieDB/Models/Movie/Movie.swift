@@ -18,6 +18,9 @@ class Movie: MovieObject, Mappable {
   var voteAverage = 0.0
   var posterImagePath = ""
   var backdropImagePath = ""
+  var reviews: [ReviewObject] { return _reviews }
+  
+  private var _reviews = [Review]()
   
   // MARK: - Init
   

@@ -15,6 +15,5 @@ protocol ReviewObject {
   var id: String { get }
   var author: String { get }
   var content: String { get }
-  var 
   
 }
