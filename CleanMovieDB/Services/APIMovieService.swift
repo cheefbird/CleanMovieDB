@@ -46,6 +46,26 @@ class APIMovieService: MovieServiceType {
       realm.add(newMovies, update: true)
     }
   }
+  
+  func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
+    let movieID = movie.id
+    
+    Alamofire.request(MoviesRouter.getReview(id: movieID))
+      .responseArray(keyPath: "results") { (response: DataResponse<[Review]>) in
+        
+        guard response.result.error == nil else {
+          // TODO: completion handler
+          return
+        }
+        
+        guard let reviews = response.result.value else {
+          // TODO: completion handler
+          return
+        }
+        
+    }
+  }
+  
 }
 
 

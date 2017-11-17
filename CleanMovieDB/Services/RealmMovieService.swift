@@ -19,4 +19,8 @@ class RealmMovieService: MovieServiceType {
     completionHandler(Array(movies), nil)
   }
   
+  func getReview(forMovie movie: MovieObject, completionHandler: @escaping ReviewResult) {
+    
+  }
+  
 }
