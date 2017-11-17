@@ -48,6 +48,7 @@
 		06E4F5291FA8138200110FFB /* ListMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */; };
 		08FA88ED20D8A3EAA503B470 /* Pods_CleanMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF563369CF5824D5E68FAA9 /* Pods_CleanMovieDBTests.framework */; };
 		44BBC4C9A3D4E6B3A279FF83 /* Pods_CleanMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738C607363AB599AD699ED24 /* Pods_CleanMovieDB.framework */; };
+		D5D20C581FBE95F700A950BF /* MovieReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D20C571FBE95F700A950BF /* MovieReviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		738C607363AB599AD699ED24 /* Pods_CleanMovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanMovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92915DD1C63A0BCF7E460FE8 /* Pods-CleanMovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDBTests/Pods-CleanMovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB2E5E47BCF59A37799A95FE /* Pods-CleanMovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDB/Pods-CleanMovieDB.debug.xcconfig"; sourceTree = "<group>"; };
+		D5D20C571FBE95F700A950BF /* MovieReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				06A79B041FB7DE25008112BB /* MovieReviewsPresenter.swift */,
 				06A79B051FB7DE25008112BB /* MovieReviewsWorker.swift */,
 				06A79B061FB7DE25008112BB /* MovieReviewsRouter.swift */,
+				D5D20C571FBE95F700A950BF /* MovieReviewCell.swift */,
 			);
 			path = MovieReviews;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */,
 				06E4F4FC1FA8122500110FFB /* AppDelegate.swift in Sources */,
 				06D827E21FA94C2800693102 /* CustomTabBar.swift in Sources */,
+				D5D20C581FBE95F700A950BF /* MovieReviewCell.swift in Sources */,
 				06E4F5291FA8138200110FFB /* ListMoviesInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,12 +744,14 @@
 			baseConfigurationReference = BB2E5E47BCF59A37799A95FE /* Pods-CleanMovieDB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WA3KPNE52J;
+				DEVELOPMENT_TEAM = 5P7R925Z75;
 				INFOPLIST_FILE = CleanMovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbreidenbach.CleanMovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -756,12 +762,14 @@
 			baseConfigurationReference = 494EB680FC3BB64A5B48FD23 /* Pods-CleanMovieDB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WA3KPNE52J;
+				DEVELOPMENT_TEAM = 5P7R925Z75;
 				INFOPLIST_FILE = CleanMovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbreidenbach.CleanMovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

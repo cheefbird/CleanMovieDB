@@ -248,13 +248,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NKb-Bi-DVr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieReviewCell" rowHeight="99" id="NKb-Bi-DVr" customClass="MovieReviewCell" customModule="CleanMovieDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NKb-Bi-DVr" id="I7q-Cs-vXK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authorName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-4T-huE">
+                                            <rect key="frame" x="16" y="11" width="79.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reviewContent" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mw-Pu-Cj8">
+                                            <rect key="frame" x="16" y="33" width="111" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="textColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2mw-Pu-Cj8" firstAttribute="top" secondItem="TUF-4T-huE" secondAttribute="bottom" constant="5" id="5WP-ub-9GO"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2mw-Pu-Cj8" secondAttribute="trailing" id="BG1-s7-Bj1"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TUF-4T-huE" secondAttribute="trailing" id="HDE-tt-NIh"/>
+                                        <constraint firstItem="TUF-4T-huE" firstAttribute="top" secondItem="I7q-Cs-vXK" secondAttribute="topMargin" id="TLh-8C-bGO"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2mw-Pu-Cj8" secondAttribute="bottom" id="akb-9l-Mob"/>
+                                        <constraint firstItem="TUF-4T-huE" firstAttribute="leading" secondItem="I7q-Cs-vXK" secondAttribute="leadingMargin" id="dPv-ZN-vQb"/>
+                                        <constraint firstItem="2mw-Pu-Cj8" firstAttribute="leading" secondItem="I7q-Cs-vXK" secondAttribute="leadingMargin" id="q29-6K-EGg"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorNameLabel" destination="TUF-4T-huE" id="yXZ-Kt-09G"/>
+                                    <outlet property="reviewContentLabel" destination="2mw-Pu-Cj8" id="e4v-xh-hbo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -265,7 +292,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0P-pJ-0Ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="2302"/>
+            <point key="canvasLocation" x="-570.39999999999998" y="2301.4992503748126"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Mfm-61-PBa">
