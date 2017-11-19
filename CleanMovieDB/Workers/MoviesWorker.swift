@@ -22,14 +22,16 @@ protocol MoviesWorkerType {
 
 
 class MoviesWorker: MoviesWorkerType {
+  
+  static let shared = MoviesWorker()
+  
+  private init() {
+    realmService = RealmMovieService()
+    apiService = APIMovieService()
+  }
 
   var realmService: MovieServiceType
   var apiService: MovieServiceType
-  
-  init(realmService: MovieServiceType, apiService: MovieServiceType) {
-    self.realmService = realmService
-    self.apiService = apiService
-  }
   
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     

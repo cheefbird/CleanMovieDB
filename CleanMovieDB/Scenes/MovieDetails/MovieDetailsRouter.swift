@@ -12,22 +12,28 @@
 
 import UIKit
 
-@objc protocol MovieDetailsRoutingLogic
-{
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+@objc protocol MovieDetailsRoutingLogic {
+  func routeToShowMovieReviews(segue: UIStoryboardSegue?)
 }
 
-protocol MovieDetailsDataPassing
-{
+protocol MovieDetailsDataPassing {
   var dataStore: MovieDetailsDataStore? { get }
 }
 
-class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPassing
-{
+class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPassing {
   weak var viewController: MovieDetailsViewController?
   var dataStore: MovieDetailsDataStore?
   
   // MARK: Routing
+  
+  func routeToShowMovieReviews(segue: UIStoryboardSegue?) {
+    
+    guard let destinationVC = segue?.destination as? MovieReviewsViewController,
+      var destinationDS = destinationVC.router?.dataStore,
+      let dataStore = self.dataStore else { return }
+    
+    passDataToMovieReviews(source: dataStore, destination: &destinationDS)
+  }
   
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
@@ -43,7 +49,7 @@ class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPa
   //    navigateToSomewhere(source: viewController!, destination: destinationVC)
   //  }
   //}
-
+  
   // MARK: Navigation
   
   //func navigateToSomewhere(source: MovieDetailsViewController, destination: SomewhereViewController)
@@ -53,8 +59,7 @@ class MovieDetailsRouter: NSObject, MovieDetailsRoutingLogic, MovieDetailsDataPa
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: MovieDetailsDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToMovieReviews(source: MovieDetailsDataStore, destination: inout MovieReviewsDataStore) {
+    destination.movie = source.movie
+  }
 }

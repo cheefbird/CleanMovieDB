@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MovieDetailsPresentationLogic {
-  func displayMovie(response: MovieDetails.GetMovie.Response)
+  func displayMovie(response: MovieDetails.ShowDetails.Response)
 }
 
 class MovieDetailsPresenter: MovieDetailsPresentationLogic {
@@ -21,15 +21,15 @@ class MovieDetailsPresenter: MovieDetailsPresentationLogic {
   
   // MARK: Do something
   
-  func displayMovie(response: MovieDetails.GetMovie.Response) {
+  func displayMovie(response: MovieDetails.ShowDetails.Response) {
     let movie = response.movie
     
     let backdropURL = movie.getImageURL(forType: .backdrop)
     let posterURL = movie.getImageURL(forType: .poster)
     
-    let displayedMovie = MovieDetails.GetMovie.ViewModel.DisplayedMovie(backdropImage: backdropURL, posterImage: posterURL, title: movie.title, averageScore: movie.voteAverage, summary: movie.summary)
+    let displayedMovie = MovieDetails.ShowDetails.ViewModel.DisplayedMovie(backdropImage: backdropURL, posterImage: posterURL, title: movie.title, averageScore: movie.voteAverage, summary: movie.summary)
     
-    let viewModel = MovieDetails.GetMovie.ViewModel(displayedMovie: displayedMovie)
+    let viewModel = MovieDetails.ShowDetails.ViewModel(displayedMovie: displayedMovie)
     viewController?.displayMovie(viewModel: viewModel)
   }
 }

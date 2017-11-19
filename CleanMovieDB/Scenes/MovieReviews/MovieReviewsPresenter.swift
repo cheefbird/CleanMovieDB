@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MovieReviewsPresentationLogic {
-  func presentSomething(response: MovieReviews.Something.Response)
+  func presentReviews(response: MovieReviews.GetReviews.Response)
 }
 
 class MovieReviewsPresenter: MovieReviewsPresentationLogic {
@@ -21,8 +21,18 @@ class MovieReviewsPresenter: MovieReviewsPresentationLogic {
   
   // MARK: Do something
   
-  func presentSomething(response: MovieReviews.Something.Response) {
-    let viewModel = MovieReviews.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentReviews(response: MovieReviews.GetReviews.Response) {
+    var displayedReviews = [MovieReviews.GetReviews.ViewModel.DisplayedReview]()
+    
+    for review in response.reviews {
+      let displayedReview = MovieReviews.GetReviews.ViewModel.DisplayedReview(
+        id: review.id,
+        author: review.author,
+        content: review.content)
+      displayedReviews.append(displayedReview)
+    }
+    
+    let viewModel = MovieReviews.GetReviews.ViewModel(displayedReviews: displayedReviews)
+    viewController?.displayReviews(viewModel: viewModel)
   }
 }

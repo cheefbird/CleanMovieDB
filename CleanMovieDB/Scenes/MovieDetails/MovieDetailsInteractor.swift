@@ -13,26 +13,25 @@
 import UIKit
 
 protocol MovieDetailsBusinessLogic {
-  func getMovie(request: MovieDetails.GetMovie.Request)
+  func prepareMovie(request: MovieDetails.ShowDetails.Request)
 }
 
 protocol MovieDetailsDataStore {
-  var movie: MovieObject! { get set }
+  var movie: MovieObject? { get set }
 }
 
 class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
   var presenter: MovieDetailsPresentationLogic?
   var worker: MovieDetailsWorker?
   
-  var movie: MovieObject!
+  var movie: MovieObject?
   
   // MARK: Do something
   
-  func getMovie(request: MovieDetails.GetMovie.Request) {
-    worker = MovieDetailsWorker()
-    worker?.doSomeWork()
+  func prepareMovie(request: MovieDetails.ShowDetails.Request) {
+    guard let movie = movie else { return }
     
-    let response = MovieDetails.GetMovie.Response(movie: movie)
+    let response = MovieDetails.ShowDetails.Response(movie: movie)
     presenter?.displayMovie(response: response)
   }
 }

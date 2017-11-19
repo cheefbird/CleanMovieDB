@@ -195,7 +195,7 @@
                                             <color key="titleColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yuG-Mn-gDl" kind="show" id="YDV-Zb-hYB"/>
+                                            <segue destination="yuG-Mn-gDl" kind="show" identifier="ShowMovieReviews" id="YDV-Zb-hYB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -239,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="-570.39999999999998" y="1532.3838080959522"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Movie Reviews View Controller-->
         <scene sceneID="Gad-EU-PMX">
             <objects>
-                <tableViewController id="yuG-Mn-gDl" sceneMemberID="viewController">
+                <tableViewController id="yuG-Mn-gDl" customClass="MovieReviewsViewController" customModule="CleanMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KUU-d9-fwc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

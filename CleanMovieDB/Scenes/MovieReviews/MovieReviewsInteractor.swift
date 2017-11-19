@@ -13,25 +13,42 @@
 import UIKit
 
 protocol MovieReviewsBusinessLogic {
-  func doSomething(request: MovieReviews.Something.Request)
+  func fetchMovies(request: MovieReviews.GetReviews.Request)
 }
 
 protocol MovieReviewsDataStore {
-  //var name: String { get set }
+  var movie: MovieObject? { get set }
+  var reviews: [ReviewObject]? { get set }
 }
 
 class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
   var presenter: MovieReviewsPresentationLogic?
-  var worker: MovieReviewsWorker?
-  //var name: String = ""
+  
+  var movie: MovieObject?
+  var reviews: [ReviewObject]?
   
   // MARK: Do something
   
-  func doSomething(request: MovieReviews.Something.Request) {
-    worker = MovieReviewsWorker()
-    worker?.doSomeWork()
+  func fetchMovies(request: MovieReviews.GetReviews.Request) {
+    guard let movie = movie else { return }
     
-    let response = MovieReviews.Something.Response()
-    presenter?.presentSomething(response: response)
+    MoviesWorker.shared.fetchReviews(forMovie: movie) { (reviews, error) in
+      guard error == nil else {
+        print("Error occurred while retrieving reviews for \(movie.title)")
+        return
+      }
+      
+      if self.reviews == nil {
+        self.reviews = reviews
+      } else {
+        self.reviews?.append(contentsOf: reviews)
+      }
+      
+      let response = MovieReviews.GetReviews.Response(reviews: reviews)
+      self.presenter?.presentReviews(response: response)
+      
+    }
+    
+
   }
 }

@@ -13,12 +13,14 @@
 import UIKit
 
 protocol MovieReviewsDisplayLogic: class {
-  func displaySomething(viewModel: MovieReviews.Something.ViewModel)
+  func displayReviews(viewModel: MovieReviews.GetReviews.ViewModel)
 }
 
 class MovieReviewsViewController: UITableViewController, MovieReviewsDisplayLogic {
   var interactor: MovieReviewsBusinessLogic?
   var router: (NSObjectProtocol & MovieReviewsRoutingLogic & MovieReviewsDataPassing)?
+  
+  var reviews = [MovieReviews.GetReviews.ViewModel.DisplayedReview]()
   
   // MARK: Object lifecycle
   
@@ -62,19 +64,52 @@ class MovieReviewsViewController: UITableViewController, MovieReviewsDisplayLogi
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    
+    navigationItem.title = "\(String(describing: router?.dataStore?.movie?.title))'s Reviews"
+    
+    loadReviews()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething() {
-    let request = MovieReviews.Something.Request()
-    interactor?.doSomething(request: request)
+  func loadReviews() {
+    let request = MovieReviews.GetReviews.Request()
+    interactor?.fetchMovies(request: request)
   }
   
-  func displaySomething(viewModel: MovieReviews.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
+  func displayReviews(viewModel: MovieReviews.GetReviews.ViewModel) {
+    reviews.append(contentsOf: viewModel.displayedReviews)
+    
+    tableView.reloadData()
+  }
+  
+  // MARK: - TableView Delegate
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return reviews.count
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieReviewCell", for: indexPath) as! MovieReviewCell
+    
+    let review = reviews[indexPath.row]
+    
+    cell.configure(forReview: review)
+    
+    return cell
   }
 }
+
+
+
+
+
+
+
+
+
+
+

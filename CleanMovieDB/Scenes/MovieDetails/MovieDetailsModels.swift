@@ -15,7 +15,7 @@ import UIKit
 enum MovieDetails {
   // MARK: Use cases
   
-  enum GetMovie {
+  enum ShowDetails {
     struct Request {
       
     }

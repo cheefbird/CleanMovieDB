@@ -15,12 +15,22 @@ import UIKit
 enum MovieReviews {
   // MARK: Use cases
   
-  enum Something {
+  enum GetReviews {
     struct Request {
     }
     struct Response {
+      var reviews: [ReviewObject]
     }
     struct ViewModel {
+      
+      struct DisplayedReview {
+        var id: String
+        var author: String
+        var content: String
+      }
+      
+      var displayedReviews: [DisplayedReview]
+      
     }
   }
 }

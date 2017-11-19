@@ -16,5 +16,10 @@ class MovieReviewCell: UITableViewCell {
   @IBOutlet var reviewContentLabel: UILabel!
   
   // MARK: - Methods
+  
+  func configure(forReview review: MovieReviews.GetReviews.ViewModel.DisplayedReview) {
+    authorNameLabel.text = review.author
+    reviewContentLabel.text = review.content
+  }
 
 }
