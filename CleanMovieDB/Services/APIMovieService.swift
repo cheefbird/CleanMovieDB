@@ -31,14 +31,14 @@ class APIMovieService: MovieServiceType {
           return
         }
         
-        self.persist(movieArray)
+        self.persist(movies: movieArray)
         
         completionHandler(movieArray, nil)
         
     }
   }
   
-  fileprivate func persist(_ movies: [MovieObject]) {
+  fileprivate func persist(movies: [MovieObject]) {
     let newMovies = movies.map { RealmMovie(copy: $0) }
     
     let realm = try! Realm()
@@ -54,15 +54,29 @@ class APIMovieService: MovieServiceType {
       .responseArray(keyPath: "results") { (response: DataResponse<[Review]>) in
         
         guard response.result.error == nil else {
-          // TODO: completion handler
+          completionHandler([], response.result.error!)
+          print("Error: \(response.result.error!.localizedDescription)")
           return
         }
         
         guard let reviews = response.result.value else {
-          // TODO: completion handler
+          completionHandler([], MoviesAPIError.serializationError(reason: "Unable to serialize reviews response"))
+          print("Error serializing reviews response")
           return
         }
         
+        self.persist(reviews: reviews)
+        
+        completionHandler(reviews, nil)
+    }
+  }
+  
+  fileprivate func persist(reviews: [ReviewObject]) {
+    let newReviews = reviews.map { RealmReview(copyFrom: $0) }
+    
+    let realm = try! Realm()
+    try! realm.write {
+      realm.add(newReviews, update: true)
     }
   }
   
