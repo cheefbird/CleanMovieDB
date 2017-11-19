@@ -16,7 +16,8 @@ class RealmReview: Object, ReviewObject {
   @objc dynamic var id = ""
   @objc dynamic var author = ""
   @objc dynamic var content = ""
-
+  
+  let movie = LinkingObjects(fromType: RealmMovie.self, property: "reviews")
   
   // MARK: - Init
   

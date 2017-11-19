@@ -19,9 +19,7 @@ class RealmMovie: Object, MovieObject {
   @objc dynamic var posterImagePath = ""
   @objc dynamic var backdropImagePath = ""
   
-  var reviews: [ReviewObject] { return Array(_reviews) }
-  
-  var _reviews = List<RealmReview>()
+  let reviews = List<RealmReview>()
   
   convenience required init(copy movie: MovieObject) {
     self.init()
