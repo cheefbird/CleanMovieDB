@@ -43,5 +43,11 @@ class MoviesWorker: MoviesWorkerType {
     apiService.getMovies(forPage: page, completionHandler: completionHandler)
     
   }
+  
+  func fetchReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
+    
+    apiService.getReviews(forMovie: movie, completionHandler: completionHandler)
+    
+  }
 
 }

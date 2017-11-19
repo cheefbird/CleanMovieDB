@@ -65,19 +65,25 @@ class APIMovieService: MovieServiceType {
           return
         }
         
-        self.persist(reviews: reviews)
+        
+        
+        self.persist(reviews: reviews, forMovieID: movieID)
         
         completionHandler(reviews, nil)
     }
   }
   
-  fileprivate func persist(reviews: [ReviewObject]) {
+  fileprivate func persist(reviews: [ReviewObject], forMovieID id: Int) {
     let newReviews = reviews.map { RealmReview(copyFrom: $0) }
     
     let realm = try! Realm()
-    try! realm.write {
-      realm.add(newReviews, update: true)
+    let movie = realm.object(ofType: RealmMovie.self, forPrimaryKey: id)
+    
+    
+    try!realm.write {
+      movie?.reviews.append(objectsIn: newReviews)
     }
+    
   }
   
 }

@@ -22,7 +22,7 @@ class RealmMovieService: MovieServiceType {
   func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
     let realm = try! Realm()
     
-    let reviews = realm.objects(RealmReview.self)
+    let reviews = realm.objects(RealmReview.self).filter("movie == %@", movie)
     
     completionHandler(Array(reviews), nil)
   }
