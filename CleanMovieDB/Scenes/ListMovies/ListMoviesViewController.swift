@@ -56,11 +56,9 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     let router = ListMoviesRouter()
     let apiMovieService = APIMovieService()
     let realmMovieService = RealmMovieService()
-    let worker = MoviesWorker(realmService: realmMovieService, apiService: apiMovieService)
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
-    interactor.worker = worker
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor

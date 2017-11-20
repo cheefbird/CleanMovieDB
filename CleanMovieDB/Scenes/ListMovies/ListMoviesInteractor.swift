@@ -23,7 +23,7 @@ protocol ListMoviesDataStore {
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   var presenter: ListMoviesPresentationLogic?
-  var worker: MoviesWorker?
+  var worker: MoviesWorker!
   
   var movies: [MovieObject]?
   
@@ -31,7 +31,9 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-    worker?.fetchMovies(forPage: request.page) { (movies, error) in
+    worker = MoviesWorker.shared
+    
+    worker.fetchMovies(forPage: request.page) { (movies, error) in
       guard error == nil else {
         print("ERROR: ERROR occurred while fetching movies")
         return

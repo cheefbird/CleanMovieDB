@@ -14,7 +14,7 @@ import UIKit
 import Kingfisher
 
 protocol MovieDetailsDisplayLogic: class {
-  func displayMovie(viewModel: MovieDetails.GetMovie.ViewModel)
+  func displayMovie(viewModel: MovieDetails.ShowDetails.ViewModel)
 }
 
 class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
@@ -29,6 +29,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   @IBOutlet var movieTitleLabel: UILabel!
   @IBOutlet var movieScoreLabel: UILabel!
   @IBOutlet var movieSummaryLabel: UILabel!
+  @IBOutlet var reviewsButton: UIButton!
 
   // MARK: - Object lifecycle
   
@@ -60,6 +61,8 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   // MARK: - Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print("SEGUE STARTED")
+    print(router?.dataStore?.movie?.title)
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -85,12 +88,14 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   //@IBOutlet weak var nameTextField: UITextField!
   
   func getMovieToDisplay() {
-    let request = MovieDetails.GetMovie.Request()
-    interactor?.getMovie(request: request)
+    let request = MovieDetails.ShowDetails.Request()
+    interactor?.prepareMovie(request: request)
   }
   
-  func displayMovie(viewModel: MovieDetails.GetMovie.ViewModel) {
+  func displayMovie(viewModel: MovieDetails.ShowDetails.ViewModel) {
     let movie = viewModel.displayedMovie
+    
+    self.navigationItem.title = movie.title
     
     backdropImageView.kf.setImage(with: movie.backdropImage)
     posterImageView.kf.setImage(with: movie.posterImage)

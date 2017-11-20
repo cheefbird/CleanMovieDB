@@ -19,6 +19,8 @@ class RealmMovie: Object, MovieObject {
   @objc dynamic var posterImagePath = ""
   @objc dynamic var backdropImagePath = ""
   
+  let reviews = List<RealmReview>()
+  
   convenience required init(copy movie: MovieObject) {
     self.init()
     
