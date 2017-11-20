@@ -65,7 +65,7 @@ class MovieReviewsViewController: UITableViewController, MovieReviewsDisplayLogi
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationItem.title = "\(String(describing: router?.dataStore?.movie?.title))'s Reviews"
+    navigationItem.title = "Loading reviews ..."
     
     loadReviews()
   }
@@ -81,6 +81,10 @@ class MovieReviewsViewController: UITableViewController, MovieReviewsDisplayLogi
   
   func displayReviews(viewModel: MovieReviews.GetReviews.ViewModel) {
     reviews.append(contentsOf: viewModel.displayedReviews)
+    
+    let reviewCount = reviews.count > 0 ? String(reviews.count) : "No"
+    
+    navigationItem.title = "\(reviewCount) Reviews"
     
     tableView.reloadData()
   }
