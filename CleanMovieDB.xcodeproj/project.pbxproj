@@ -25,6 +25,7 @@
 		06A79B0D1FB7DE25008112BB /* MovieReviewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B071FB7DE25008112BB /* MovieReviewsModels.swift */; };
 		06A79B0E1FB7DE25008112BB /* MovieReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B081FB7DE25008112BB /* MovieReviewsViewController.swift */; };
 		06A79B0F1FB7DE25008112BB /* MovieReviewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B091FB7DE25008112BB /* MovieReviewsInteractor.swift */; };
+		06B9057C1FC3609E0007B0D9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B9057B1FC3609E0007B0D9 /* CustomButton.swift */; };
 		06D827E21FA94C2800693102 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E11FA94C2800693102 /* CustomTabBar.swift */; };
 		06D827E81FA9548300693102 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E71FA9548300693102 /* AppColors.swift */; };
 		06D827EB1FA968BA00693102 /* MoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827EA1FA968BA00693102 /* MoviesWorker.swift */; };
@@ -80,6 +81,7 @@
 		06A79B071FB7DE25008112BB /* MovieReviewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsModels.swift; sourceTree = "<group>"; };
 		06A79B081FB7DE25008112BB /* MovieReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsViewController.swift; sourceTree = "<group>"; };
 		06A79B091FB7DE25008112BB /* MovieReviewsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsInteractor.swift; sourceTree = "<group>"; };
+		06B9057B1FC3609E0007B0D9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		06D827E11FA94C2800693102 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		06D827E71FA9548300693102 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		06D827EA1FA968BA00693102 /* MoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesWorker.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				06D827E11FA94C2800693102 /* CustomTabBar.swift */,
 				06D827E71FA9548300693102 /* AppColors.swift */,
 				067D46B41FB3D361001D3834 /* RoundedUILabel.swift */,
+				06B9057B1FC3609E0007B0D9 /* CustomButton.swift */,
 			);
 			path = "UI Helpers";
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
 				06DC8D041FAD459600606738 /* MovieDetailsPresenter.swift in Sources */,
+				06B9057C1FC3609E0007B0D9 /* CustomButton.swift in Sources */,
 				06D827E81FA9548300693102 /* AppColors.swift in Sources */,
 				06A79B021FB6A173008112BB /* RealmReview.swift in Sources */,
 				06A79B001FB69B7E008112BB /* Review.swift in Sources */,

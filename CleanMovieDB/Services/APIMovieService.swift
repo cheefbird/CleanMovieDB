@@ -66,7 +66,6 @@ class APIMovieService: MovieServiceType {
         }
         
         
-        
         self.persist(reviews: reviews, forMovieID: movieID)
         
         completionHandler(reviews, nil)
