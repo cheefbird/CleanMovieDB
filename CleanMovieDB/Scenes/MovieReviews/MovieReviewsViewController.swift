@@ -76,7 +76,7 @@ class MovieReviewsViewController: UITableViewController, MovieReviewsDisplayLogi
   
   func loadReviews() {
     let request = MovieReviews.GetReviews.Request()
-    interactor?.fetchMovies(request: request)
+    interactor?.fetchReviews(request: request)
   }
   
   func displayReviews(viewModel: MovieReviews.GetReviews.ViewModel) {

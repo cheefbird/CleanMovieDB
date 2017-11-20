@@ -19,7 +19,7 @@ protocol MovieReviewsPresentationLogic {
 class MovieReviewsPresenter: MovieReviewsPresentationLogic {
   weak var viewController: MovieReviewsDisplayLogic?
   
-  // MARK: Do something
+  // MARK: Present Reviews
   
   func presentReviews(response: MovieReviews.GetReviews.Response) {
     var displayedReviews = [MovieReviews.GetReviews.ViewModel.DisplayedReview]()

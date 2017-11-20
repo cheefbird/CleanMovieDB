@@ -31,7 +31,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   @IBOutlet var movieSummaryLabel: UILabel!
   @IBOutlet var reviewsButton: UIButton!
 
-  // MARK: - Object lifecycle
+  // MARK: - Init
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -61,8 +61,6 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   // MARK: - Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print("SEGUE STARTED")
-    print(router?.dataStore?.movie?.title)
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -71,7 +69,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     }
   }
   
-  // MARK: - View lifecycle
+  // MARK: - Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -83,13 +81,11 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     
   }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
+  // MARK: Methods
   
   func getMovieToDisplay() {
     let request = MovieDetails.ShowDetails.Request()
-    interactor?.prepareMovie(request: request)
+    interactor?.verifyAndSendMovie(request: request)
   }
   
   func displayMovie(viewModel: MovieDetails.ShowDetails.ViewModel) {

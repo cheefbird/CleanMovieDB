@@ -35,13 +35,6 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing 
     passDataToShowMovieDetails(source: dataStore, destination: &destinationDS)
   }
   
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: ListMoviesViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
   // MARK: Passing data
   
   func passDataToShowMovieDetails(source: ListMoviesDataStore, destination: inout MovieDetailsDataStore) {

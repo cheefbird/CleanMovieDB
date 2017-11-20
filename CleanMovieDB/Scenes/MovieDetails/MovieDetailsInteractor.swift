@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MovieDetailsBusinessLogic {
-  func prepareMovie(request: MovieDetails.ShowDetails.Request)
+  func verifyAndSendMovie(request: MovieDetails.ShowDetails.Request)
 }
 
 protocol MovieDetailsDataStore {
@@ -22,13 +22,12 @@ protocol MovieDetailsDataStore {
 
 class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
   var presenter: MovieDetailsPresentationLogic?
-  var worker: MovieDetailsWorker?
   
   var movie: MovieObject?
   
-  // MARK: Do something
+  // MARK: Prepare
   
-  func prepareMovie(request: MovieDetails.ShowDetails.Request) {
+  func verifyAndSendMovie(request: MovieDetails.ShowDetails.Request) {
     guard let movie = movie else { return }
     
     let response = MovieDetails.ShowDetails.Response(movie: movie)

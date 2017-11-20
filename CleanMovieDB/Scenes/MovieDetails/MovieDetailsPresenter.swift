@@ -19,7 +19,7 @@ protocol MovieDetailsPresentationLogic {
 class MovieDetailsPresenter: MovieDetailsPresentationLogic {
   weak var viewController: MovieDetailsDisplayLogic?
   
-  // MARK: Do something
+  // MARK: Display Movie
   
   func displayMovie(response: MovieDetails.ShowDetails.Response) {
     let movie = response.movie

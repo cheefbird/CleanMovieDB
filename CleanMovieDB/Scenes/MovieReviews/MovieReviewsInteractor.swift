@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MovieReviewsBusinessLogic {
-  func fetchMovies(request: MovieReviews.GetReviews.Request)
+  func fetchReviews(request: MovieReviews.GetReviews.Request)
 }
 
 protocol MovieReviewsDataStore {
@@ -27,9 +27,9 @@ class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
   var movie: MovieObject?
   var reviews: [ReviewObject]?
   
-  // MARK: Do something
+  // MARK: Fetch Reviews
   
-  func fetchMovies(request: MovieReviews.GetReviews.Request) {
+  func fetchReviews(request: MovieReviews.GetReviews.Request) {
     guard let movie = movie else { return }
     
     MoviesWorker.shared.fetchReviews(forMovie: movie) { (reviews, error) in
@@ -49,6 +49,6 @@ class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
       
     }
     
-
+    
   }
 }
