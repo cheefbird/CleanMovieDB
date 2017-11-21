@@ -10,6 +10,7 @@ import Foundation
 
 protocol User {
   
+  var name: String { get }
   var favoriteMovies: [MovieObject] { get }
   
 }

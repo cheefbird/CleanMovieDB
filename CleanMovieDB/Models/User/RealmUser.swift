@@ -11,10 +11,23 @@ import RealmSwift
 
 class RealmUser: Object, User {
   
+  // MARK: - Properties
+  
+  var name: String = ""
   var favoriteMovies: [MovieObject] {
     return Array(_favoriteMovies)
   }
   
+  // MARK: - Private Properties
+  
   let _favoriteMovies = List<RealmMovie>()
+  
+  // MARK: - Init
+  
+  convenience init(name: String) {
+    self.init()
+    
+    self.name = name
+  }
   
 }
