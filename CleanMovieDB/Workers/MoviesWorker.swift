@@ -37,7 +37,11 @@ class MoviesWorker: MoviesWorkerType {
     
     guard let page = page, page > 0 else {
       print("Fetching from Realm ...")
-      realmService.getMovies(forPage: 0, completionHandler: completionHandler)
+      
+      realmService.getMovies(forPage: nil) { (movies, error) in
+        completionHandler(movies, error)
+      }
+      
       return
     }
     

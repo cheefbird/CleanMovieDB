@@ -27,7 +27,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
   
-  var currentPage = 1
+  var pagesLoaded = 0
   var isFetching = false
   
   // MARK: Outlets
@@ -78,12 +78,12 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    fetchCachedMovies()
+    loadMoviesFromRealm()
   }
 
   // MARK: Fetch Movies
   
-  func fetchCachedMovies() {
+  func loadMoviesFromRealm() {
     let request = ListMovies.FetchMovies.Request(page: 0)
     isFetching = true
     interactor?.fetchMovies(request: request)
@@ -100,16 +100,14 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     movies.append(contentsOf: viewModel.displayedMovies)
     
     guard movies.count > 0 else {
-      fetchMovies(forPage: currentPage)
+      pagesLoaded = 1
+      fetchMovies(forPage: pagesLoaded)
       return
     }
     
-    let pagesLoaded = movies.count / 20
-    currentPage = pagesLoaded + 1
+    pagesLoaded = movies.count / 20 + 1
     
-    navBarItems.title = "Discover Movies - \(pagesLoaded) Pages"
-    
-    print("\(movies.count) MOVIES FOR \(currentPage - 1) PAGE(S)")
+    navBarItems.title = "Discover Movies - \(pagesLoaded - 1) Pages"
     
     tableView.reloadData()
   }
@@ -132,7 +130,7 @@ extension ListMoviesViewController: UITableViewDataSource {
   fileprivate func loadMoreIfNeeded(_ indexPath: IndexPath) {
     
     if (movies.count - indexPath.row < 3) && !isFetching {
-      fetchMovies(forPage: currentPage)
+      fetchMovies(forPage: pagesLoaded)
     }
   }
   

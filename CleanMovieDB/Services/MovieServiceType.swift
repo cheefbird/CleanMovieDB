@@ -12,8 +12,8 @@ typealias MoviesResult = (_ movies: [MovieObject], _ error: Error?) -> Void
 typealias ReviewsResult = (_ review: [ReviewObject], _ error: Error?) -> Void
 
 protocol MovieServiceType {
-  
   func getMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
   
   func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult)
 }
+
