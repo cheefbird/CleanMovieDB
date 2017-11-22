@@ -98,13 +98,19 @@
                                                         <constraint firstAttribute="trailing" secondItem="JiL-Wg-JQN" secondAttribute="trailing" constant="5" id="hdx-r9-UNz"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-9G-xJf">
-                                                    <rect key="frame" x="320" y="85" width="40" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-9G-xJf" customClass="CustomButton" customModule="CleanMovieDB" customModuleProvider="target">
+                                                    <rect key="frame" x="314" y="83" width="46" height="46"/>
+                                                    <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Dhy-9G-xJf" secondAttribute="height" multiplier="1:1" id="GH9-Wy-kql"/>
                                                     </constraints>
                                                     <state key="normal" image="ic_favorite"/>
                                                     <state key="selected" image="ic_favorite_selected"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="toggleFavorite" destination="Kj6-B8-rhl" eventType="touchUpInside" id="Z0t-8K-6bL"/>
                                                     </connections>
@@ -119,7 +125,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="RdI-kD-Zfq" secondAttribute="trailing" id="OwG-xE-lg7"/>
                                                 <constraint firstItem="RdI-kD-Zfq" firstAttribute="leading" secondItem="pFW-D4-4SD" secondAttribute="leading" id="cAn-km-2dc"/>
                                                 <constraint firstItem="d8U-dV-IxW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pFW-D4-4SD" secondAttribute="leadingMargin" id="csd-Vz-Bde"/>
-                                                <constraint firstItem="Dhy-9G-xJf" firstAttribute="height" secondItem="d8U-dV-IxW" secondAttribute="height" id="hk0-mp-heV"/>
+                                                <constraint firstItem="Dhy-9G-xJf" firstAttribute="height" secondItem="d8U-dV-IxW" secondAttribute="height" constant="6" id="hk0-mp-heV"/>
                                                 <constraint firstAttribute="bottom" secondItem="fFK-rQ-oQW" secondAttribute="bottom" constant="6" id="hl1-yd-JKp"/>
                                                 <constraint firstItem="Dhy-9G-xJf" firstAttribute="centerY" secondItem="pFW-D4-4SD" secondAttribute="centerY" id="qG5-yM-oJm"/>
                                                 <constraint firstItem="JiL-Wg-JQN" firstAttribute="height" relation="lessThanOrEqual" secondItem="RdI-kD-Zfq" secondAttribute="height" multiplier="0.3" id="sUH-fT-rw5"/>
@@ -390,8 +396,8 @@
     </scenes>
     <resources>
         <image name="ic_discover_movies" width="25" height="25"/>
-        <image name="ic_favorite" width="100" height="100"/>
-        <image name="ic_favorite_selected" width="100" height="100"/>
+        <image name="ic_favorite" width="75" height="75"/>
+        <image name="ic_favorite_selected" width="75" height="75"/>
         <image name="ic_movies" width="25" height="25"/>
     </resources>
 </document>
