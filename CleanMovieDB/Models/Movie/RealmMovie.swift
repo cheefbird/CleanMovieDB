@@ -21,8 +21,6 @@ class RealmMovie: Object, MovieObject {
   
   let reviews = List<RealmReview>()
   
-  let starredBy = LinkingObjects(fromType: RealmUser.self, property: "_favoriteMovies")
-  
   convenience required init(copy movie: MovieObject) {
     self.init()
     

@@ -76,11 +76,18 @@ class APIMovieService: MovieServiceType {
     let newReviews = reviews.map { RealmReview(copyFrom: $0) }
     
     let realm = try! Realm()
-    let movie = realm.object(ofType: RealmMovie.self, forPrimaryKey: id)
-    
+    guard let movie = realm.object(ofType: RealmMovie.self, forPrimaryKey: id) else { return }
     
     try!realm.write {
-      movie?.reviews.append(objectsIn: newReviews)
+      for review in newReviews {
+        realm.add(review, update: true)
+        
+        movie.reviews.forEach { savedReview in
+          if review.id != savedReview.id {
+            movie.reviews.append(review)
+          }
+        }
+      }
     }
     
   }

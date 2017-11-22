@@ -13,7 +13,7 @@ class RealmUser: Object, User {
   
   // MARK: - Properties
   
-  var name: String = ""
+  @objc dynamic var name: String = ""
   var favoriteMovies: [MovieObject] {
     return Array(_favoriteMovies)
   }
@@ -28,6 +28,29 @@ class RealmUser: Object, User {
     self.init()
     
     self.name = name
+  }
+  
+  // MARK: - Overrides
+  
+  override static func primaryKey() -> String? {
+    return "name"
+  }
+  
+  // MARK: - Methods
+  
+  private static func createDefaultUser(inRealm realm: Realm) -> RealmUser {
+    
+    let user = RealmUser(name: "default")
+    
+    try! realm.write {
+      realm.add(user)
+    }
+    
+    return user
+  }
+  
+  static func defaultUser(inRealm realm: Realm) -> RealmUser {
+    return realm.object(ofType: RealmUser.self, forPrimaryKey: "default") ?? createDefaultUser(inRealm: realm)
   }
   
 }
