@@ -92,6 +92,10 @@ class APIMovieService: MovieServiceType {
     
   }
   
+  func getFavoriteStatus(forMovie movie: MovieObject) -> Bool {
+    return false
+  }
+  
 }
 
 

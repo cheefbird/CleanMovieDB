@@ -27,4 +27,21 @@ class RealmMovieService: MovieServiceType {
     completionHandler(Array(reviews), nil)
   }
   
+  func getFavoriteStatus(forMovie movie: MovieObject) -> Bool {
+    let realm = try! Realm()
+    
+    let user = RealmUser.defaultUser(inRealm: realm)
+    let savedMovies = user.favoriteMovies
+    
+    guard savedMovies.count > 0 else { return false }
+    
+    for item in savedMovies {
+      if movie.id == item.id {
+        return true
+      }
+    }
+    
+    return false
+  }
+  
 }

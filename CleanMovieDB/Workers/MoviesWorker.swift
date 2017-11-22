@@ -55,5 +55,9 @@ class MoviesWorker: MoviesWorkerType {
     apiService.getReviews(forMovie: movie, completionHandler: completionHandler)
     
   }
+  
+  func checkFavoriteStatus(ofMovie movie: MovieObject) -> Bool {
+    return realmService.getFavoriteStatus(forMovie: movie)
+  }
 
 }
