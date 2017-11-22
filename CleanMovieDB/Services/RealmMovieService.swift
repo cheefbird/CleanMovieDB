@@ -44,4 +44,21 @@ class RealmMovieService: MovieServiceType {
     return false
   }
   
+  func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void) {
+    let realm = try! Realm()
+    
+    let user = RealmUser.defaultUser(inRealm: realm)
+    guard let movie = realm.object(ofType: RealmMovie.self, forPrimaryKey: id) else { return }
+    
+    try! realm.write {
+      if let index = user._favoriteMovies.index(of: movie) {
+        user._favoriteMovies.remove(at: index)
+        resultHandler(false)
+      } else {
+        user._favoriteMovies.append(movie)
+        resultHandler(true)
+      }
+    }
+  }
+  
 }

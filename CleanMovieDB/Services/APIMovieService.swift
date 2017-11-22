@@ -96,6 +96,10 @@ class APIMovieService: MovieServiceType {
     return false
   }
   
+  func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void) {
+    resultHandler(false)
+  }
+  
 }
 
 

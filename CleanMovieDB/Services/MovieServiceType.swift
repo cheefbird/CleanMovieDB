@@ -17,5 +17,7 @@ protocol MovieServiceType {
   func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult)
   
   func getFavoriteStatus(forMovie movie: MovieObject) -> Bool
+  
+  func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void)
 }
 

@@ -105,6 +105,9 @@
                                                     </constraints>
                                                     <state key="normal" image="ic_favorite"/>
                                                     <state key="selected" image="ic_favorite_selected"/>
+                                                    <connections>
+                                                        <action selector="toggleFavorite" destination="Kj6-B8-rhl" eventType="touchUpInside" id="Z0t-8K-6bL"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
