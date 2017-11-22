@@ -25,9 +25,11 @@ enum ListMovies {
     struct ViewModel {
       
       struct DisplayedMovie {
+        var id: Int
         var title: String
         var averageScore: Double
         var backdropImageURL: URL
+        var isFavorite: Bool
       }
       
       var displayedMovies: [DisplayedMovie]

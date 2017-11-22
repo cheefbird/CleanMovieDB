@@ -17,6 +17,9 @@ class ListMoviesCell: UITableViewCell {
   @IBOutlet weak var movieTitleLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var indexLabel: UILabel!
+  @IBOutlet weak var favoriteButton: UIButton!
+  
+  private var movieID: Int = 0
   
   // MARK: - Configure
   
@@ -24,11 +27,25 @@ class ListMoviesCell: UITableViewCell {
     
     let score = String(describing: movie.averageScore)
     
+    movieID = movie.id
+    
     backdropImageView.kf.setImage(with: movie.backdropImageURL)
     scoreLabel.text = score
     movieTitleLabel.text = movie.title
     
+    favoriteButton.isSelected = movie.isFavorite
+    
     indexLabel.text = String(row + 1)
+    
+  }
+  
+  // MARK: - Actions
+  
+  @IBAction func toggleFavorite() {
+    
+    MoviesWorker.shared.toggleFavorite(forMovieID: movieID) { result in
+      favoriteButton.isSelected = result
+    }
     
   }
   

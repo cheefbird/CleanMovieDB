@@ -38,11 +38,7 @@ class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
         return
       }
       
-      if self.reviews == nil {
-        self.reviews = reviews
-      } else {
-        self.reviews?.append(contentsOf: reviews)
-      }
+      self.reviews = reviews
       
       let response = MovieReviews.GetReviews.Response(reviews: reviews)
       self.presenter?.presentReviews(response: response)

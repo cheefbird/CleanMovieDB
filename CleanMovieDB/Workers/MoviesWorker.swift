@@ -55,5 +55,13 @@ class MoviesWorker: MoviesWorkerType {
     apiService.getReviews(forMovie: movie, completionHandler: completionHandler)
     
   }
+  
+  func checkFavoriteStatus(ofMovie movie: MovieObject) -> Bool {
+    return realmService.getFavoriteStatus(forMovie: movie)
+  }
+  
+  func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void) {
+    realmService.toggleFavorite(forMovieID: id, resultHandler: resultHandler)
+  }
 
 }
