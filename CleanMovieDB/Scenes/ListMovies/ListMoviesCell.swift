@@ -17,6 +17,7 @@ class ListMoviesCell: UITableViewCell {
   @IBOutlet weak var movieTitleLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var indexLabel: UILabel!
+  @IBOutlet weak var favoriteButton: UIButton!
   
   // MARK: - Configure
   

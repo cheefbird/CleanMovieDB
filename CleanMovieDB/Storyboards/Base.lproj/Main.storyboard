@@ -98,16 +98,27 @@
                                                         <constraint firstAttribute="trailing" secondItem="JiL-Wg-JQN" secondAttribute="trailing" constant="5" id="hdx-r9-UNz"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-9G-xJf">
+                                                    <rect key="frame" x="320" y="85" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Dhy-9G-xJf" secondAttribute="height" multiplier="1:1" id="GH9-Wy-kql"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_favorite"/>
+                                                    <state key="selected" image="ic_favorite_selected"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fFK-rQ-oQW" firstAttribute="centerX" secondItem="pFW-D4-4SD" secondAttribute="centerX" id="3hd-Tg-d4a"/>
                                                 <constraint firstAttribute="bottom" secondItem="RdI-kD-Zfq" secondAttribute="bottom" id="BG9-sv-nm2"/>
                                                 <constraint firstItem="fFK-rQ-oQW" firstAttribute="width" secondItem="pFW-D4-4SD" secondAttribute="width" multiplier="0.95" id="Cus-rL-aYi"/>
+                                                <constraint firstItem="Dhy-9G-xJf" firstAttribute="trailing" secondItem="JiL-Wg-JQN" secondAttribute="trailing" id="Hrw-Vl-SI1"/>
                                                 <constraint firstItem="SIh-rf-CxA" firstAttribute="top" secondItem="pFW-D4-4SD" secondAttribute="topMargin" id="M9c-G6-XBI"/>
                                                 <constraint firstAttribute="trailing" secondItem="RdI-kD-Zfq" secondAttribute="trailing" id="OwG-xE-lg7"/>
                                                 <constraint firstItem="RdI-kD-Zfq" firstAttribute="leading" secondItem="pFW-D4-4SD" secondAttribute="leading" id="cAn-km-2dc"/>
                                                 <constraint firstItem="d8U-dV-IxW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pFW-D4-4SD" secondAttribute="leadingMargin" id="csd-Vz-Bde"/>
+                                                <constraint firstItem="Dhy-9G-xJf" firstAttribute="height" secondItem="d8U-dV-IxW" secondAttribute="height" id="hk0-mp-heV"/>
                                                 <constraint firstAttribute="bottom" secondItem="fFK-rQ-oQW" secondAttribute="bottom" constant="6" id="hl1-yd-JKp"/>
+                                                <constraint firstItem="Dhy-9G-xJf" firstAttribute="centerY" secondItem="pFW-D4-4SD" secondAttribute="centerY" id="qG5-yM-oJm"/>
                                                 <constraint firstItem="JiL-Wg-JQN" firstAttribute="height" relation="lessThanOrEqual" secondItem="RdI-kD-Zfq" secondAttribute="height" multiplier="0.3" id="sUH-fT-rw5"/>
                                                 <constraint firstItem="SIh-rf-CxA" firstAttribute="leading" secondItem="pFW-D4-4SD" secondAttribute="leadingMargin" id="u6s-xx-M3r"/>
                                                 <constraint firstItem="d8U-dV-IxW" firstAttribute="top" secondItem="pFW-D4-4SD" secondAttribute="topMargin" id="uoA-F2-z00"/>
@@ -118,6 +129,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backdropImageView" destination="RdI-kD-Zfq" id="CDV-7J-Jk2"/>
+                                            <outlet property="favoriteButton" destination="Dhy-9G-xJf" id="FpW-KN-VM4"/>
                                             <outlet property="indexLabel" destination="SIh-rf-CxA" id="VBz-mO-fN7"/>
                                             <outlet property="movieTitleLabel" destination="JiL-Wg-JQN" id="8m6-eN-M8S"/>
                                             <outlet property="scoreLabel" destination="d8U-dV-IxW" id="ThI-H0-15C"/>
@@ -375,6 +387,8 @@
     </scenes>
     <resources>
         <image name="ic_discover_movies" width="25" height="25"/>
+        <image name="ic_favorite" width="100" height="100"/>
+        <image name="ic_favorite_selected" width="100" height="100"/>
         <image name="ic_movies" width="25" height="25"/>
     </resources>
 </document>
