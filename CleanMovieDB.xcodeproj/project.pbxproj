@@ -53,6 +53,8 @@
 		06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5211FA8138200110FFB /* ListMoviesModels.swift */; };
 		06E4F5281FA8138200110FFB /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */; };
 		06E4F5291FA8138200110FFB /* ListMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */; };
+		06E59B531FCD21C600069B5E /* CardStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E59B521FCD21C600069B5E /* CardStyleCell.swift */; };
+		06E59B571FCD246500069B5E /* WatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E59B561FCD246500069B5E /* WatchListCell.swift */; };
 		08FA88ED20D8A3EAA503B470 /* Pods_CleanMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF563369CF5824D5E68FAA9 /* Pods_CleanMovieDBTests.framework */; };
 		44BBC4C9A3D4E6B3A279FF83 /* Pods_CleanMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738C607363AB599AD699ED24 /* Pods_CleanMovieDB.framework */; };
 		D5D20C581FBE95F700A950BF /* MovieReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D20C571FBE95F700A950BF /* MovieReviewCell.swift */; };
@@ -119,6 +121,8 @@
 		06E4F5211FA8138200110FFB /* ListMoviesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesModels.swift; sourceTree = "<group>"; };
 		06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewController.swift; sourceTree = "<group>"; };
 		06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractor.swift; sourceTree = "<group>"; };
+		06E59B521FCD21C600069B5E /* CardStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyleCell.swift; sourceTree = "<group>"; };
+		06E59B561FCD246500069B5E /* WatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCell.swift; sourceTree = "<group>"; };
 		2BF563369CF5824D5E68FAA9 /* Pods_CleanMovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanMovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1098F4FE4C0EFA4B93BE48 /* Pods-CleanMovieDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDBTests/Pods-CleanMovieDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		494EB680FC3BB64A5B48FD23 /* Pods-CleanMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDB/Pods-CleanMovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				06A231841FCD1AAA00A38281 /* WatchListModels.swift */,
 				06A231851FCD1AAA00A38281 /* WatchListViewController.swift */,
 				06A231861FCD1AAA00A38281 /* WatchListInteractor.swift */,
+				06E59B561FCD246500069B5E /* WatchListCell.swift */,
 			);
 			path = WatchList;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				06D827E71FA9548300693102 /* AppColors.swift */,
 				067D46B41FB3D361001D3834 /* RoundedUILabel.swift */,
 				06B9057B1FC3609E0007B0D9 /* CustomButton.swift */,
+				06E59B521FCD21C600069B5E /* CardStyleCell.swift */,
 			);
 			path = "UI Helpers";
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
 				06DC8D041FAD459600606738 /* MovieDetailsPresenter.swift in Sources */,
+				06E59B571FCD246500069B5E /* WatchListCell.swift in Sources */,
 				06209DAD1FC3BFEB003C985D /* RealmUser.swift in Sources */,
 				06B9057C1FC3609E0007B0D9 /* CustomButton.swift in Sources */,
 				06D827E81FA9548300693102 /* AppColors.swift in Sources */,
@@ -641,6 +648,7 @@
 				067D46B31FB28F4D001D3834 /* MovieImageType.swift in Sources */,
 				06A79B0F1FB7DE25008112BB /* MovieReviewsInteractor.swift in Sources */,
 				06A79B0C1FB7DE25008112BB /* MovieReviewsRouter.swift in Sources */,
+				06E59B531FCD21C600069B5E /* CardStyleCell.swift in Sources */,
 				067D46B51FB3D361001D3834 /* RoundedUILabel.swift in Sources */,
 				0698CE7B1FB2766600265510 /* RealmMovie.swift in Sources */,
 				0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */,
