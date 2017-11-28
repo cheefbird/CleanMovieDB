@@ -153,7 +153,7 @@ extension ListMoviesViewController: UITableViewDataSource {
 
 extension ListMoviesViewController: MovieCellDelegate {
   
-  func favoriteStatusChanged(to status: Bool, forMovieAtIndex index: Int) {
+  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
     movies[index].isFavorite = status
   }
   

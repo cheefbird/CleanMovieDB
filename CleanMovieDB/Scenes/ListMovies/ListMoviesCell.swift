@@ -19,7 +19,6 @@ class ListMoviesCell: UITableViewCell {
   @IBOutlet weak var indexLabel: UILabel!
   @IBOutlet weak var favoriteButton: UIButton!
   
-  private var movieID: Int = 0
   private var movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie!
   
   private var delegate: MovieCellDelegate!
@@ -28,7 +27,6 @@ class ListMoviesCell: UITableViewCell {
   
   override func prepareForReuse() {
     self.movie = nil
-    self.movieID = 0
     self.delegate = nil
   }
   
@@ -38,8 +36,6 @@ class ListMoviesCell: UITableViewCell {
     
     self.movie = movie
     let score = String(describing: movie.averageScore)
-    
-    movieID = movie.id
     
     backdropImageView.kf.setImage(with: movie.backdropImageURL)
     scoreLabel.text = score
@@ -57,19 +53,22 @@ class ListMoviesCell: UITableViewCell {
   
   @IBAction func toggleFavorite() {
     
-    MoviesWorker.shared.toggleFavorite(forMovieID: movieID) { [weak self] result in
+    MoviesWorker.shared.toggleFavorite(forMovieID: movie.id) { [weak self] result in
       self?.movie.isFavorite = result
       self?.favoriteButton.isSelected = result
       
       guard let index = self?.indexFromLabel() else { return }
 
-      self?.delegate.favoriteStatusChanged(to: result, forMovieAtIndex: index)
+      self?.delegate.movieIsFavoriteChanged(toStatus: result, forMovieAtIndex: index)
     }
     
   }
   
   // MARK: - Helpers
   
+  /// Convert the current cell's `indexLabel` text value (`String`) to it's corresponding array index value (`Int`).
+  ///
+  /// - Returns: Index of current cell as `Int`
   fileprivate func indexFromLabel() -> Int? {
     guard let labelText = indexLabel.text else { return nil }
     guard let labelValue = Int(labelText) else { return nil }
@@ -82,5 +81,11 @@ class ListMoviesCell: UITableViewCell {
 // MARK: - MovieCellDelegate
 
 protocol MovieCellDelegate {
-  func favoriteStatusChanged(to status: Bool, forMovieAtIndex index: Int)
+  
+  /// Notify the parent tableView's `movies` array when an element's `isFavorite` property changes.
+  ///
+  /// - Parameters:
+  ///   - status: `Bool` to set for target movie's isFavorite property.
+  ///   - index: Index of the movie in the `movies` array.
+  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int)
 }
