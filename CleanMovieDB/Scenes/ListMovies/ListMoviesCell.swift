@@ -20,11 +20,23 @@ class ListMoviesCell: UITableViewCell {
   @IBOutlet weak var favoriteButton: UIButton!
   
   private var movieID: Int = 0
+  private var movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie!
+  
+  private var delegate: MovieCellDelegate!
+  
+  // MARK: - Deinit
+  
+  override func prepareForReuse() {
+    self.movie = nil
+    self.movieID = 0
+    self.delegate = nil
+  }
   
   // MARK: - Configure
   
-  func configure(with movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie, atRow row: Int) {
+  func configure(withMovie movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie, atRow row: Int, sender: ListMoviesViewController) {
     
+    self.movie = movie
     let score = String(describing: movie.averageScore)
     
     movieID = movie.id
@@ -37,16 +49,38 @@ class ListMoviesCell: UITableViewCell {
     
     indexLabel.text = String(row + 1)
     
+    delegate = sender
+    
   }
   
   // MARK: - Actions
   
   @IBAction func toggleFavorite() {
     
-    MoviesWorker.shared.toggleFavorite(forMovieID: movieID) { result in
-      favoriteButton.isSelected = result
+    MoviesWorker.shared.toggleFavorite(forMovieID: movieID) { [weak self] result in
+      self?.movie.isFavorite = result
+      self?.favoriteButton.isSelected = result
+      
+      guard let index = self?.indexFromLabel() else { return }
+
+      self?.delegate.favoriteStatusChanged(to: result, forMovieAtIndex: index)
     }
     
   }
   
+  // MARK: - Helpers
+  
+  fileprivate func indexFromLabel() -> Int? {
+    guard let labelText = indexLabel.text else { return nil }
+    guard let labelValue = Int(labelText) else { return nil }
+    
+    return labelValue - 1
+  }
+  
+}
+
+// MARK: - MovieCellDelegate
+
+protocol MovieCellDelegate {
+  func favoriteStatusChanged(to status: Bool, forMovieAtIndex index: Int)
 }
