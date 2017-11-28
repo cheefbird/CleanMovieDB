@@ -142,9 +142,19 @@ extension ListMoviesViewController: UITableViewDataSource {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! ListMoviesCell
     
-    cell.configure(with: movie, atRow: indexPath.row)
+    cell.configure(withMovie: movie, atRow: indexPath.row, sender: self)
     
     return cell
+  }
+  
+}
+
+// MARK: - MovieCellDelegate
+
+extension ListMoviesViewController: MovieCellDelegate {
+  
+  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
+    movies[index].isFavorite = status
   }
   
 }

@@ -9,16 +9,31 @@
 import UIKit
 
 @IBDesignable class RoundedUILabel: UILabel {
+
+  var textInsets = UIEdgeInsets.zero {
+    didSet { invalidateIntrinsicContentSize() }
+  }
   
-//  override func drawText(in rect: CGRect) {
-//    var insets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
-//    super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
-//  }
+  override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    let insetRect = UIEdgeInsetsInsetRect(bounds, textInsets)
+    let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
+    let invertedInsets = UIEdgeInsets(top: -textInsets.top,
+                                      left: -textInsets.left,
+                                      bottom: -textInsets.bottom,
+                                      right: -textInsets.right)
+    return UIEdgeInsetsInsetRect(textRect, invertedInsets)
+  }
   
-  @IBInspectable var cornerValue: CGFloat = CGFloat(0.0) {
+  override func drawText(in rect: CGRect) {
+    super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
+  }
+  
+  // MARK: - Stored Inspectables
+  
+  @IBInspectable var cornerValue: Float = 0.0 {
     didSet {
       layer.masksToBounds = true
-      layer.cornerRadius = cornerValue
+      layer.cornerRadius = CGFloat(cornerValue)
     }
   }
   
@@ -28,12 +43,35 @@ import UIKit
     }
   }
   
-  @IBInspectable var borderWidth: CGFloat = CGFloat(0.0) {
+  @IBInspectable var borderWidth: Float = 0.0 {
     didSet {
-      layer.borderWidth = borderWidth
+      layer.borderWidth = CGFloat(borderWidth)
     }
   }
   
+}
+
+extension RoundedUILabel {
+  
+  @IBInspectable var leftTextInset: CGFloat {
+    set { textInsets.left = newValue }
+    get { return textInsets.left }
+  }
+  
+  @IBInspectable var rightTextInset: CGFloat {
+    set { textInsets.right = newValue }
+    get { return textInsets.right }
+  }
+  
+  @IBInspectable var topTextInset: CGFloat {
+    set { textInsets.top = newValue }
+    get { return textInsets.top }
+  }
+  
+  @IBInspectable var bottomTextInset: CGFloat {
+    set { textInsets.bottom = newValue }
+    get { return textInsets.bottom }
+  }
 }
 
 

@@ -3,7 +3,11 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
+<<<<<<< HEAD
+      "filename" : "Icon-80.png",
+=======
       "filename" : "Icon-42.png",
+>>>>>>> feature/favorite-movies
       "scale" : "2x"
     },
     {
