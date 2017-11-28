@@ -22,6 +22,12 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
   
   var interactor: WatchListBusinessLogic?
   var router: (NSObjectProtocol & WatchListRoutingLogic & WatchListDataPassing)?
+  
+  // MARK: - Properties
+  
+  // MARK: - Outlets
+  
+  @IBOutlet var tableView: UITableView!
 
   // MARK: Object lifecycle
   
@@ -65,6 +71,9 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    
     doSomething()
   }
   
@@ -81,3 +90,48 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
     //nameTextField.text = viewModel.name
   }
 }
+
+// MARK: - TableView Delegate
+
+extension WatchListViewController: UITableViewDelegate {
+  
+}
+
+// MARK: - TableView DataSource
+
+extension WatchListViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 5
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchListCell
+    
+    switch indexPath.row {
+    case 0...2:
+      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.\nOrganically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Leverage agile frameworks to provide a robust synopsis for high level overviews."
+    default:
+      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews."
+    }
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return "Title Goes Here"
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+

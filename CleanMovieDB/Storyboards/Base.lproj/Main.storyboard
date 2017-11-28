@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-CondensedExtraBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Discover Movies-->
         <scene sceneID="tne-QT-ifu">
@@ -379,13 +384,13 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.83529411764705885" blue="0.44549019607843127" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedColor">
-                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.54576324296202094" green="0.56629832513591793" blue="0.55601904530227431" alpha="0.79549955985915488" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="yvL-yO-zF4" kind="relationship" relationship="viewControllers" id="3cZ-ka-8A6"/>
-                        <segue destination="KjK-pj-HGh" kind="relationship" relationship="viewControllers" id="jlg-vU-R3m"/>
+                        <segue destination="QEb-bR-4RC" kind="relationship" relationship="viewControllers" id="jlg-vU-R3m"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0b-k6-6RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,21 +421,114 @@
             </objects>
             <point key="canvasLocation" x="-569" y="-7"/>
         </scene>
-        <!--Watch List-->
+        <!--Watch List View Controller-->
         <scene sceneID="oPx-Uf-4w2">
             <objects>
-                <viewController id="KjK-pj-HGh" sceneMemberID="viewController">
+                <viewController id="KjK-pj-HGh" customClass="WatchListViewController" customModule="CleanMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mha-pt-dCj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQv-wD-7mI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WatchListCell" id="qxt-hG-Jsu" customClass="WatchListCell" customModule="CleanMovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qxt-hG-Jsu" id="yON-yr-ou2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUP-Re-Vg2" customClass="CardStyleCell" customModule="CleanMovieDB" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="11" width="345" height="98"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQh-7V-HOw">
+                                                            <rect key="frame" x="8" y="8" width="329" height="82"/>
+                                                            <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.58441063605449772" green="0.52253810933640288" blue="0.82766049915027118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="qQh-7V-HOw" secondAttribute="trailing" id="0LF-vJ-xDM"/>
+                                                        <constraint firstItem="qQh-7V-HOw" firstAttribute="leading" secondItem="iUP-Re-Vg2" secondAttribute="leadingMargin" id="Fn9-ej-elY"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="qQh-7V-HOw" secondAttribute="bottom" id="fhd-2C-7jW"/>
+                                                        <constraint firstItem="qQh-7V-HOw" firstAttribute="top" secondItem="iUP-Re-Vg2" secondAttribute="topMargin" id="lRk-fh-8iM"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iUP-Re-Vg2" firstAttribute="trailing" secondItem="yON-yr-ou2" secondAttribute="trailingMargin" id="187-Pk-iWz"/>
+                                                <constraint firstItem="iUP-Re-Vg2" firstAttribute="top" secondItem="yON-yr-ou2" secondAttribute="topMargin" id="MPT-fp-3Vh"/>
+                                                <constraint firstItem="iUP-Re-Vg2" firstAttribute="leading" secondItem="yON-yr-ou2" secondAttribute="leadingMargin" id="cuv-L3-GQs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iUP-Re-Vg2" secondAttribute="bottom" id="eAa-2d-pse"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="cardView" destination="iUP-Re-Vg2" id="owR-Ni-Rnj"/>
+                                            <outlet property="testLabel" destination="qQh-7V-HOw" id="jGA-s6-uUa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KjK-pj-HGh" id="V5j-jv-bn5"/>
+                                    <outlet property="delegate" destination="KjK-pj-HGh" id="M4m-Ab-Stx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tQv-wD-7mI" firstAttribute="top" secondItem="FcY-pU-JPh" secondAttribute="top" id="Xfp-XQ-6td"/>
+                            <constraint firstItem="FcY-pU-JPh" firstAttribute="trailing" secondItem="tQv-wD-7mI" secondAttribute="trailing" id="hCQ-Ns-wYp"/>
+                            <constraint firstItem="FcY-pU-JPh" firstAttribute="bottom" secondItem="tQv-wD-7mI" secondAttribute="bottom" id="ofx-Hu-w4o"/>
+                            <constraint firstItem="tQv-wD-7mI" firstAttribute="leading" secondItem="FcY-pU-JPh" secondAttribute="leading" id="vot-1K-drh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FcY-pU-JPh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Watch List" image="ic_watchlist" id="Cln-sY-Mo1"/>
+                    <navigationItem key="navigationItem" id="YjF-xq-y8e"/>
+                    <connections>
+                        <outlet property="tableView" destination="tQv-wD-7mI" id="nJz-gu-tVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpH-ON-vTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="10"/>
+            <point key="canvasLocation" x="261.60000000000002" y="757.87106446776613"/>
+        </scene>
+        <!--Watch List-->
+        <scene sceneID="pWs-n7-Me9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QEb-bR-4RC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Watch List" image="ic_watchlist" id="Cln-sY-Mo1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="mLc-Lr-Ylf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KjK-pj-HGh" kind="relationship" relationship="rootViewController" id="Cmq-oQ-ThF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcF-PQ-gsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260.80000000000001" y="9.8950524737631191"/>
         </scene>
     </scenes>
     <resources>
