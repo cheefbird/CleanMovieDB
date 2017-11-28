@@ -416,7 +416,7 @@
             </objects>
             <point key="canvasLocation" x="-569" y="-7"/>
         </scene>
-        <!--Item-->
+        <!--Watch List-->
         <scene sceneID="oPx-Uf-4w2">
             <objects>
                 <viewController id="KjK-pj-HGh" sceneMemberID="viewController">
@@ -426,7 +426,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FcY-pU-JPh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="ic_movies" id="Cln-sY-Mo1"/>
+                    <tabBarItem key="tabBarItem" title="Watch List" image="ic_watchlist" id="Cln-sY-Mo1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpH-ON-vTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,6 +437,6 @@
         <image name="ic_discover_movies" width="25" height="25"/>
         <image name="ic_favorite" width="75" height="75"/>
         <image name="ic_favorite_selected" width="75" height="75"/>
-        <image name="ic_movies" width="25" height="25"/>
+        <image name="ic_watchlist" width="25" height="25"/>
     </resources>
 </document>
