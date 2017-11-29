@@ -449,9 +449,9 @@
                                                     <rect key="frame" x="15" y="11" width="345" height="198"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oim-p2-6sP">
-                                                            <rect key="frame" x="8" y="9" width="120" height="181"/>
+                                                            <rect key="frame" x="8" y="9" width="120" height="180"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="oim-p2-6sP" secondAttribute="height" multiplier="2:3" id="cqN-8T-GiS"/>
+                                                                <constraint firstAttribute="width" secondItem="oim-p2-6sP" secondAttribute="height" multiplier="2:3" id="Bx8-Qd-cC3"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8B-Os-U8Z">
@@ -519,14 +519,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="oim-p2-6sP" secondAttribute="bottom" constant="8" id="6e3-Fx-j68"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oim-p2-6sP" secondAttribute="bottom" constant="9" id="6e3-Fx-j68"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="width" secondItem="iUP-Re-Vg2" secondAttribute="width" multiplier="0.3478" id="7w8-Oh-qQI"/>
                                                         <constraint firstItem="c8B-Os-U8Z" firstAttribute="top" secondItem="iUP-Re-Vg2" secondAttribute="top" constant="8" id="RFO-YF-PT8"/>
                                                         <constraint firstAttribute="bottom" secondItem="c8B-Os-U8Z" secondAttribute="bottom" constant="8" id="Tdy-Q1-ALI"/>
                                                         <constraint firstItem="c8B-Os-U8Z" firstAttribute="leading" secondItem="oim-p2-6sP" secondAttribute="trailing" constant="8" id="VEV-mA-elY"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="top" secondItem="iUP-Re-Vg2" secondAttribute="top" constant="9" id="f0f-ZW-IhR"/>
                                                         <constraint firstAttribute="trailing" secondItem="c8B-Os-U8Z" secondAttribute="trailing" constant="8" id="nNI-Nd-RcM"/>
-                                                        <constraint firstItem="oim-p2-6sP" firstAttribute="centerY" secondItem="iUP-Re-Vg2" secondAttribute="centerY" id="vF5-Pw-UHw"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="leading" secondItem="iUP-Re-Vg2" secondAttribute="leading" constant="8" id="yMG-Y0-aC2"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
