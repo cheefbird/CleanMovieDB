@@ -1,5 +1,5 @@
 //
-//  CardStyleCell.swift
+//  CustomView.swift
 //  CleanMovieDB
 //
 //  Created by Francis Breidenbach on 11/27/17.

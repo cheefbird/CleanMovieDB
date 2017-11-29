@@ -10,6 +10,8 @@ import UIKit
 
 class WatchListCell: UITableViewCell {
   @IBOutlet var cardView: UIView!
-  @IBOutlet var testLabel: UILabel!
+  @IBOutlet var posterImageView: UIImageView!
+  @IBOutlet var movieTitleLabel: UILabel!
+  @IBOutlet var movieScoreLabel: UILabel!
 
 }

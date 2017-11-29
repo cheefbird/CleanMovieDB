@@ -110,12 +110,12 @@ extension WatchListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchListCell
     
-    switch indexPath.row {
-    case 0...2:
-      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.\nOrganically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    default:
-      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    }
+//    switch indexPath.row {
+//    case 0...2:
+//      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.\nOrganically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Leverage agile frameworks to provide a robust synopsis for high level overviews."
+//    default:
+//      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews."
+//    }
     
     return cell
   }
