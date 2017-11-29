@@ -94,6 +94,8 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
   func displayMovies(viewModel: WatchList.LoadMovies.ViewModel) {
     movies = viewModel.movies
     
+    navigationItem.title = "My Watch List (\(movies.count) Movies)"
+    
     tableView.reloadData()
   }
 }
@@ -118,7 +120,7 @@ extension WatchListViewController: UITableViewDataSource {
     let movie = movies[indexPath.row]
     cell.configure(using: movie)
     
-    cell.contentView.layoutIfNeeded()
+//    cell.contentView.layoutIfNeeded()
     
     return cell
   }
