@@ -12,9 +12,27 @@
 
 import UIKit
 
-class WatchListWorker
-{
-  func doSomeWork()
-  {
+protocol WatchListWorkerType {
+  func getSavedMovies(completionHandler: @escaping MoviesResult)
+}
+
+class WatchListWorker: WatchListWorkerType {
+  
+  // MARK: - Dependencies
+  
+  // MARK: - Init
+  
+  // MARK: - Methods
+  
+  func getSavedMovies(completionHandler: @escaping MoviesResult) {
+    
+    MoviesWorker.shared.fetchMovies(forPage: nil) { (movies, error) in
+      guard error == nil else {
+        completionHandler([], error!)
+        print("ERROR: Error attempting to retrieve movies from Realm.")
+        return
+      }
+      completionHandler(movies, nil)
+    }
   }
 }

@@ -430,7 +430,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="220" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQv-wD-7mI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="220" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tQv-wD-7mI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -438,7 +438,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WatchListCell" rowHeight="220" id="qxt-hG-Jsu" customClass="WatchListCell" customModule="CleanMovieDB" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WatchListCell" rowHeight="220" id="qxt-hG-Jsu" customClass="WatchListCell" customModule="CleanMovieDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qxt-hG-Jsu" id="yON-yr-ou2">
@@ -519,10 +519,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="oim-p2-6sP" secondAttribute="bottom" constant="8" id="6e3-Fx-j68"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="width" secondItem="iUP-Re-Vg2" secondAttribute="width" multiplier="0.3478" id="7w8-Oh-qQI"/>
                                                         <constraint firstItem="c8B-Os-U8Z" firstAttribute="top" secondItem="iUP-Re-Vg2" secondAttribute="top" constant="8" id="RFO-YF-PT8"/>
                                                         <constraint firstAttribute="bottom" secondItem="c8B-Os-U8Z" secondAttribute="bottom" constant="8" id="Tdy-Q1-ALI"/>
                                                         <constraint firstItem="c8B-Os-U8Z" firstAttribute="leading" secondItem="oim-p2-6sP" secondAttribute="trailing" constant="8" id="VEV-mA-elY"/>
+                                                        <constraint firstItem="oim-p2-6sP" firstAttribute="top" secondItem="iUP-Re-Vg2" secondAttribute="top" constant="9" id="f0f-ZW-IhR"/>
                                                         <constraint firstAttribute="trailing" secondItem="c8B-Os-U8Z" secondAttribute="trailing" constant="8" id="nNI-Nd-RcM"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="centerY" secondItem="iUP-Re-Vg2" secondAttribute="centerY" id="vF5-Pw-UHw"/>
                                                         <constraint firstItem="oim-p2-6sP" firstAttribute="leading" secondItem="iUP-Re-Vg2" secondAttribute="leading" constant="8" id="yMG-Y0-aC2"/>
@@ -564,7 +566,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="cardView" destination="iUP-Re-Vg2" id="owR-Ni-Rnj"/>
                                             <outlet property="movieScoreLabel" destination="q2v-gp-IQT" id="x1V-ku-4Gs"/>
                                             <outlet property="movieTitleLabel" destination="HHi-Lu-gCk" id="eZj-ov-Y45"/>
                                             <outlet property="posterImageView" destination="oim-p2-6sP" id="fEX-rK-75m"/>

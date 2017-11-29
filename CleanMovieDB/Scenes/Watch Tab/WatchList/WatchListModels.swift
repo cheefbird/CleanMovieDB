@@ -15,16 +15,18 @@ import UIKit
 enum WatchList {
   // MARK: Use cases
   
-  enum Something {
+  enum LoadMovies {
     
     struct Request {
       
     }
+    
     struct Response {
-      
+      var movies: [MovieObject]
     }
+    
     struct ViewModel {
-      
+      var movies: [MovieObject]
     }
   }
 }

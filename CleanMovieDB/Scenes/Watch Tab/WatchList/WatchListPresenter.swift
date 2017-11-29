@@ -13,7 +13,7 @@
 import UIKit
 
 protocol WatchListPresentationLogic {
-  func presentSomething(response: WatchList.Something.Response)
+  func presentMovies(response: WatchList.LoadMovies.Response)
 }
 
 class WatchListPresenter: WatchListPresentationLogic {
@@ -24,8 +24,9 @@ class WatchListPresenter: WatchListPresentationLogic {
   
   // MARK: Do something
   
-  func presentSomething(response: WatchList.Something.Response) {
-    let viewModel = WatchList.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentMovies(response: WatchList.LoadMovies.Response) {
+    let viewModel = WatchList.LoadMovies.ViewModel(movies: response.movies)
+    
+    viewController?.displayMovies(viewModel: viewModel)
   }
 }

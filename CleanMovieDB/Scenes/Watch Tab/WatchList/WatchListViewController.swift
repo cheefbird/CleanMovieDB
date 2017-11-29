@@ -13,7 +13,7 @@
 import UIKit
 
 protocol WatchListDisplayLogic: class {
-  func displaySomething(viewModel: WatchList.Something.ViewModel)
+  func displayMovies(viewModel: WatchList.LoadMovies.ViewModel)
 }
 
 class WatchListViewController: UIViewController, WatchListDisplayLogic {
@@ -25,10 +25,12 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
   
   // MARK: - Properties
   
+  var movies = [MovieObject]()
+  
   // MARK: - Outlets
   
   @IBOutlet var tableView: UITableView!
-
+  
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -75,21 +77,24 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
     super.viewDidLoad()
     
     tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 220
     
-    doSomething()
+    loadMoviesFromRealm()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething() {
-    let request = WatchList.Something.Request()
-    interactor?.doSomething(request: request)
+  func loadMoviesFromRealm() {
+    let request = WatchList.LoadMovies.Request()
+    interactor?.loadMovies(request: request)
   }
   
-  func displaySomething(viewModel: WatchList.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
+  func displayMovies(viewModel: WatchList.LoadMovies.ViewModel) {
+    movies = viewModel.movies
+    
+    tableView.reloadData()
   }
 }
 
@@ -104,26 +109,19 @@ extension WatchListViewController: UITableViewDelegate {
 extension WatchListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return movies.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchListCell
     
-//    switch indexPath.row {
-//    case 0...2:
-//      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.\nOrganically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Leverage agile frameworks to provide a robust synopsis for high level overviews."
-//    default:
-//      cell.testLabel.text = "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-//    }
+    let movie = movies[indexPath.row]
+    cell.configure(using: movie)
+    
+    cell.contentView.layoutIfNeeded()
     
     return cell
   }
-  
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "Title Goes Here"
-  }
-  
 }
 
 

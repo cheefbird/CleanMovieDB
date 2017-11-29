@@ -13,7 +13,7 @@
 import UIKit
 
 protocol WatchListBusinessLogic {
-  func doSomething(request: WatchList.Something.Request)
+  func loadMovies(request: WatchList.LoadMovies.Request)
 }
 
 protocol WatchListDataStore {
@@ -25,16 +25,16 @@ class WatchListInteractor: WatchListBusinessLogic, WatchListDataStore {
   // MARK: - Dependencies
   
   var presenter: WatchListPresentationLogic?
-  var worker: WatchListWorker?
+  var worker = WatchListWorker()
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: WatchList.Something.Request) {
-    worker = WatchListWorker()
-    worker?.doSomeWork()
-    
-    let response = WatchList.Something.Response()
-    presenter?.presentSomething(response: response)
+  func loadMovies(request: WatchList.LoadMovies.Request) {
+    worker.getSavedMovies { [weak self] (movies, error) in
+      let response = WatchList.LoadMovies.Response(movies: movies)
+      
+      self?.presenter?.presentMovies(response: response)
+    }
   }
 }
