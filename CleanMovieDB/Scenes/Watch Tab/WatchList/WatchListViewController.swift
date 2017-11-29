@@ -54,6 +54,8 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
+    
+    navigationItem.title = "My Watch List"
   }
   
   // MARK: Routing
