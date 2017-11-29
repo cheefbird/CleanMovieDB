@@ -26,7 +26,7 @@ class WatchListWorker: WatchListWorkerType {
   
   func getSavedMovies(completionHandler: @escaping MoviesResult) {
     
-    MoviesWorker.shared.fetchMovies(forPage: nil) { (movies, error) in
+    MoviesWorker.shared.fetchFavoriteMovies { (movies, error) in
       guard error == nil else {
         completionHandler([], error!)
         print("ERROR: Error attempting to retrieve movies from Realm.")

@@ -19,6 +19,19 @@ class RealmMovieService: MovieServiceType {
     completionHandler(Array(movies), nil)
   }
   
+  func getFavoriteMovies(completionHandler: @escaping MoviesResult) {
+    let realm = try! Realm()
+    
+    let movies = RealmUser.defaultUser(inRealm: realm).favoriteMovies
+    
+//    guard let movies = realm.objects(RealmUser.self).value(forKey: "favoriteMovies") as? [MovieObject] else {
+//      completionHandler([], MoviesAPIError.serializationError(reason: "No favorite movies"))
+//      return
+//    }
+    
+    completionHandler(movies, nil)
+  }
+  
   func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
     let realm = try! Realm()
     

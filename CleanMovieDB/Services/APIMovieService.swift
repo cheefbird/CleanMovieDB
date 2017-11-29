@@ -13,6 +13,10 @@ import RealmSwift
 
 class APIMovieService: MovieServiceType {
   
+  func getFavoriteMovies(completionHandler: @escaping MoviesResult) {
+    
+  }
+  
   func getMovies(forPage page: Int?, completionHandler: @escaping MoviesResult) {
     guard let page = page else { return }
     
