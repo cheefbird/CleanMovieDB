@@ -18,6 +18,11 @@
 		0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7F1FB27AA800265510 /* APIMovieService.swift */; };
 		0698CE821FB27B2600265510 /* MovieServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE811FB27B2600265510 /* MovieServiceType.swift */; };
 		06A1E7581FAA970400AE640F /* MoviesAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1E7571FAA970400AE640F /* MoviesAPIError.swift */; };
+		06A231871FCD1AAA00A38281 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231811FCD1AAA00A38281 /* WatchListPresenter.swift */; };
+		06A231891FCD1AAA00A38281 /* WatchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231831FCD1AAA00A38281 /* WatchListRouter.swift */; };
+		06A2318A1FCD1AAA00A38281 /* WatchListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231841FCD1AAA00A38281 /* WatchListModels.swift */; };
+		06A2318B1FCD1AAA00A38281 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231851FCD1AAA00A38281 /* WatchListViewController.swift */; };
+		06A2318C1FCD1AAA00A38281 /* WatchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231861FCD1AAA00A38281 /* WatchListInteractor.swift */; };
 		06A79AFE1FB69A49008112BB /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79AFD1FB69A49008112BB /* ReviewObject.swift */; };
 		06A79B001FB69B7E008112BB /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79AFF1FB69B7D008112BB /* Review.swift */; };
 		06A79B021FB6A173008112BB /* RealmReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B011FB6A173008112BB /* RealmReview.swift */; };
@@ -26,6 +31,7 @@
 		06A79B0D1FB7DE25008112BB /* MovieReviewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B071FB7DE25008112BB /* MovieReviewsModels.swift */; };
 		06A79B0E1FB7DE25008112BB /* MovieReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B081FB7DE25008112BB /* MovieReviewsViewController.swift */; };
 		06A79B0F1FB7DE25008112BB /* MovieReviewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A79B091FB7DE25008112BB /* MovieReviewsInteractor.swift */; };
+		06B3AFB81FCE4A970039F99C /* WatchListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B3AFB71FCE4A970039F99C /* WatchListWorker.swift */; };
 		06B9057C1FC3609E0007B0D9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B9057B1FC3609E0007B0D9 /* CustomButton.swift */; };
 		06D827E21FA94C2800693102 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E11FA94C2800693102 /* CustomTabBar.swift */; };
 		06D827E81FA9548300693102 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E71FA9548300693102 /* AppColors.swift */; };
@@ -47,6 +53,8 @@
 		06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5211FA8138200110FFB /* ListMoviesModels.swift */; };
 		06E4F5281FA8138200110FFB /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */; };
 		06E4F5291FA8138200110FFB /* ListMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */; };
+		06E59B531FCD21C600069B5E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E59B521FCD21C600069B5E /* CustomView.swift */; };
+		06E59B571FCD246500069B5E /* WatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E59B561FCD246500069B5E /* WatchListCell.swift */; };
 		08FA88ED20D8A3EAA503B470 /* Pods_CleanMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF563369CF5824D5E68FAA9 /* Pods_CleanMovieDBTests.framework */; };
 		44BBC4C9A3D4E6B3A279FF83 /* Pods_CleanMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738C607363AB599AD699ED24 /* Pods_CleanMovieDB.framework */; };
 		D5D20C581FBE95F700A950BF /* MovieReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D20C571FBE95F700A950BF /* MovieReviewCell.swift */; };
@@ -74,6 +82,11 @@
 		0698CE7F1FB27AA800265510 /* APIMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieService.swift; sourceTree = "<group>"; };
 		0698CE811FB27B2600265510 /* MovieServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceType.swift; sourceTree = "<group>"; };
 		06A1E7571FAA970400AE640F /* MoviesAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIError.swift; sourceTree = "<group>"; };
+		06A231811FCD1AAA00A38281 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
+		06A231831FCD1AAA00A38281 /* WatchListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListRouter.swift; sourceTree = "<group>"; };
+		06A231841FCD1AAA00A38281 /* WatchListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListModels.swift; sourceTree = "<group>"; };
+		06A231851FCD1AAA00A38281 /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
+		06A231861FCD1AAA00A38281 /* WatchListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListInteractor.swift; sourceTree = "<group>"; };
 		06A79AFD1FB69A49008112BB /* ReviewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
 		06A79AFF1FB69B7D008112BB /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		06A79B011FB6A173008112BB /* RealmReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReview.swift; sourceTree = "<group>"; };
@@ -82,6 +95,7 @@
 		06A79B071FB7DE25008112BB /* MovieReviewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsModels.swift; sourceTree = "<group>"; };
 		06A79B081FB7DE25008112BB /* MovieReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsViewController.swift; sourceTree = "<group>"; };
 		06A79B091FB7DE25008112BB /* MovieReviewsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewsInteractor.swift; sourceTree = "<group>"; };
+		06B3AFB71FCE4A970039F99C /* WatchListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListWorker.swift; sourceTree = "<group>"; };
 		06B9057B1FC3609E0007B0D9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		06D827E11FA94C2800693102 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		06D827E71FA9548300693102 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -107,6 +121,8 @@
 		06E4F5211FA8138200110FFB /* ListMoviesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesModels.swift; sourceTree = "<group>"; };
 		06E4F5221FA8138200110FFB /* ListMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewController.swift; sourceTree = "<group>"; };
 		06E4F5231FA8138200110FFB /* ListMoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractor.swift; sourceTree = "<group>"; };
+		06E59B521FCD21C600069B5E /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		06E59B561FCD246500069B5E /* WatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListCell.swift; sourceTree = "<group>"; };
 		2BF563369CF5824D5E68FAA9 /* Pods_CleanMovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanMovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1098F4FE4C0EFA4B93BE48 /* Pods-CleanMovieDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDBTests/Pods-CleanMovieDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		494EB680FC3BB64A5B48FD23 /* Pods-CleanMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanMovieDB/Pods-CleanMovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +180,37 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		06A2317E1FCD1A1A00A38281 /* Discover Tab */ = {
+			isa = PBXGroup;
+			children = (
+				06A79B031FB7DDFE008112BB /* MovieReviews */,
+				06DC8CFD1FAD456600606738 /* MovieDetails */,
+				06E4F51D1FA8134000110FFB /* ListMovies */,
+			);
+			path = "Discover Tab";
+			sourceTree = "<group>";
+		};
+		06A2317F1FCD1A3200A38281 /* Watch Tab */ = {
+			isa = PBXGroup;
+			children = (
+				06A231801FCD1A4800A38281 /* WatchList */,
+			);
+			path = "Watch Tab";
+			sourceTree = "<group>";
+		};
+		06A231801FCD1A4800A38281 /* WatchList */ = {
+			isa = PBXGroup;
+			children = (
+				06A231811FCD1AAA00A38281 /* WatchListPresenter.swift */,
+				06A231831FCD1AAA00A38281 /* WatchListRouter.swift */,
+				06A231841FCD1AAA00A38281 /* WatchListModels.swift */,
+				06A231851FCD1AAA00A38281 /* WatchListViewController.swift */,
+				06A231861FCD1AAA00A38281 /* WatchListInteractor.swift */,
+				06E59B561FCD246500069B5E /* WatchListCell.swift */,
+			);
+			path = WatchList;
+			sourceTree = "<group>";
+		};
 		06A79AFA1FB69A1C008112BB /* Movie */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +252,13 @@
 			path = MovieReviews;
 			sourceTree = "<group>";
 		};
+		06B3AFBA1FCE50AE0039F99C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		06D827E01FA94B7200693102 /* UI Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +266,7 @@
 				06D827E71FA9548300693102 /* AppColors.swift */,
 				067D46B41FB3D361001D3834 /* RoundedUILabel.swift */,
 				06B9057B1FC3609E0007B0D9 /* CustomButton.swift */,
+				06E59B521FCD21C600069B5E /* CustomView.swift */,
 			);
 			path = "UI Helpers";
 			sourceTree = "<group>";
@@ -220,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				06D827EA1FA968BA00693102 /* MoviesWorker.swift */,
+				06B3AFB71FCE4A970039F99C /* WatchListWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -305,9 +361,9 @@
 		06E4F51C1FA8133900110FFB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				06A79B031FB7DDFE008112BB /* MovieReviews */,
-				06DC8CFD1FAD456600606738 /* MovieDetails */,
-				06E4F51D1FA8134000110FFB /* ListMovies */,
+				06B3AFBA1FCE50AE0039F99C /* Helpers */,
+				06A2317F1FCD1A3200A38281 /* Watch Tab */,
+				06A2317E1FCD1A1A00A38281 /* Discover Tab */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -569,23 +625,28 @@
 				06D827EB1FA968BA00693102 /* MoviesWorker.swift in Sources */,
 				06E4F5241FA8138200110FFB /* ListMoviesPresenter.swift in Sources */,
 				06DC8D081FAD459600606738 /* MovieDetailsViewController.swift in Sources */,
+				06A2318B1FCD1AAA00A38281 /* WatchListViewController.swift in Sources */,
 				06D827EE1FA9694600693102 /* Movie.swift in Sources */,
 				0698CE821FB27B2600265510 /* MovieServiceType.swift in Sources */,
 				0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
 				06DC8D041FAD459600606738 /* MovieDetailsPresenter.swift in Sources */,
+				06E59B571FCD246500069B5E /* WatchListCell.swift in Sources */,
 				06209DAD1FC3BFEB003C985D /* RealmUser.swift in Sources */,
 				06B9057C1FC3609E0007B0D9 /* CustomButton.swift in Sources */,
 				06D827E81FA9548300693102 /* AppColors.swift in Sources */,
 				06A79B021FB6A173008112BB /* RealmReview.swift in Sources */,
+				06A2318C1FCD1AAA00A38281 /* WatchListInteractor.swift in Sources */,
 				06A79B001FB69B7E008112BB /* Review.swift in Sources */,
 				06A1E7581FAA970400AE640F /* MoviesAPIError.swift in Sources */,
 				06A79B0D1FB7DE25008112BB /* MovieReviewsModels.swift in Sources */,
+				06A2318A1FCD1AAA00A38281 /* WatchListModels.swift in Sources */,
 				06E4F5261FA8138200110FFB /* ListMoviesRouter.swift in Sources */,
 				06A79B0A1FB7DE25008112BB /* MovieReviewsPresenter.swift in Sources */,
 				06DC8D071FAD459600606738 /* MovieDetailsModels.swift in Sources */,
 				0698CE791FB274D900265510 /* MovieObject.swift in Sources */,
 				06A79B0E1FB7DE25008112BB /* MovieReviewsViewController.swift in Sources */,
+				06B3AFB81FCE4A970039F99C /* WatchListWorker.swift in Sources */,
 				06E24C051FAD13BD005D67CF /* ListMoviesCell.swift in Sources */,
 				06DC8D091FAD459600606738 /* MovieDetailsInteractor.swift in Sources */,
 				06A79AFE1FB69A49008112BB /* ReviewObject.swift in Sources */,
@@ -595,13 +656,16 @@
 				067D46B31FB28F4D001D3834 /* MovieImageType.swift in Sources */,
 				06A79B0F1FB7DE25008112BB /* MovieReviewsInteractor.swift in Sources */,
 				06A79B0C1FB7DE25008112BB /* MovieReviewsRouter.swift in Sources */,
+				06E59B531FCD21C600069B5E /* CustomView.swift in Sources */,
 				067D46B51FB3D361001D3834 /* RoundedUILabel.swift in Sources */,
 				0698CE7B1FB2766600265510 /* RealmMovie.swift in Sources */,
 				0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */,
 				06E4F4FC1FA8122500110FFB /* AppDelegate.swift in Sources */,
 				06209DAB1FC3BF05003C985D /* User.swift in Sources */,
 				06D827E21FA94C2800693102 /* CustomTabBar.swift in Sources */,
+				06A231891FCD1AAA00A38281 /* WatchListRouter.swift in Sources */,
 				D5D20C581FBE95F700A950BF /* MovieReviewCell.swift in Sources */,
+				06A231871FCD1AAA00A38281 /* WatchListPresenter.swift in Sources */,
 				06E4F5291FA8138200110FFB /* ListMoviesInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

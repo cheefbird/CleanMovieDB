@@ -17,6 +17,8 @@ import ObjectMapper
 protocol MoviesWorkerType {
   
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
+  
+  func fetchFavoriteMovies(completionHandler: @escaping MoviesResult)
 
 }
 
@@ -48,6 +50,17 @@ class MoviesWorker: MoviesWorkerType {
     print("Fetching from API ...")
     apiService.getMovies(forPage: page, completionHandler: completionHandler)
     
+  }
+  
+  func fetchFavoriteMovies(completionHandler: @escaping MoviesResult) {
+    realmService.getFavoriteMovies { (movies, error) in
+      guard error == nil else {
+        completionHandler([], error)
+        return
+      }
+      
+      completionHandler(movies, nil)
+    }
   }
   
   func fetchReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
