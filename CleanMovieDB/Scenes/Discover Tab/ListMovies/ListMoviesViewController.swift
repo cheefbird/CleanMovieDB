@@ -69,8 +69,13 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Find a movie ..."
+    searchController.searchBar.tintColor = UIColor.greenColor()
+    searchController.hidesNavigationBarDuringPresentation = false
     navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = false
     definesPresentationContext = true
+    
+    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.greenColor()]
   }
   
   // MARK: Routing
@@ -92,6 +97,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     setupSearchController()
     
     loadMoviesFromRealm()
+    
   }
 
   // MARK: Fetch Movies
