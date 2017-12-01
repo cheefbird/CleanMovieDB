@@ -26,9 +26,12 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   // MARK: - Properties
   
   var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
+  var filteredMovies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
   
   var pagesLoaded = 0
   var isFetching = false
+  
+  let searchController = UISearchController(searchResultsController: nil)
   
   // MARK: Outlets
   
@@ -62,6 +65,14 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     router.dataStore = interactor
   }
   
+  fileprivate func setupSearchController() {
+    searchController.searchResultsUpdater = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.placeholder = "Find a movie ..."
+    navigationItem.searchController = searchController
+    definesPresentationContext = true
+  }
+  
   // MARK: Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +88,8 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setupSearchController()
     
     loadMoviesFromRealm()
   }
@@ -111,6 +124,23 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     
     tableView.reloadData()
   }
+  
+  // MARK: - Private Methods
+  
+  func searchBarIsEmpty() -> Bool {
+    return searchController.searchBar.text?.isEmpty ?? true
+  }
+  
+  func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+    filteredMovies = movies.filter { movie in
+      return movie.title.lowercased().contains(searchText.lowercased())
+    }
+    tableView.reloadData()
+  }
+  
+  func isFiltering() -> Bool {
+    return searchController.isActive && !searchBarIsEmpty()
+  }
 }
 
 // MARK: - TableView Delegate
@@ -124,6 +154,10 @@ extension ListMoviesViewController: UITableViewDelegate {
 extension ListMoviesViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if isFiltering() {
+      return filteredMovies.count
+    }
+    
     return movies.count
   }
   
@@ -136,11 +170,16 @@ extension ListMoviesViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    loadMoreIfNeeded(indexPath)
-    
-    let movie = movies[indexPath.row]
-    
     let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! ListMoviesCell
+    
+    let movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie
+    
+    if isFiltering() {
+      movie = filteredMovies[indexPath.row]
+    } else {
+      movie = movies[indexPath.row]
+      loadMoreIfNeeded(indexPath)
+    }
     
     cell.configure(withMovie: movie, atRow: indexPath.row, sender: self)
     
@@ -157,6 +196,14 @@ extension ListMoviesViewController: MovieCellDelegate {
     movies[index].isFavorite = status
   }
   
+}
+
+// MARK: - Search updating
+
+extension ListMoviesViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    filterContentForSearchText(searchController.searchBar.text!)
+  }
 }
 
 
