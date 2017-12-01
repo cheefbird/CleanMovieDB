@@ -35,4 +35,18 @@ enum ListMovies {
       var displayedMovies: [DisplayedMovie]
     }
   }
+  
+  enum SearchMovies {
+    struct Request {
+      var query: String
+    }
+    
+    struct Response {
+      var movies: [MovieObject]
+    }
+    
+    struct ViewModel {
+      
+    }
+  }
 }
