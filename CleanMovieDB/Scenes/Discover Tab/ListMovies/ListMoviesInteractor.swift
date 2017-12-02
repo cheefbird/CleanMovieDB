@@ -14,6 +14,8 @@ import UIKit
 
 protocol ListMoviesBusinessLogic {
   func fetchMovies(request: ListMovies.FetchMovies.Request)
+  
+  func searchMovies(request: ListMovies.SearchMovies.Request)
 }
 
 protocol ListMoviesDataStore {
@@ -27,7 +29,7 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   var movies: [MovieObject]?
   
-  // MARK: Do something
+  // MARK: Fetch Movies
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
@@ -48,5 +50,11 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
       let response = ListMovies.FetchMovies.Response(movies: movies)
       self.presenter?.presentMovies(response: response)
     }
+  }
+  
+  // MARK: - Search Movies
+  
+  func searchMovies(request: ListMovies.SearchMovies.Request) {
+    // TODO
   }
 }

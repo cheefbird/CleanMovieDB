@@ -131,7 +131,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     tableView.reloadData()
   }
   
-  // MARK: - Private Methods
+  // MARK: - Search Movies
   
   func searchBarIsEmpty() -> Bool {
     return searchController.searchBar.text?.isEmpty ?? true
@@ -144,8 +144,15 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     tableView.reloadData()
   }
   
-  func isFiltering() -> Bool {
+  func isSearching() -> Bool {
     return searchController.isActive && !searchBarIsEmpty()
+  }
+  
+  func searchMovies(withQuery query: String) {
+    guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+    
+    let request = ListMovies.SearchMovies.Request(query: encodedQuery)
+    interactor?.searchMovies(request: request)
   }
 }
 
@@ -160,7 +167,7 @@ extension ListMoviesViewController: UITableViewDelegate {
 extension ListMoviesViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if isFiltering() {
+    if isSearching() {
       return filteredMovies.count
     }
     
@@ -180,7 +187,7 @@ extension ListMoviesViewController: UITableViewDataSource {
     
     let movie: ListMovies.FetchMovies.ViewModel.DisplayedMovie
     
-    if isFiltering() {
+    if isSearching() {
       movie = filteredMovies[indexPath.row]
     } else {
       movie = movies[indexPath.row]
