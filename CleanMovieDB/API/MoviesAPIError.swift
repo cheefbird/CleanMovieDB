@@ -14,4 +14,6 @@ enum MoviesAPIError: Error {
   case network(error: Error)
   case serializationError(reason: String)
   
+  case searchQueryEncodingFailed(String)
+  case searchResultsParseError(String)
 }
