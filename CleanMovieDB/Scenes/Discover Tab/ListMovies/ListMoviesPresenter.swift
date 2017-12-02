@@ -14,13 +14,14 @@ import UIKit
 
 protocol ListMoviesPresentationLogic {
   func presentMovies(response: ListMovies.FetchMovies.Response)
+  func presentSearchResults(response: ListMovies.SearchMovies.Response)
 }
 
 class ListMoviesPresenter: ListMoviesPresentationLogic {
   
   weak var viewController: ListMoviesDisplayLogic?
   
-  // MARK: Do something
+  // MARK: Present Movies
   
   func presentMovies(response: ListMovies.FetchMovies.Response) {
     var displayedMovies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
@@ -35,6 +36,11 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
     
     let viewModel = ListMovies.FetchMovies.ViewModel(displayedMovies: displayedMovies)
     viewController?.displayMovies(viewModel: viewModel)
+  }
+  
+  // MARK: - Present Search Results
+  
+  func presentSearchResults(response: ListMovies.SearchMovies.Response) {
     
   }
 }

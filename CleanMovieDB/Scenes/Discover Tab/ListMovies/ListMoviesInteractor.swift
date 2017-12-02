@@ -20,22 +20,21 @@ protocol ListMoviesBusinessLogic {
 
 protocol ListMoviesDataStore {
   var movies: [MovieObject]? { get }
+  var searchResults: [MovieObject]? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   
   var presenter: ListMoviesPresentationLogic?
-  var worker: MoviesWorker!
   
   var movies: [MovieObject]?
+  var searchResults: [MovieObject]?
   
   // MARK: Fetch Movies
   
   func fetchMovies(request: ListMovies.FetchMovies.Request) {
     
-    worker = MoviesWorker.shared
-    
-    worker.fetchMovies(forPage: request.page) { (movies, error) in
+    MoviesWorker.shared.fetchMovies(forPage: request.page) { (movies, error) in
       guard error == nil else {
         print("ERROR: ERROR occurred while fetching movies")
         return
@@ -55,6 +54,16 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   // MARK: - Search Movies
   
   func searchMovies(request: ListMovies.SearchMovies.Request) {
-    // TODO
+    MoviesWorker.shared.searchMovies(withQuery: request.query) { (movies, error) in
+      guard error == nil else {
+        print("ERROR: Search failed.")
+        return
+      }
+      
+      self.searchResults = movies
+      
+      let response = ListMovies.SearchMovies.Response(movies: movies)
+//      self.presenter
+    }
   }
 }
