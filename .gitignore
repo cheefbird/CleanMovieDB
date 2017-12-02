@@ -1,5 +1,6 @@
 # MANUALLY Added
 PrivateKeys.plist
+codesigndoc_exports/
 
 
 # Created by https://www.gitignore.io/api/osx,swift,xcode,cocoapods,objective-c
