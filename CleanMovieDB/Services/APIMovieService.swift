@@ -107,7 +107,44 @@ class APIMovieService: MovieServiceType {
   // MARK: - Search Movies
   
   func searchMovies(withQuery query: String, completionHandler: @escaping MoviesResult) {
-    // TODO
+    guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+      completionHandler([], MoviesAPIError.searchQueryEncodingFailed("Query Encoding Failed"))
+      return
+    }
+    
+    Alamofire.request(MoviesRouter.searchMovies(query: encodedQuery))
+      .responseJSON { response in
+        guard response.result.error == nil else {
+          completionHandler([], response.result.error!)
+          print("Error: \(response.result.error!.localizedDescription)")
+          return
+        }
+        
+        guard let result = response.result.value as? [String: Any] else {
+          completionHandler([], MoviesAPIError.serializationError(reason: "Unable to serialize search results response"))
+          print("Error serializing search results response")
+          return
+        }
+        
+        var movies = [Movie]()
+        
+        if let moviesJSON = result["results"] as? [[String: Any]] {
+          moviesJSON.forEach { entry in
+            if let movie = Movie(JSON: entry) {
+              movies.append(movie)
+            }
+          }
+          
+          self.persist(movies: movies)
+          completionHandler(movies, nil)
+        } else {
+          let errorMessage = "Unable to parse results subarray"
+          print(errorMessage)
+          completionHandler(movies, MoviesAPIError.searchResultsParseError(errorMessage))
+          return
+        }
+    }
+    
   }
   
 }

@@ -25,6 +25,8 @@ protocol MoviesWorkerType {
   func checkFavoriteStatus(ofMovie movie: MovieObject) -> Bool
   
   func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void)
+  
+  func searchMovies(withQuery query: String, resultHandler: @escaping MoviesResult)
 }
 
 
@@ -81,5 +83,14 @@ class MoviesWorker: MoviesWorkerType {
   func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void) {
     realmService.toggleFavorite(forMovieID: id, resultHandler: resultHandler)
   }
+  
+  func searchMovies(withQuery query: String, resultHandler: @escaping MoviesResult) {
+    apiService.searchMovies(withQuery: query, completionHandler: resultHandler)
+  }
 
 }
+
+
+
+
+

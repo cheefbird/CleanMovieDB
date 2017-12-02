@@ -198,7 +198,6 @@ extension ListMoviesViewController: UITableViewDataSource {
     
     return cell
   }
-  
 }
 
 // MARK: - MovieCellDelegate
