@@ -104,6 +104,12 @@ class APIMovieService: MovieServiceType {
     resultHandler(false)
   }
   
+  // MARK: - Search Movies
+  
+  func searchMovies(withQuery query: String, completionHandler: @escaping MoviesResult) {
+    // TODO
+  }
+  
 }
 
 

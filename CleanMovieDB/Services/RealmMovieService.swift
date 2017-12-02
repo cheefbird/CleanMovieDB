@@ -74,4 +74,8 @@ class RealmMovieService: MovieServiceType {
     }
   }
   
+  func searchMovies(withQuery query: String, completionHandler: @escaping MoviesResult) {
+    // Not using DB search for search queries
+  }
+  
 }

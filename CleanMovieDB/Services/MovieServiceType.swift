@@ -21,5 +21,7 @@ protocol MovieServiceType {
   func getFavoriteStatus(forMovie movie: MovieObject) -> Bool
   
   func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void)
+  
+  func searchMovies(withQuery query: String, completionHandler: @escaping MoviesResult)
 }
 

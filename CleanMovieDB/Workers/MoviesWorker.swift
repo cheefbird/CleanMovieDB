@@ -19,7 +19,12 @@ protocol MoviesWorkerType {
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
   
   func fetchFavoriteMovies(completionHandler: @escaping MoviesResult)
+  
+  func fetchReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult)
 
+  func checkFavoriteStatus(ofMovie movie: MovieObject) -> Bool
+  
+  func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void)
 }
 
 
