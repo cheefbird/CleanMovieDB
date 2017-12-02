@@ -16,6 +16,7 @@ enum MoviesRouter: URLRequestConvertible {
   
   case getMovies(page: Int)
   case getReview(id: Int)
+  case searchMovies(query: String)
   
   // MARK: - Request Properties
   
@@ -33,6 +34,8 @@ enum MoviesRouter: URLRequestConvertible {
       return "discover/movie"
     case .getReview(let id):
       return "movie/\(id)/reviews"
+    case .searchMovies:
+      return "search/movie"
     }
   }
   
@@ -40,6 +43,7 @@ enum MoviesRouter: URLRequestConvertible {
     
     var params = Parameters()
     params["api_key"] = "7e6576c1d12633c8fd1eee0cb2e995ed"
+    params["language"] = "en-US"
     
     switch self {
     case .getMovies(let page):
@@ -49,6 +53,9 @@ enum MoviesRouter: URLRequestConvertible {
       params["include_video"] = "false"
     case .getReview:
       break
+    case .searchMovies(let query):
+      params["query"] = query
+      params["include_adult"] = false
     }
     
     return params
