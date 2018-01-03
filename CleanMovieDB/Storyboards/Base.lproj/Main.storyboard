@@ -191,9 +191,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover Movies" id="JC5-ZT-QtQ">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="18I-ho-Osk"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Discover Movies" id="JC5-ZT-QtQ"/>
                     <connections>
                         <outlet property="navBarItems" destination="JC5-ZT-QtQ" id="I97-n8-HTX"/>
                         <outlet property="tableView" destination="zPH-0W-oen" id="CNW-Mp-wtw"/>
