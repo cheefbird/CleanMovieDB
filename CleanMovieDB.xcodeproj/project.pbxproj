@@ -12,7 +12,7 @@
 		06209DAD1FC3BFEB003C985D /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06209DAC1FC3BFEB003C985D /* RealmUser.swift */; };
 		067D46B31FB28F4D001D3834 /* MovieImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067D46B21FB28F4D001D3834 /* MovieImageType.swift */; };
 		067D46B51FB3D361001D3834 /* RoundedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067D46B41FB3D361001D3834 /* RoundedUILabel.swift */; };
-		0698CE791FB274D900265510 /* MovieObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE781FB274D900265510 /* MovieObject.swift */; };
+		0698CE791FB274D900265510 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE781FB274D900265510 /* Movie.swift */; };
 		0698CE7B1FB2766600265510 /* RealmMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7A1FB2766600265510 /* RealmMovie.swift */; };
 		0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7D1FB27A9600265510 /* RealmMovieService.swift */; };
 		0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7F1FB27AA800265510 /* APIMovieService.swift */; };
@@ -36,7 +36,7 @@
 		06D827E21FA94C2800693102 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E11FA94C2800693102 /* CustomTabBar.swift */; };
 		06D827E81FA9548300693102 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827E71FA9548300693102 /* AppColors.swift */; };
 		06D827EB1FA968BA00693102 /* MoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827EA1FA968BA00693102 /* MoviesWorker.swift */; };
-		06D827EE1FA9694600693102 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827ED1FA9694600693102 /* Movie.swift */; };
+		06D827EE1FA9694600693102 /* TMDbMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D827ED1FA9694600693102 /* TMDbMovie.swift */; };
 		06DC8D041FAD459600606738 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC8CFE1FAD459600606738 /* MovieDetailsPresenter.swift */; };
 		06DC8D061FAD459600606738 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC8D001FAD459600606738 /* MovieDetailsRouter.swift */; };
 		06DC8D071FAD459600606738 /* MovieDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC8D011FAD459600606738 /* MovieDetailsModels.swift */; };
@@ -76,7 +76,7 @@
 		06209DAC1FC3BFEB003C985D /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		067D46B21FB28F4D001D3834 /* MovieImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImageType.swift; sourceTree = "<group>"; };
 		067D46B41FB3D361001D3834 /* RoundedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUILabel.swift; sourceTree = "<group>"; };
-		0698CE781FB274D900265510 /* MovieObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieObject.swift; sourceTree = "<group>"; };
+		0698CE781FB274D900265510 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0698CE7A1FB2766600265510 /* RealmMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovie.swift; sourceTree = "<group>"; };
 		0698CE7D1FB27A9600265510 /* RealmMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieService.swift; sourceTree = "<group>"; };
 		0698CE7F1FB27AA800265510 /* APIMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieService.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		06D827E11FA94C2800693102 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		06D827E71FA9548300693102 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		06D827EA1FA968BA00693102 /* MoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesWorker.swift; sourceTree = "<group>"; };
-		06D827ED1FA9694600693102 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		06D827ED1FA9694600693102 /* TMDbMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbMovie.swift; sourceTree = "<group>"; };
 		06DC8CFE1FAD459600606738 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		06DC8D001FAD459600606738 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		06DC8D011FAD459600606738 /* MovieDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModels.swift; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		06A79AFA1FB69A1C008112BB /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				0698CE781FB274D900265510 /* MovieObject.swift */,
-				06D827ED1FA9694600693102 /* Movie.swift */,
+				0698CE781FB274D900265510 /* Movie.swift */,
+				06D827ED1FA9694600693102 /* TMDbMovie.swift */,
 				0698CE7A1FB2766600265510 /* RealmMovie.swift */,
 			);
 			path = Movie;
@@ -626,7 +626,7 @@
 				06E4F5241FA8138200110FFB /* ListMoviesPresenter.swift in Sources */,
 				06DC8D081FAD459600606738 /* MovieDetailsViewController.swift in Sources */,
 				06A2318B1FCD1AAA00A38281 /* WatchListViewController.swift in Sources */,
-				06D827EE1FA9694600693102 /* Movie.swift in Sources */,
+				06D827EE1FA9694600693102 /* TMDbMovie.swift in Sources */,
 				0698CE821FB27B2600265510 /* MovieServiceType.swift in Sources */,
 				0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
@@ -644,7 +644,7 @@
 				06E4F5261FA8138200110FFB /* ListMoviesRouter.swift in Sources */,
 				06A79B0A1FB7DE25008112BB /* MovieReviewsPresenter.swift in Sources */,
 				06DC8D071FAD459600606738 /* MovieDetailsModels.swift in Sources */,
-				0698CE791FB274D900265510 /* MovieObject.swift in Sources */,
+				0698CE791FB274D900265510 /* Movie.swift in Sources */,
 				06A79B0E1FB7DE25008112BB /* MovieReviewsViewController.swift in Sources */,
 				06B3AFB81FCE4A970039F99C /* WatchListWorker.swift in Sources */,
 				06E24C051FAD13BD005D67CF /* ListMoviesCell.swift in Sources */,

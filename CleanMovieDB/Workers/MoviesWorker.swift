@@ -63,13 +63,13 @@ class MoviesWorker: MoviesWorkerType {
     }
   }
   
-  func fetchReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
+  func fetchReviews(forMovie movie: Movie, completionHandler: @escaping ReviewsResult) {
     
     apiService.getReviews(forMovie: movie, completionHandler: completionHandler)
     
   }
   
-  func checkFavoriteStatus(ofMovie movie: MovieObject) -> Bool {
+  func checkFavoriteStatus(ofMovie movie: Movie) -> Bool {
     return realmService.getFavoriteStatus(forMovie: movie)
   }
   

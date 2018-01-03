@@ -17,7 +17,7 @@ protocol ListMoviesBusinessLogic {
 }
 
 protocol ListMoviesDataStore {
-  var movies: [MovieObject]? { get }
+  var movies: [Movie]? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
@@ -25,7 +25,7 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
   var presenter: ListMoviesPresentationLogic?
   var worker: MoviesWorker!
   
-  var movies: [MovieObject]?
+  var movies: [Movie]?
   
   // MARK: Do something
   

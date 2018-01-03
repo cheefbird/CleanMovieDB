@@ -21,7 +21,7 @@ class APIMovieService: MovieServiceType {
     guard let page = page else { return }
     
     Alamofire.request(MoviesRouter.getMovies(page: page))
-      .responseArray(keyPath: "results") { (response: DataResponse<[Movie]>) in
+      .responseArray(keyPath: "results") { (response: DataResponse<[TMDbMovie]>) in
         
         guard response.result.error == nil else {
           completionHandler([], response.result.error!)
@@ -42,7 +42,7 @@ class APIMovieService: MovieServiceType {
     }
   }
   
-  fileprivate func persist(movies: [MovieObject]) {
+  fileprivate func persist(movies: [Movie]) {
     let newMovies = movies.map { RealmMovie(copy: $0) }
     
     let realm = try! Realm()
@@ -51,7 +51,7 @@ class APIMovieService: MovieServiceType {
     }
   }
   
-  func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
+  func getReviews(forMovie movie: Movie, completionHandler: @escaping ReviewsResult) {
     let movieID = movie.id
     
     Alamofire.request(MoviesRouter.getReview(id: movieID))
@@ -96,7 +96,7 @@ class APIMovieService: MovieServiceType {
     
   }
   
-  func getFavoriteStatus(forMovie movie: MovieObject) -> Bool {
+  func getFavoriteStatus(forMovie movie: Movie) -> Bool {
     return false
   }
   

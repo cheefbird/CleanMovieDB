@@ -20,7 +20,7 @@ class WatchListCell: UITableViewCell {
   
   // MARK: - Configure
   
-  func configure(using movie: MovieObject) {
+  func configure(using movie: Movie) {
     let posterImagePath = movie.getImageURL(forType: .poster)
     
     posterImageView.kf.setImage(with: posterImagePath)

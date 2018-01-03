@@ -1,62 +1,56 @@
 //
-//  Movie.swift
+//  MovieObject.swift
 //  CleanMovieDB
 //
-//  Created by Francis Breidenbach on 10/31/17.
+//  Created by Francis Breidenbach on 11/7/17.
 //  Copyright © 2017 Francis Breidenbach. All rights reserved.
 //
 
 import Foundation
-import ObjectMapper
 
+protocol Movie {
+  
+  // MARK: - Properties
+  
+  var id: Int { get }
+  var title: String { get }
+  var summary: String { get }
+  var popularity: Double { get }
+  var voteAverage: Double { get }
+  var posterImagePath: String { get }
+  var backdropImagePath: String { get }
+  
+  func getImageURL(forType type: MovieImageType) -> URL
 
-class Movie: MovieObject, Mappable {
-  var id = 0
-  var title = ""
-  var summary = ""
-  var popularity = 0.0
-  var voteAverage = 0.0
-  var posterImagePath = ""
-  var backdropImagePath = ""
+}
+
+// MARK: - Image URL
+
+extension Movie {
   
-  // MARK: - Init
-  
-  required init?(map: Map) {
+  func getImageURL(forType type: MovieImageType) -> URL {
     
-  }
-  
-  // Mappable
-  
-  func mapping(map: Map) {
-    id                  <- map["id"]
-    title               <- map["original_title"]
-    summary             <- map["overview"]
-    popularity          <- map["popularity"]
-    voteAverage         <- map["vote_average"]
-    posterImagePath     <- map["poster_path"]
-    backdropImagePath   <- map["backdrop_path"]
-  }
-  
-}
-
-// MARK: - Equatable
-
-extension Movie: Equatable {
-  
-  static func ==(lhs: Movie, rhs: Movie) -> Bool {
-    return lhs.id == rhs.id
-      && lhs.popularity == rhs.popularity
-      && lhs.voteAverage == rhs.voteAverage
+    let baseURL = "https://image.tmdb.org/t/p/"
+    var path = ""
+    
+    switch type {
+    case .poster:
+      if posterImagePath.count > 4 {
+        path = "\(type.dimensions)\(posterImagePath)"
+      } else {
+        return URL(string: "https://placeimg.com/500/780/any")!
+      }
+      
+    case .backdrop:
+      if backdropImagePath.count > 4 {
+        path = "\(type.dimensions)\(backdropImagePath)"
+      } else {
+        return URL(string: "https://placeimg.com/780/439/any")!
+      }
+    }
+    
+    let result = baseURL + path
+    
+    return URL(string: result)!
   }
 }
-
-
-
-
-
-
-
-
-
-
-

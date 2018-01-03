@@ -17,13 +17,13 @@ protocol MovieDetailsBusinessLogic {
 }
 
 protocol MovieDetailsDataStore {
-  var movie: MovieObject? { get set }
+  var movie: Movie? { get set }
 }
 
 class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
   var presenter: MovieDetailsPresentationLogic?
   
-  var movie: MovieObject?
+  var movie: Movie?
   
   // MARK: Prepare
   

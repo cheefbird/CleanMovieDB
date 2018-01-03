@@ -20,7 +20,7 @@ enum MovieDetails {
       
     }
     struct Response {
-      var movie: MovieObject
+      var movie: Movie
     }
     struct ViewModel {
       struct DisplayedMovie {

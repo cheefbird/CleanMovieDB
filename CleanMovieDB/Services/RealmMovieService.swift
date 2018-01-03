@@ -32,7 +32,7 @@ class RealmMovieService: MovieServiceType {
     completionHandler(movies, nil)
   }
   
-  func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult) {
+  func getReviews(forMovie movie: Movie, completionHandler: @escaping ReviewsResult) {
     let realm = try! Realm()
     
     let reviews = realm.objects(RealmReview.self).filter("movie == %@", movie)
@@ -40,7 +40,7 @@ class RealmMovieService: MovieServiceType {
     completionHandler(Array(reviews), nil)
   }
   
-  func getFavoriteStatus(forMovie movie: MovieObject) -> Bool {
+  func getFavoriteStatus(forMovie movie: Movie) -> Bool {
     let realm = try! Realm()
     
     let user = RealmUser.defaultUser(inRealm: realm)

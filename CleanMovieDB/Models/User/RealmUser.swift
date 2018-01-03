@@ -14,7 +14,7 @@ class RealmUser: Object, User {
   // MARK: - Properties
   
   @objc dynamic var name: String = ""
-  var favoriteMovies: [MovieObject] {
+  var favoriteMovies: [Movie] {
     return Array(_favoriteMovies)
   }
   

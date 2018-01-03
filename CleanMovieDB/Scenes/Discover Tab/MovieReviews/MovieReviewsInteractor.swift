@@ -17,14 +17,14 @@ protocol MovieReviewsBusinessLogic {
 }
 
 protocol MovieReviewsDataStore {
-  var movie: MovieObject? { get set }
+  var movie: Movie? { get set }
   var reviews: [ReviewObject]? { get set }
 }
 
 class MovieReviewsInteractor: MovieReviewsBusinessLogic, MovieReviewsDataStore {
   var presenter: MovieReviewsPresentationLogic?
   
-  var movie: MovieObject?
+  var movie: Movie?
   var reviews: [ReviewObject]?
   
   // MARK: Fetch Reviews

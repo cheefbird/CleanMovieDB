@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MoviesResult = (_ movies: [MovieObject], _ error: Error?) -> Void
+typealias MoviesResult = (_ movies: [Movie], _ error: Error?) -> Void
 typealias ReviewsResult = (_ review: [ReviewObject], _ error: Error?) -> Void
 
 protocol MovieServiceType {
@@ -16,9 +16,9 @@ protocol MovieServiceType {
   
   func getFavoriteMovies(completionHandler: @escaping MoviesResult)
   
-  func getReviews(forMovie movie: MovieObject, completionHandler: @escaping ReviewsResult)
+  func getReviews(forMovie movie: Movie, completionHandler: @escaping ReviewsResult)
   
-  func getFavoriteStatus(forMovie movie: MovieObject) -> Bool
+  func getFavoriteStatus(forMovie movie: Movie) -> Bool
   
   func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void)
 }

@@ -25,7 +25,7 @@ class WatchListViewController: UIViewController, WatchListDisplayLogic {
   
   // MARK: - Properties
   
-  var movies = [MovieObject]()
+  var movies = [Movie]()
   
   // MARK: - Outlets
   

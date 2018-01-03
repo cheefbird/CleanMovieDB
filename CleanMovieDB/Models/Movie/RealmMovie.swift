@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmMovie: Object, MovieObject {
+class RealmMovie: Object, Movie {
   
   @objc dynamic var id = 0
   @objc dynamic var title = ""
@@ -21,7 +21,7 @@ class RealmMovie: Object, MovieObject {
   
   let reviews = List<RealmReview>()
   
-  convenience required init(copy movie: MovieObject) {
+  convenience required init(copy movie: Movie) {
     self.init()
     
     id = movie.id

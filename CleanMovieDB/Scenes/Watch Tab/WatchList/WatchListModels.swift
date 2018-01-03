@@ -22,11 +22,11 @@ enum WatchList {
     }
     
     struct Response {
-      var movies: [MovieObject]
+      var movies: [Movie]
     }
     
     struct ViewModel {
-      var movies: [MovieObject]
+      var movies: [Movie]
     }
   }
 }
