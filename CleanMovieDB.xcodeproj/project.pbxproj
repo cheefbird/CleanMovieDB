@@ -174,10 +174,8 @@
 		0602CBF51FA933B1001BBB4F /* API */ = {
 			isa = PBXGroup;
 			children = (
-				0602CBF61FA933EC001BBB4F /* MoviesRouter.swift */,
-				06A1E7571FAA970400AE640F /* MoviesAPIError.swift */,
-				06C989AD1FFDD0520047AE47 /* SearchRouter.swift */,
-				06C989AF1FFDD67F0047AE47 /* SearchRouterError.swift */,
+				064ABBE92004951100B1BA8E /* Movies */,
+				064ABBEA2004951900B1BA8E /* Search */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -208,6 +206,24 @@
 				06C989AB1FFDCFCD0047AE47 /* APISearchService.swift */,
 			);
 			path = SearchService;
+			sourceTree = "<group>";
+		};
+		064ABBE92004951100B1BA8E /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				0602CBF61FA933EC001BBB4F /* MoviesRouter.swift */,
+				06A1E7571FAA970400AE640F /* MoviesAPIError.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		064ABBEA2004951900B1BA8E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				06C989AD1FFDD0520047AE47 /* SearchRouter.swift */,
+				06C989AF1FFDD67F0047AE47 /* SearchRouterError.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		06A2317E1FCD1A1A00A38281 /* Discover Tab */ = {
