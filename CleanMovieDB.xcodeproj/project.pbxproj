@@ -165,11 +165,8 @@
 		0602CBF11FA932CC001BBB4F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0698CE811FB27B2600265510 /* MovieServiceType.swift */,
-				0698CE7D1FB27A9600265510 /* RealmMovieService.swift */,
-				0698CE7F1FB27AA800265510 /* APIMovieService.swift */,
-				06C989A91FFDCF7E0047AE47 /* SearchServiceType.swift */,
-				06C989AB1FFDCFCD0047AE47 /* APISearchService.swift */,
+				064ABBE7200494C200B1BA8E /* MovieService */,
+				064ABBE8200494CD00B1BA8E /* SearchService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -192,6 +189,25 @@
 				06209DAC1FC3BFEB003C985D /* RealmUser.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		064ABBE7200494C200B1BA8E /* MovieService */ = {
+			isa = PBXGroup;
+			children = (
+				0698CE811FB27B2600265510 /* MovieServiceType.swift */,
+				0698CE7D1FB27A9600265510 /* RealmMovieService.swift */,
+				0698CE7F1FB27AA800265510 /* APIMovieService.swift */,
+			);
+			path = MovieService;
+			sourceTree = "<group>";
+		};
+		064ABBE8200494CD00B1BA8E /* SearchService */ = {
+			isa = PBXGroup;
+			children = (
+				06C989A91FFDCF7E0047AE47 /* SearchServiceType.swift */,
+				06C989AB1FFDCFCD0047AE47 /* APISearchService.swift */,
+			);
+			path = SearchService;
 			sourceTree = "<group>";
 		};
 		06A2317E1FCD1A1A00A38281 /* Discover Tab */ = {
