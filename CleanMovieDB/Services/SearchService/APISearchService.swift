@@ -17,7 +17,7 @@ class APISearchService: SearchServiceType {
       .responseArray(keyPath: "results") { (response: DataResponse<[TMDbMovie]>) in
         guard response.result.error == nil else {
           print("SEARCH ERROR: unable to search for \(query)")
-          print("\(response.result.error?.localizedDescription)")
+          print("\(String(describing: response.result.error?.localizedDescription))")
           completionHandler([], SearchRouterError.networkError)
           return
         }

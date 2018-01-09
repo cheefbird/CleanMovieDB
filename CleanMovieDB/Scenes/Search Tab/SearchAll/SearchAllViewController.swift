@@ -13,13 +13,22 @@
 import UIKit
 
 protocol SearchAllDisplayLogic: class {
-  func displaySomething(viewModel: SearchAll.Something.ViewModel)
+  func displayResults(viewModel: SearchAll.Search.ViewModel)
 }
 
 class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
+  
+  // MARK: - Dependencies
+  
   var interactor: SearchAllBusinessLogic?
   var router: (NSObjectProtocol & SearchAllRoutingLogic & SearchAllDataPassing)?
-
+  
+  // MARK: - Outlets
+  
+  @IBOutlet var instructionLabel: UILabel!
+  @IBOutlet var searchBar: UISearchBar!
+  @IBOutlet var searchButton: UIButton!
+  
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -62,19 +71,43 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    
+    searchBar.becomeFirstResponder()
   }
   
-  // MARK: Do something
+  override func viewDidDisappear(_ animated: Bool) {
+    searchBar.resignFirstResponder()
+    
+    super.viewDidDisappear(animated)
+  }
+  
+  // MARK: Search Action
+  
+  @IBAction func performSearch() {
+    guard let query = searchBar.text,
+      query.count > 0 else {
+        instructionLabel.text = "Try searching again - search field was empty!"
+        return
+    }
+    startSearching(for: query)
+  }
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething() {
-    let request = SearchAll.Something.Request()
-    interactor?.doSomething(request: request)
+  func startSearching(for query: String) {
+    let request = SearchAll.Search.Request(query: query)
+    interactor?.search(for: request)
   }
   
-  func displaySomething(viewModel: SearchAll.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
+  func displayResults(viewModel: SearchAll.Search.ViewModel) {
+    guard viewModel.movies.count > 0 else {
+      instructionLabel.text = "No results. Try again ..."
+      return
+    }
+    
+    instructionLabel.text = "\(viewModel.movies.count) movies found."
+    for movie in viewModel.movies {
+      instructionLabel.text?.append("\n\(movie.title)")
+    }
   }
 }

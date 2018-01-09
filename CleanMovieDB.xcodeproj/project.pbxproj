@@ -11,7 +11,6 @@
 		06209DAB1FC3BF05003C985D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06209DAA1FC3BF05003C985D /* User.swift */; };
 		06209DAD1FC3BFEB003C985D /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06209DAC1FC3BFEB003C985D /* RealmUser.swift */; };
 		064ABBF32004A02C00B1BA8E /* SearchAllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ABBED2004A02C00B1BA8E /* SearchAllPresenter.swift */; };
-		064ABBF42004A02C00B1BA8E /* SearchAllWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ABBEE2004A02C00B1BA8E /* SearchAllWorker.swift */; };
 		064ABBF52004A02C00B1BA8E /* SearchAllRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ABBEF2004A02C00B1BA8E /* SearchAllRouter.swift */; };
 		064ABBF62004A02C00B1BA8E /* SearchAllModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ABBF02004A02C00B1BA8E /* SearchAllModels.swift */; };
 		064ABBF72004A02C00B1BA8E /* SearchAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064ABBF12004A02C00B1BA8E /* SearchAllViewController.swift */; };
@@ -86,7 +85,6 @@
 		06209DAA1FC3BF05003C985D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		06209DAC1FC3BFEB003C985D /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		064ABBED2004A02C00B1BA8E /* SearchAllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllPresenter.swift; sourceTree = "<group>"; };
-		064ABBEE2004A02C00B1BA8E /* SearchAllWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllWorker.swift; sourceTree = "<group>"; };
 		064ABBEF2004A02C00B1BA8E /* SearchAllRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllRouter.swift; sourceTree = "<group>"; };
 		064ABBF02004A02C00B1BA8E /* SearchAllModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllModels.swift; sourceTree = "<group>"; };
 		064ABBF12004A02C00B1BA8E /* SearchAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +199,13 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		0622F5AF2004AD91009FA58D /* SearchResults */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchResults;
+			sourceTree = "<group>";
+		};
 		064ABBE7200494C200B1BA8E /* MovieService */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +246,7 @@
 		064ABBEB20049FE700B1BA8E /* Search Tab */ = {
 			isa = PBXGroup;
 			children = (
+				0622F5AF2004AD91009FA58D /* SearchResults */,
 				064ABBEC2004A00500B1BA8E /* SearchAll */,
 			);
 			path = "Search Tab";
@@ -254,7 +260,6 @@
 				064ABBF22004A02C00B1BA8E /* SearchAllInteractor.swift */,
 				064ABBED2004A02C00B1BA8E /* SearchAllPresenter.swift */,
 				064ABBEF2004A02C00B1BA8E /* SearchAllRouter.swift */,
-				064ABBEE2004A02C00B1BA8E /* SearchAllWorker.swift */,
 			);
 			path = SearchAll;
 			sourceTree = "<group>";
@@ -712,7 +717,6 @@
 				0698CE821FB27B2600265510 /* MovieServiceType.swift in Sources */,
 				0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */,
 				06E4F5271FA8138200110FFB /* ListMoviesModels.swift in Sources */,
-				064ABBF42004A02C00B1BA8E /* SearchAllWorker.swift in Sources */,
 				06C989AA1FFDCF7E0047AE47 /* SearchServiceType.swift in Sources */,
 				06DC8D041FAD459600606738 /* MovieDetailsPresenter.swift in Sources */,
 				06E59B571FCD246500069B5E /* WatchListCell.swift in Sources */,

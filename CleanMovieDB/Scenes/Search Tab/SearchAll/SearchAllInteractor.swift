@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchAllBusinessLogic {
-  func doSomething(request: SearchAll.Something.Request)
+  func search(for request: SearchAll.Search.Request)
 }
 
 protocol SearchAllDataStore {
@@ -22,16 +22,21 @@ protocol SearchAllDataStore {
 
 class SearchAllInteractor: SearchAllBusinessLogic, SearchAllDataStore {
   var presenter: SearchAllPresentationLogic?
-  var worker: SearchAllWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: SearchAll.Something.Request) {
-    worker = SearchAllWorker()
-    worker?.doSomeWork()
+  func search(for request: SearchAll.Search.Request) {
+    let searchService = APISearchService()
+    let searchWorker = SearchWorker(searchService: searchService)
     
-    let response = SearchAll.Something.Response()
-    presenter?.presentSomething(response: response)
+    searchWorker.search(query: request.query) { [weak self] results, error in
+      guard error == nil else {
+        return
+      }
+      
+      let response = SearchAll.Search.Response(results: results)
+      self?.presenter?.presentResults(response: response)
+    }
   }
 }
