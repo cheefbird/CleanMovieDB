@@ -26,21 +26,15 @@ class SearchAllRouter: NSObject, SearchAllRoutingLogic, SearchAllDataPassing {
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
+  func routeToSomewhere(segue: UIStoryboardSegue?) {
+    guard let segue = segue else { return }
+    
+    let destinationVC = segue.destination as! SearchResultsViewController
+    var destinationDS = destinationVC.router!.dataStore!
+    
+    sendSearchResults(source: dataStore!, destination: &destinationDS)
+  }
+  
   // MARK: Navigation
   
   //func navigateToSomewhere(source: SearchAllViewController, destination: SomewhereViewController)
@@ -50,8 +44,7 @@ class SearchAllRouter: NSObject, SearchAllRoutingLogic, SearchAllDataPassing {
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: SearchAllDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func sendSearchResults(source: SearchAllDataStore, destination: inout SearchResultsDataStore) {
+    destination.movies = source.movies
+  }
 }

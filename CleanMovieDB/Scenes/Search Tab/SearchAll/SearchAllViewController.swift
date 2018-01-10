@@ -59,12 +59,18 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
   // MARK: Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    let selector = NSSelectorFromString("routeToShowSearchResultsWithSegue:")
+    
+    if let router = router, router.responds(to: selector) {
+      router.perform(selector, with: segue)
     }
+    
+//    if let scene = segue.identifier {
+//      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+//      if let router = router, router.responds(to: selector) {
+//        router.perform(selector, with: segue)
+//      }
+//    }
   }
   
   // MARK: View lifecycle
@@ -96,7 +102,16 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
   
   func startSearching(for query: String) {
     let request = SearchAll.Search.Request(query: query)
-    interactor?.search(for: request)
+    interactor?.search(for: request) { [weak self] result in
+      DispatchQueue.main.async {
+        guard result == .success else {
+          self?.instructionLabel.text = "Search failed. Try again."
+          return
+        }
+        
+        self?.instructionLabel.text = "Processing results ..."
+      }
+    }
   }
   
   func displayResults(viewModel: SearchAll.Search.ViewModel) {
@@ -105,9 +120,6 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
       return
     }
     
-    instructionLabel.text = "\(viewModel.movies.count) movies found."
-    for movie in viewModel.movies {
-      instructionLabel.text?.append("\n\(movie.title)")
-    }
+    performSegue(withIdentifier: "ShowSearchResults", sender: self)
   }
 }

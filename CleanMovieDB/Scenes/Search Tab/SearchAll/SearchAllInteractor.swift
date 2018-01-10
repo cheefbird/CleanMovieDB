@@ -12,28 +12,37 @@
 
 import UIKit
 
+enum SearchStatus {
+  case success
+  case failure
+}
+
 protocol SearchAllBusinessLogic {
-  func search(for request: SearchAll.Search.Request)
+  func search(for request: SearchAll.Search.Request, resultHandler: @escaping (SearchStatus) -> Void)
 }
 
 protocol SearchAllDataStore {
-  //var name: String { get set }
+  var movies: [Movie]? { get }
 }
 
 class SearchAllInteractor: SearchAllBusinessLogic, SearchAllDataStore {
   var presenter: SearchAllPresentationLogic?
-  //var name: String = ""
+  var movies: [Movie]?
   
   // MARK: Do something
   
-  func search(for request: SearchAll.Search.Request) {
+  func search(for request: SearchAll.Search.Request, resultHandler: @escaping (SearchStatus) -> Void) {
     let searchService = APISearchService()
     let searchWorker = SearchWorker(searchService: searchService)
     
     searchWorker.search(query: request.query) { [weak self] results, error in
       guard error == nil else {
+        resultHandler(.failure)
         return
       }
+      
+      self?.movies = results
+      resultHandler(.success)
       
       let response = SearchAll.Search.Response(results: results)
       self?.presenter?.presentResults(response: response)

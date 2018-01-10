@@ -231,13 +231,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releaseDate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQg-Lj-DaS">
-                                        <rect key="frame" x="0.0" y="48" width="258" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="51.333333333333314" width="258" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.031892929229999999" green="0.1084728464" blue="0.1471013427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movieScore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm1-hn-qtc" customClass="RoundedUILabel" customModule="CleanMovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="92.333333333333314" width="110.33333333333331" height="30.333333333333329"/>
+                                        <rect key="frame" x="84" y="99" width="90.333333333333314" height="20.333333333333329"/>
                                         <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -697,18 +697,18 @@
             </objects>
             <point key="canvasLocation" x="1204" y="758"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Search Results View Controller-->
         <scene sceneID="XCp-UL-MGw">
             <objects>
-                <tableViewController id="fMr-dC-iFB" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OKP-A1-Dsd">
+                <tableViewController id="fMr-dC-iFB" customClass="SearchResultsViewController" customModule="CleanMovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OKP-A1-Dsd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.067174528359999999" green="0.2314201789" blue="0.31573800070000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" red="0.0" green="0.83529411760000005" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wtd-uk-wyL" detailTextLabel="RG0-Yu-zIe" style="IBUITableViewCellStyleValue1" id="yUj-vi-Rdg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchResultCell" textLabel="wtd-uk-wyL" detailTextLabel="RG0-Yu-zIe" style="IBUITableViewCellStyleValue1" id="yUj-vi-Rdg">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yUj-vi-Rdg" id="xUV-QC-GKl">
