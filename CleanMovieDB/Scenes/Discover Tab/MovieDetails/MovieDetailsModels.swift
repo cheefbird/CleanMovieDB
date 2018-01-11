@@ -29,6 +29,7 @@ enum MovieDetails {
         var title: String
         var averageScore: Double
         var summary: String
+        var releaseDate: String
       }
       var displayedMovie: DisplayedMovie
     }

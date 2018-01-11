@@ -19,6 +19,7 @@ protocol Movie {
   var voteAverage: Double { get }
   var posterImagePath: String { get }
   var backdropImagePath: String { get }
+  var releaseDate: Date { get }
   
   func getImageURL(forType type: MovieImageType) -> URL
 
@@ -52,5 +53,10 @@ extension Movie {
     let result = baseURL + path
     
     return URL(string: result)!
+  }
+  
+  func releaseDateString() -> String {
+    let formmatter = ReleaseDateFormatter.dateFormatter()
+    return formmatter.string(from: releaseDate)
   }
 }

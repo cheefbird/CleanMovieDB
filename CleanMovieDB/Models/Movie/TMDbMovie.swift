@@ -18,7 +18,10 @@ class TMDbMovie: Movie, Mappable {
   var voteAverage = 0.0
   var posterImagePath = ""
   var backdropImagePath = ""
+  var releaseDate = Date()
   
+  // MARK: - Stored Properties
+
   // MARK: - Init
   
   required init?(map: Map) {
@@ -35,6 +38,23 @@ class TMDbMovie: Movie, Mappable {
     voteAverage         <- map["vote_average"]
     posterImagePath     <- map["poster_path"]
     backdropImagePath   <- map["backdrop_path"]
+    
+    let dateTransform = TransformOf<Date, String>(
+      fromJSON: { (dateString) -> Date? in
+        guard let dateString = dateString else { return nil }
+        
+        let formatter = ReleaseDateFormatter.dateFormatter()
+        
+        return formatter.date(from: dateString)
+    }) { (date) -> String? in
+      guard let date = date else { return nil }
+      
+      let formatter = ReleaseDateFormatter.dateFormatter()
+      
+      return formatter.string(from: date)
+    }
+    
+    releaseDate         <- (map["release_date"], dateTransform)
   }
   
 }

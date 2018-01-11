@@ -27,6 +27,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   @IBOutlet var backdropImageView: UIImageView!
   @IBOutlet var posterImageView: UIImageView!
   @IBOutlet var movieTitleLabel: UILabel!
+  @IBOutlet var releaseDateLabel: UILabel!
   @IBOutlet var movieScoreLabel: UILabel!
   @IBOutlet var movieSummaryLabel: UILabel!
   @IBOutlet var reviewsButton: UIButton!
@@ -97,6 +98,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     posterImageView.kf.setImage(with: movie.posterImage)
     
     movieTitleLabel.text = movie.title
+    releaseDateLabel.text = movie.releaseDate
     movieScoreLabel.text = "Score: \(movie.averageScore)"
     movieSummaryLabel.text = movie.summary
   }

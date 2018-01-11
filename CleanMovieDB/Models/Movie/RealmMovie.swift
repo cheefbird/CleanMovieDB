@@ -18,6 +18,7 @@ class RealmMovie: Object, Movie {
   @objc dynamic var voteAverage = 0.0
   @objc dynamic var posterImagePath = ""
   @objc dynamic var backdropImagePath = ""
+  @objc dynamic var releaseDate = Date()
   
   let reviews = List<RealmReview>()
   
@@ -31,6 +32,7 @@ class RealmMovie: Object, Movie {
     voteAverage = movie.voteAverage
     posterImagePath = movie.posterImagePath
     backdropImagePath = movie.backdropImagePath
+    releaseDate = movie.releaseDate
   }
   
   // MARK: - Overrides
