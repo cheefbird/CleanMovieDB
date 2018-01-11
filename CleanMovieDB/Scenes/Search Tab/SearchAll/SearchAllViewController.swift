@@ -65,6 +65,8 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
       router.perform(selector, with: segue)
     }
     
+    
+    
 //    if let scene = segue.identifier {
 //      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
 //      if let router = router, router.responds(to: selector) {
@@ -102,16 +104,7 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
   
   func startSearching(for query: String) {
     let request = SearchAll.Search.Request(query: query)
-    interactor?.search(for: request) { [weak self] result in
-      DispatchQueue.main.async {
-        guard result == .success else {
-          self?.instructionLabel.text = "Search failed. Try again."
-          return
-        }
-        
-        self?.instructionLabel.text = "Processing results ..."
-      }
-    }
+    interactor?.search(for: request)
   }
   
   func displayResults(viewModel: SearchAll.Search.ViewModel) {
@@ -120,6 +113,20 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
       return
     }
     
-    performSegue(withIdentifier: "ShowSearchResults", sender: self)
+    viewModel.movies.forEach { movie in
+      print("\(movie.title)\n")
+    }
+    
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+      self.performSegue(withIdentifier: "ShowSearchResults", sender: nil)
+    }
+    
+
   }
+}
+
+// MARK: - Search Bar Delegate
+
+extension SearchAllViewController: UISearchBarDelegate {
+  
 }

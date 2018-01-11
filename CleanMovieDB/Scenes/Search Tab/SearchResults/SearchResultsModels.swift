@@ -15,15 +15,15 @@ import UIKit
 enum SearchResults {
   // MARK: Use cases
   
-  enum Something {
+  enum ShowResults {
     struct Request {
       
     }
     struct Response {
-      
+      var results: [Movie]
     }
     struct ViewModel {
-      
+      var results: [Movie]
     }
   }
 }

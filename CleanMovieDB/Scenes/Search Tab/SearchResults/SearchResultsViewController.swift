@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchResultsDisplayLogic: class {
-  func displaySomething(viewModel: SearchResults.Something.ViewModel)
+  func displayResults(viewModel: SearchResults.ShowResults.ViewModel)
 }
 
 class SearchResultsViewController: UITableViewController, SearchResultsDisplayLogic {
@@ -67,6 +67,10 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.title = "Loading Results ..."
+    
+    loadData()
+    
 //    guard case let self.results = interactor?.movies else { return }
 //
 //    if let resultsCount = interactor?.movies?.count,
@@ -87,6 +91,11 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
     
+    guard let result = results?[indexPath.row] else { return cell}
+    
+    cell.textLabel?.text = result.title
+    cell.detailTextLabel?.text = result.releaseDateString()
+    
     return cell
 //    guard let movie = results?[indexPath.row] else { return cell }
 //
@@ -98,12 +107,16 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething() {
-    let request = SearchResults.Something.Request()
-    interactor?.doSomething(request: request)
+  func loadData() {
+    let request = SearchResults.ShowResults.Request()
+    interactor?.loadResults(request: request)
   }
   
-  func displaySomething(viewModel: SearchResults.Something.ViewModel) {
+  func displayResults(viewModel: SearchResults.ShowResults.ViewModel) {
+    results = viewModel.results
     
+    navigationItem.title = "\(String(describing: results?.count)) Results"
+    
+    tableView.reloadData()
   }
 }

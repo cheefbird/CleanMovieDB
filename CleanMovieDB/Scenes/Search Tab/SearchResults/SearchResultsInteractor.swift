@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SearchResultsBusinessLogic {
-  func doSomething(request: SearchResults.Something.Request)
+  func loadResults(request: SearchResults.ShowResults.Request)
 }
 
 protocol SearchResultsDataStore {
@@ -26,9 +26,13 @@ class SearchResultsInteractor: SearchResultsBusinessLogic, SearchResultsDataStor
   
   // MARK: Do something
   
-  func doSomething(request: SearchResults.Something.Request) {
+  func loadResults(request: SearchResults.ShowResults.Request) {
+    guard let results = movies else {
+        print("ERROR: SEARCHRESULT INTERACTOR - MOVIES IS NIL")
+        return
+    }
     
-    let response = SearchResults.Something.Response()
-    presenter?.presentSomething(response: response)
+    let response = SearchResults.ShowResults.Response(results: results)
+    presenter?.presentResults(response: response)
   }
 }

@@ -18,11 +18,11 @@ enum SearchStatus {
 }
 
 protocol SearchAllBusinessLogic {
-  func search(for request: SearchAll.Search.Request, resultHandler: @escaping (SearchStatus) -> Void)
+  func search(for request: SearchAll.Search.Request)
 }
 
 protocol SearchAllDataStore {
-  var movies: [Movie]? { get }
+  var movies: [Movie]? { get set }
 }
 
 class SearchAllInteractor: SearchAllBusinessLogic, SearchAllDataStore {
@@ -31,18 +31,16 @@ class SearchAllInteractor: SearchAllBusinessLogic, SearchAllDataStore {
   
   // MARK: Do something
   
-  func search(for request: SearchAll.Search.Request, resultHandler: @escaping (SearchStatus) -> Void) {
+  func search(for request: SearchAll.Search.Request) {
     let searchService = APISearchService()
     let searchWorker = SearchWorker(searchService: searchService)
     
     searchWorker.search(query: request.query) { [weak self] results, error in
       guard error == nil else {
-        resultHandler(.failure)
         return
       }
       
       self?.movies = results
-      resultHandler(.success)
       
       let response = SearchAll.Search.Response(results: results)
       self?.presenter?.presentResults(response: response)

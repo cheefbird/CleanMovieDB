@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol SearchAllRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToShowSearchResults(segue: UIStoryboardSegue?)
 }
 
 protocol SearchAllDataPassing {
@@ -26,21 +26,37 @@ class SearchAllRouter: NSObject, SearchAllRoutingLogic, SearchAllDataPassing {
   
   // MARK: Routing
   
-  func routeToSomewhere(segue: UIStoryboardSegue?) {
-    guard let segue = segue else { return }
+  func routeToShowSearchResults(segue: UIStoryboardSegue?) {
+    guard let destinationVC = segue?.destination as? SearchResultsViewController,
+      var destinationDS = destinationVC.router?.dataStore,
+      let dataStore = self.dataStore else {
+        print("Error in router's route method.")
+        return
+    }
     
-    let destinationVC = segue.destination as! SearchResultsViewController
-    var destinationDS = destinationVC.router!.dataStore!
+    sendSearchResults(source: dataStore, destination: &destinationDS)
     
-    sendSearchResults(source: dataStore!, destination: &destinationDS)
+    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    //{
+    //  if let segue = segue {
+    //    let destinationVC = segue.destination as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //  } else {
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
+    //  }
+    //}
   }
   
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: SearchAllViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToShowSearchResults(source: SearchAllViewController, destination: SearchResultsViewController) {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
   
