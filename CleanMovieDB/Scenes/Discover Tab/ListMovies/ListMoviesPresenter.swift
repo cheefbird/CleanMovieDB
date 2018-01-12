@@ -23,18 +23,8 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
   // MARK: Do something
   
   func presentMovies(response: ListMovies.FetchMovies.Response) {
-    var displayedMovies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
+    let viewModel = ListMovies.FetchMovies.ViewModel(movies: response.movies)
     
-    for movie in response.movies {
-      let url = movie.getImageURL(forType: .backdrop)
-      let isFavorite = MoviesWorker.shared.checkFavoriteStatus(ofMovie: movie)
-      let displayedMovie = ListMovies.FetchMovies.ViewModel.DisplayedMovie(id: movie.id, title: movie.title, averageScore: movie.voteAverage, backdropImageURL: url, isFavorite: isFavorite)
-      
-      displayedMovies.append(displayedMovie)
-    }
-    
-    let viewModel = ListMovies.FetchMovies.ViewModel(displayedMovies: displayedMovies)
     viewController?.displayMovies(viewModel: viewModel)
-    
   }
 }

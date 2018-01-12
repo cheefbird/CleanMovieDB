@@ -88,13 +88,7 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
     
     guard let result = results?[indexPath.row] else { return cell}
     
-    let imagePath = result.getImageURL(forType: .backdrop)
-    let score = Int(result.voteAverage)
-    
-    cell.backdropImageView.kf.setImage(with: imagePath)
-    cell.movieTitleLabel.text = result.title
-    cell.scoreLabel.text = "\(score)"
-    cell.indexLabel.text = "\(indexPath.row + 1)"
+    cell.configure(forMedia: result, atRow: indexPath.row, forType: .search)
     
     return cell
 //    guard let movie = results?[indexPath.row] else { return cell }

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
-@IBDesignable
+enum ResultType {
+  case search
+  case discover
+}
+
 class GeneralResultCell: UITableViewCell {
   
   // MARK: - Outlets
@@ -19,36 +24,26 @@ class GeneralResultCell: UITableViewCell {
   @IBOutlet weak var indexLabel: UILabel!
   @IBOutlet weak var favoriteButton: UIButton!
   
-  // MARK: - View Lifecycle
+  // MARK: - Configure Cell
   
-  override func prepareForInterfaceBuilder() {
-    self.awakeFromNib()
-  }
-  
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  func configure(forMedia media: Movie, atRow row: Int, forType type: ResultType) {
+    let imagePath = media.getImageURL(forType: .backdrop)
+    backdropImageView.kf.setImage(with: imagePath)
     
-    // Must ensure no subviews: https://stackoverflow.com/questions/43046924/swift-3-designable-table-view-cell
-    if self.subviews.count == 0 {
-      self.setupNib()
+    let score = Int(media.voteAverage)
+    scoreLabel.text = "\(score)"
+    
+    movieTitleLabel.text = media.title
+    indexLabel.text = String(row + 1)
+    
+    switch type {
+    case .discover:
+      favoriteButton.isHidden = false
+    case .search:
+      favoriteButton.isHidden = true
     }
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    
-    if self.subviews.count == 0 {
-      self.setupNib()
-    }
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
     
   }
   
-  func setupNib() {
-    
-  }
+
 }

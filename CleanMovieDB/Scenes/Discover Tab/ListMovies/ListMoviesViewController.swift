@@ -25,7 +25,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   // MARK: - Properties
   
-  var movies = [ListMovies.FetchMovies.ViewModel.DisplayedMovie]()
+  var movies = [Movie]()
   
   var pagesLoaded = 0
   var isFetching = false
@@ -78,6 +78,8 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tableView.register(UINib(nibName: "GeneralResultCell", bundle: nil), forCellReuseIdentifier: "ResultCell")
+    
     loadMoviesFromRealm()
   }
 
@@ -97,7 +99,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
   
   func displayMovies(viewModel: ListMovies.FetchMovies.ViewModel) {
     isFetching = false
-    movies.append(contentsOf: viewModel.displayedMovies)
+    movies.append(contentsOf: viewModel.movies)
     
     guard movies.count > 0 else {
       pagesLoaded = 1
@@ -140,9 +142,11 @@ extension ListMoviesViewController: UITableViewDataSource {
     
     let movie = movies[indexPath.row]
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! ListMoviesCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! GeneralResultCell
     
-    cell.configure(withMovie: movie, atRow: indexPath.row, sender: self)
+    cell.configure(forMedia: movie, atRow: indexPath.row, forType: .discover)
+    
+    //    cell.configure(withMovie: movie, atRow: indexPath.row, sender: self)
     
     return cell
   }
@@ -151,13 +155,13 @@ extension ListMoviesViewController: UITableViewDataSource {
 
 // MARK: - MovieCellDelegate
 
-extension ListMoviesViewController: MovieCellDelegate {
-  
-  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
-    movies[index].isFavorite = status
-  }
-  
-}
+//extension ListMoviesViewController: MovieCellDelegate {
+//  
+//  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
+////    movies[index].isFavorite = status
+//  }
+//  
+//}
 
 
 
