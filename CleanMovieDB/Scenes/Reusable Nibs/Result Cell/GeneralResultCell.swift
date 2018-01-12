@@ -44,6 +44,15 @@ class GeneralResultCell: UITableViewCell {
     }
     
   }
-  
+}
 
+// MARK: - GeneralResultCellDelegate
+
+protocol GeneralResultCellDelegate {
+  /// Notify the parent tableView's `movies` array when an element's `isFavorite` property changes.
+  ///
+  /// - Parameters:
+  ///   - status: `Bool` to set for target movie's isFavorite property.
+  ///   - index: Index of the movie in the `movies` array.
+  func resultFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int)
 }

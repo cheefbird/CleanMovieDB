@@ -74,6 +74,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     getMovieToDisplay()
   }
   
@@ -90,6 +91,8 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
   }
   
   func displayMovie(viewModel: MovieDetails.ShowDetails.ViewModel) {
+    navigationItem.backBarButtonItem?.title = "Discover Movies"
+
     let movie = viewModel.displayedMovie
     
     self.navigationItem.title = movie.title

@@ -82,7 +82,7 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
     
     loadMoviesFromRealm()
   }
-
+  
   // MARK: Fetch Movies
   
   func loadMoviesFromRealm() {
@@ -118,6 +118,10 @@ class ListMoviesViewController: UIViewController, ListMoviesDisplayLogic {
 // MARK: - TableView Delegate
 
 extension ListMoviesViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "ShowMovieDetails", sender: nil)
+  }
   
 }
 
@@ -155,13 +159,13 @@ extension ListMoviesViewController: UITableViewDataSource {
 
 // MARK: - MovieCellDelegate
 
-//extension ListMoviesViewController: MovieCellDelegate {
-//  
-//  func movieIsFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
-////    movies[index].isFavorite = status
-//  }
-//  
-//}
+extension ListMoviesViewController: GeneralResultCellDelegate {
+  
+  func resultFavoriteChanged(toStatus status: Bool, forMovieAtIndex index: Int) {
+//    movies[index].isFavorite = status
+  }
+  
+}
 
 
 

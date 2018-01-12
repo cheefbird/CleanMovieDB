@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="210.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#.#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG1-bm-v91" customClass="RoundedUILabel" customModule="CleanMovieDB" customModuleProvider="target">
-                        <rect key="frame" x="349.5" y="11" width="44.5" height="40"/>
+                        <rect key="frame" x="354" y="11" width="40" height="40"/>
                         <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="RyJ-i5-RjC"/>
@@ -122,9 +122,6 @@
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="toggleFavorite" destination="7Xf-4q-eej" eventType="touchUpInside" id="TAD-V3-Tnb"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
