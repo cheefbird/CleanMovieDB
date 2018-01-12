@@ -28,6 +28,8 @@
 		0698CE7E1FB27A9600265510 /* RealmMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7D1FB27A9600265510 /* RealmMovieService.swift */; };
 		0698CE801FB27AA800265510 /* APIMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE7F1FB27AA800265510 /* APIMovieService.swift */; };
 		0698CE821FB27B2600265510 /* MovieServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698CE811FB27B2600265510 /* MovieServiceType.swift */; };
+		0698E4E520081EC8006AD510 /* GeneralResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0698E4E420081EC8006AD510 /* GeneralResultCell.xib */; };
+		0698E4E72008202A006AD510 /* GeneralResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698E4E62008202A006AD510 /* GeneralResultCell.swift */; };
 		06A1E7581FAA970400AE640F /* MoviesAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1E7571FAA970400AE640F /* MoviesAPIError.swift */; };
 		06A231871FCD1AAA00A38281 /* WatchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231811FCD1AAA00A38281 /* WatchListPresenter.swift */; };
 		06A231891FCD1AAA00A38281 /* WatchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A231831FCD1AAA00A38281 /* WatchListRouter.swift */; };
@@ -108,6 +110,8 @@
 		0698CE7D1FB27A9600265510 /* RealmMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieService.swift; sourceTree = "<group>"; };
 		0698CE7F1FB27AA800265510 /* APIMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovieService.swift; sourceTree = "<group>"; };
 		0698CE811FB27B2600265510 /* MovieServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceType.swift; sourceTree = "<group>"; };
+		0698E4E420081EC8006AD510 /* GeneralResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralResultCell.xib; sourceTree = "<group>"; };
+		0698E4E62008202A006AD510 /* GeneralResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResultCell.swift; sourceTree = "<group>"; };
 		06A1E7571FAA970400AE640F /* MoviesAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIError.swift; sourceTree = "<group>"; };
 		06A231811FCD1AAA00A38281 /* WatchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListPresenter.swift; sourceTree = "<group>"; };
 		06A231831FCD1AAA00A38281 /* WatchListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListRouter.swift; sourceTree = "<group>"; };
@@ -293,6 +297,15 @@
 			path = SearchAll;
 			sourceTree = "<group>";
 		};
+		0698E4DC20081A2C006AD510 /* Result Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0698E4E420081EC8006AD510 /* GeneralResultCell.xib */,
+				0698E4E62008202A006AD510 /* GeneralResultCell.swift */,
+			);
+			path = "Result Cell";
+			sourceTree = "<group>";
+		};
 		06A2317E1FCD1A1A00A38281 /* Discover Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,11 +378,12 @@
 			path = MovieReviews;
 			sourceTree = "<group>";
 		};
-		06B3AFBA1FCE50AE0039F99C /* Helpers */ = {
+		06B3AFBA1FCE50AE0039F99C /* Reusable Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				0698E4DC20081A2C006AD510 /* Result Cell */,
 			);
-			path = Helpers;
+			path = "Reusable Nibs";
 			sourceTree = "<group>";
 		};
 		06D827E01FA94B7200693102 /* Helpers */ = {
@@ -472,7 +486,7 @@
 		06E4F51C1FA8133900110FFB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				06B3AFBA1FCE50AE0039F99C /* Helpers */,
+				06B3AFBA1FCE50AE0039F99C /* Reusable Nibs */,
 				064ABBEB20049FE700B1BA8E /* Search Tab */,
 				06A2317F1FCD1A3200A38281 /* Watch Tab */,
 				06A2317E1FCD1A1A00A38281 /* Discover Tab */,
@@ -603,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06E4F5061FA8122500110FFB /* LaunchScreen.storyboard in Resources */,
+				0698E4E520081EC8006AD510 /* GeneralResultCell.xib in Resources */,
 				06E4F5031FA8122500110FFB /* Assets.xcassets in Resources */,
 				06E4F5011FA8122500110FFB /* Main.storyboard in Resources */,
 			);
@@ -753,6 +768,7 @@
 				064ABBF32004A02C00B1BA8E /* SearchAllPresenter.swift in Sources */,
 				06D827E81FA9548300693102 /* AppColors.swift in Sources */,
 				06A79B021FB6A173008112BB /* RealmReview.swift in Sources */,
+				0698E4E72008202A006AD510 /* GeneralResultCell.swift in Sources */,
 				06A2318C1FCD1AAA00A38281 /* WatchListInteractor.swift in Sources */,
 				06A79B001FB69B7E008112BB /* Review.swift in Sources */,
 				064ABBF72004A02C00B1BA8E /* SearchAllViewController.swift in Sources */,

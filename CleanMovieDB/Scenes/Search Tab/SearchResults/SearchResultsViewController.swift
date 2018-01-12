@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol SearchResultsDisplayLogic: class {
   func displayResults(viewModel: SearchResults.ShowResults.ViewModel)
@@ -67,17 +68,11 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tableView.register(UINib(nibName: "GeneralResultCell", bundle: nil), forCellReuseIdentifier: "ResultCell")
+    
     navigationItem.title = "Loading Results ..."
     
     loadData()
-    
-//    guard case let self.results = interactor?.movies else { return }
-//
-//    if let resultsCount = interactor?.movies?.count,
-//      resultsCount > 0 {
-//      navigationItem.title = "\(resultsCount) Results"
-//    }
-//    navigationItem.title = "No Search Results"
   }
   
   // MARK: - Table View DataSource
@@ -89,12 +84,17 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! GeneralResultCell
     
     guard let result = results?[indexPath.row] else { return cell}
     
-    cell.textLabel?.text = result.title
-    cell.detailTextLabel?.text = result.releaseDateString()
+    let imagePath = result.getImageURL(forType: .backdrop)
+    let score = Int(result.voteAverage)
+    
+    cell.backdropImageView.kf.setImage(with: imagePath)
+    cell.movieTitleLabel.text = result.title
+    cell.scoreLabel.text = "\(score)"
+    cell.indexLabel.text = "\(indexPath.row + 1)"
     
     return cell
 //    guard let movie = results?[indexPath.row] else { return cell }
