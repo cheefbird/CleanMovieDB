@@ -42,13 +42,28 @@ class GeneralResultCell: UITableViewCell {
     case .search:
       favoriteButton.isHidden = true
     }
-    
+  }
+  
+  // MARK: - Favorite Handler
+  
+  // Implement IBAction toggleFavorite here
+  
+  @IBAction func toggleFavorite() {
+    MoviesWorker.shared.toggleFavorite(forMovieID: movie.id) { [weak self] result in
+      self?.movie.isFavorite = result
+      self?.favoriteButton.isSelected = result
+      
+      guard let index = self?.indexFromLabel() else { return }
+      
+      self?.delegate.movieIsFavoriteChanged(toStatus: result, forMovieAtIndex: index)
+    }
   }
 }
 
 // MARK: - GeneralResultCellDelegate
 
 protocol GeneralResultCellDelegate {
+  
   /// Notify the parent tableView's `movies` array when an element's `isFavorite` property changes.
   ///
   /// - Parameters:

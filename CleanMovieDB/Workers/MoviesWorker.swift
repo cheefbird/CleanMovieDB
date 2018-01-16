@@ -19,7 +19,7 @@ protocol MoviesWorkerType {
   func fetchMovies(forPage page: Int?, completionHandler: @escaping MoviesResult)
   
   func fetchFavoriteMovies(completionHandler: @escaping MoviesResult)
-
+  
 }
 
 
@@ -31,7 +31,7 @@ class MoviesWorker: MoviesWorkerType {
     realmService = RealmMovieService()
     apiService = APIMovieService()
   }
-
+  
   var realmService: MovieServiceType
   var apiService: MovieServiceType
   
@@ -64,9 +64,7 @@ class MoviesWorker: MoviesWorkerType {
   }
   
   func fetchReviews(forMovie movie: Movie, completionHandler: @escaping ReviewsResult) {
-    
     apiService.getReviews(forMovie: movie, completionHandler: completionHandler)
-    
   }
   
   func checkFavoriteStatus(ofMovie movie: Movie) -> Bool {
@@ -76,5 +74,9 @@ class MoviesWorker: MoviesWorkerType {
   func toggleFavorite(forMovieID id: Int, resultHandler: (Bool) -> Void) {
     realmService.toggleFavorite(forMovieID: id, resultHandler: resultHandler)
   }
-
+  
+  func toggleFavorite(forRow row: Int, resultHandler: (Bool) -> Void) {
+    
+  }
+  
 }

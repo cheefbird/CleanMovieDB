@@ -80,6 +80,8 @@ class SearchAllViewController: UIViewController, SearchAllDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.title = "Search Movies"
+    
     searchBar.becomeFirstResponder()
   }
   

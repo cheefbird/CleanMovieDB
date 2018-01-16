@@ -109,7 +109,7 @@ class SearchResultsViewController: UITableViewController, SearchResultsDisplayLo
   func displayResults(viewModel: SearchResults.ShowResults.ViewModel) {
     results = viewModel.results
     
-    navigationItem.title = "\(String(describing: results?.count)) Results"
+    navigationItem.title = "\(String(describing: viewModel.results.count)) Results"
     
     tableView.reloadData()
   }

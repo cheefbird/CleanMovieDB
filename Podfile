@@ -10,7 +10,7 @@ target 'CleanMovieDB' do
   pod 'AlamofireObjectMapper'
   pod 'Kingfisher'
   pod 'RealmSwift'
-  
+  pod 'NVActivityIndicatorView'
 
   target 'CleanMovieDBTests' do
     inherit! :search_paths
